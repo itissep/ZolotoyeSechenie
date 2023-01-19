@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Constants{
+class K{
     
     class Fonts{
         static let regular11 = UIFont.systemFont(ofSize: 11 , weight: .regular)
@@ -28,6 +28,9 @@ class Constants{
     }
     
     class Colors{
+        static let gold = UIColor(named: "gold")!
+        static let darkGold = UIColor(named: "darkGold")!
+        
         static let gray = UIColor(named: "Aviator Gray")!
         static let brown = UIColor(named: "Brown River")!
         static let lightRed = UIColor(named: "Light Red Wine")!
@@ -40,24 +43,29 @@ class Constants{
     }
     
     class Icons{
-        static let openEye = UIImage(named: "Open Eye")!
-        static let closeEye = UIImage(named: "Close Eye")!
-        static let bell = UIImage(named: "Bell")!
-        static let bigPlus = UIImage(named: "Big plus")!
-        static let profile = UIImage(named: "Profile")!
-        static let search = UIImage(named: "Search")!
-        static let house = UIImage(named: "House")!
-        static let backArrow = UIImage(named: "Back arrow")!
-        static let avatarPlaceholder = UIImage(named: "avatarPlaceholder")!
-        static let rub = UIImage(named: "Rubble")!
+        
+        static let house = UIImage(named: "house")!
+        static let houseFill = UIImage(named: "houseFill")!
+        
+        static let bell = UIImage(named: "bell")!
+        static let bellFill = UIImage(named: "bellFill")!
+        
+        static let magnifyingglass = UIImage(named: "magnifyingglass")!
+        static let magnifyingglassFill = UIImage(named: "magnifyingglassFill")!
+        
+        static let person = UIImage(named: "person")!
+        static let personFill = UIImage(named: "personFill")!
+        
+        static let cart = UIImage(named: "cartOnGold")!
+        
     }
     
     class Images{
         static let logo = UIImage(named: "logo")!
     }
     
-    class Unspecified{
-        static let titleAttributes = [NSAttributedString.Key.foregroundColor: Constants.Colors.darkRed]
-    }
+//    class Unspecified{
+//        static let titleAttributes = [NSAttributedString.Key.foregroundColor: K.Colors.darkRed]
+//    }
     
 }

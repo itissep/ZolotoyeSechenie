@@ -57,7 +57,11 @@ class TabCoordinator: NSObject, Coordinator {
         /// Let set index
         tabBarController.selectedIndex = TabBarPage.feed.pageOrderNumber()
         /// Styling
-        tabBarController.tabBar.isTranslucent = false
+//        tabBarController.tabBar.isTranslucent = false
+        
+        tabBarController.tabBar.tintColor = K.Colors.darkGold
+        tabBarController.tabBar.unselectedItemTintColor = K.Colors.gold
+        tabBarController.tabBar.backgroundColor = .white
         
         /// In this step, we attach tabBarController to navigation controller associated with this coordanator
         navigationController.viewControllers = [tabBarController]
@@ -67,9 +71,21 @@ class TabCoordinator: NSObject, Coordinator {
         let navController = UINavigationController()
         navController.setNavigationBarHidden(false, animated: false)
 
-        navController.tabBarItem = UITabBarItem.init(title: page.pageTitleValue(),
-                                                     image: nil,
+        let pageTitle: String?
+        let pageImage: UIImage
+        if page == .cart {
+            pageTitle = nil
+            pageImage = page.pageImage().withRenderingMode(.alwaysOriginal)
+        } else {
+            pageTitle = page.pageTitleValue()
+            pageImage = page.pageImage()
+        }
+        
+        navController.tabBarItem = UITabBarItem.init(title: pageTitle,
+                                                     image: pageImage,
                                                      tag: page.pageOrderNumber())
+        
+        
 
         switch page {
             // If needed: Each tab bar flow can have it's own Coordinator.
@@ -81,6 +97,10 @@ class TabCoordinator: NSObject, Coordinator {
             navController.pushViewController(searchVC, animated: true)
         case .cart:
             let cartVC = CartViewController()
+            
+            // FIXIT tabbar inserts
+            cartVC.tabBarItem.imageInsets = UIEdgeInsets(top: 60, left: 0, bottom: -60, right: 0)
+            
             navController.pushViewController(cartVC, animated: true)
         case .notifications:
             let notifVC = NotificationsViewController()

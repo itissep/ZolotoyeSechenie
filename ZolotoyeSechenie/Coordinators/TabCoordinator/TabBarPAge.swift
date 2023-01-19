@@ -63,20 +63,20 @@ enum TabBarPage {
         }
     }
     
-//    func pageImage() -> UIView {
-//        switch self {
-//        case .feed:
-//            return 0
-//        case .search:
-//            return 1
-//        case .cart:
-//            return 2
-//        case .notifications:
-//            return 3
-//        case .profile:
-//            return 4
-//        }
-//    }
+    func pageImage() -> UIImage {
+        switch self {
+        case .feed:
+            return K.Icons.houseFill
+        case .search:
+            return K.Icons.magnifyingglassFill
+        case .cart:
+            return K.Icons.cart
+        case .notifications:
+            return K.Icons.bellFill
+        case .profile:
+            return K.Icons.personFill
+        }
+    }
 
     // Add tab icon value
     
