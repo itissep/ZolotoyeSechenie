@@ -18,39 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
+    
         
-        
-        if auth {
-//            window.rootViewController = ViewController()
-            self.appCoordinator = AppCoordinator(window: UIWindow(windowScene: windowScene))
-            appCoordinator?.start()
-        } else {
-            // something
-        }
-        self.window = window
+        let navigationController: UINavigationController = .init()
+
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
-        
-        
-        
+        appCoordinator = AppCoordinator.init(navigationController)
+        appCoordinator?.start()
         
     
-                
-
-//                guard let windowScene = (scene as? UIWindowScene) else { return }
-//                //MARK: - Delete DOWN
-//
-//                if test {
-//                    self.window = UIWindow(windowScene: windowScene)
-//                    let tabBarController = TestViewController()
-//                    self.window?.rootViewController = tabBarController
-//                    self.window?.makeKeyAndVisible()
-//                }
-//                //MARK: - Delete UP
-//                else {
-//                    self.appCoordinator = AppCoordinator(window: UIWindow(windowScene: windowScene))
-//                    appCoordinator?.start()
-//                }
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
