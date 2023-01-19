@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  ZolotoyeSechenie
 //
-//  Created by Someone on 08.11.2022.
+//  Created by Someone on 19.01.2023.
 //
 
 import UIKit
-import SnapKit
 
-class ViewController: UIViewController {
+
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         let label = UILabel()
-        label.text = "some shit"
+        label.text = "Search View Controller"
         label.textColor = .brown
         
         view.addSubview(label)
@@ -30,4 +30,3 @@ class ViewController: UIViewController {
 
 
 }
-

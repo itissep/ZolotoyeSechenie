@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C4E08DC2979797B002717B2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C4E08DB2979797B002717B2 /* SnapKit */; };
+		2C4E08DF29797BED002717B2 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C4E08DE29797BED002717B2 /* ReSwift */; };
+		2C4E08E129797CBA002717B2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E029797CBA002717B2 /* TabBarCoordinator.swift */; };
+		2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E229797CEA002717B2 /* AppCoordinator.swift */; };
+		2C4E08E529797D06002717B2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E429797D06002717B2 /* Coordinator.swift */; };
+		2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E629797D4E002717B2 /* UINavigationController.swift */; };
+		2C4E08E929797D74002717B2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E829797D74002717B2 /* Constants.swift */; };
+		2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08EA29797DFB002717B2 /* FeedViewController.swift */; };
+		2C4E08ED29797E2D002717B2 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08EC29797E2D002717B2 /* CartViewController.swift */; };
+		2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08EE29797E57002717B2 /* SearchViewController.swift */; };
+		2C4E08F129797E91002717B2 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08F029797E91002717B2 /* NotificationsViewController.swift */; };
+		2C4E08F329797EF9002717B2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08F229797EF9002717B2 /* ProfileViewController.swift */; };
 		2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C746030291A6A02006E1872 /* AppDelegate.swift */; };
 		2C746033291A6A02006E1872 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C746032291A6A02006E1872 /* SceneDelegate.swift */; };
 		2C746035291A6A02006E1872 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C746034291A6A02006E1872 /* ViewController.swift */; };
-		2C746038291A6A02006E1872 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C746036291A6A02006E1872 /* Main.storyboard */; };
 		2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C746039291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld */; };
 		2C74603D291A6A04006E1872 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C74603C291A6A04006E1872 /* Assets.xcassets */; };
 		2C746040291A6A04006E1872 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C74603E291A6A04006E1872 /* LaunchScreen.storyboard */; };
@@ -37,11 +48,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C4E08E029797CBA002717B2 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		2C4E08E229797CEA002717B2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2C4E08E429797D06002717B2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2C4E08E629797D4E002717B2 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		2C4E08E829797D74002717B2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2C4E08EA29797DFB002717B2 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		2C4E08EC29797E2D002717B2 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		2C4E08EE29797E57002717B2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2C4E08F029797E91002717B2 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		2C4E08F229797EF9002717B2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2C74602D291A6A02006E1872 /* ZolotoyeSechenie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZolotoyeSechenie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C746030291A6A02006E1872 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C746032291A6A02006E1872 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C746034291A6A02006E1872 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2C746037291A6A02006E1872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C74603A291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ZolotoyeSechenie.xcdatamodel; sourceTree = "<group>"; };
 		2C74603C291A6A04006E1872 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C74603F291A6A04006E1872 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4E08DC2979797B002717B2 /* SnapKit in Frameworks */,
+				2C4E08DF29797BED002717B2 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,14 +123,19 @@
 		2C74602F291A6A02006E1872 /* ZolotoyeSechenie */ = {
 			isa = PBXGroup;
 			children = (
-				2C746030291A6A02006E1872 /* AppDelegate.swift */,
-				2C746032291A6A02006E1872 /* SceneDelegate.swift */,
+				2C74606A291A6DBF006E1872 /* Support */,
+				2C746069291A6DB4006E1872 /* Sources */,
+				2C746068291A6D9F006E1872 /* Other */,
+				2C746067291A6D98006E1872 /* Scenes */,
+				2C746066291A6D7E006E1872 /* Coordinators */,
+				2C746065291A6D78006E1872 /* Managers */,
+				2C746064291A6D6B006E1872 /* Protocols */,
+				2C746063291A6D34006E1872 /* Models */,
 				2C746034291A6A02006E1872 /* ViewController.swift */,
-				2C746036291A6A02006E1872 /* Main.storyboard */,
-				2C74603C291A6A04006E1872 /* Assets.xcassets */,
-				2C74603E291A6A04006E1872 /* LaunchScreen.storyboard */,
+				2C4E08E429797D06002717B2 /* Coordinator.swift */,
+				2C4E08E229797CEA002717B2 /* AppCoordinator.swift */,
+				2C4E08E029797CBA002717B2 /* TabBarCoordinator.swift */,
 				2C746041291A6A04006E1872 /* Info.plist */,
-				2C746039291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld */,
 			);
 			path = ZolotoyeSechenie;
 			sourceTree = "<group>";
@@ -130,6 +157,138 @@
 			path = ZolotoyeSechenieUITests;
 			sourceTree = "<group>";
 		};
+		2C746063291A6D34006E1872 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C746064291A6D6B006E1872 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2C746065291A6D78006E1872 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2C746066291A6D7E006E1872 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		2C746067291A6D98006E1872 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2C893CF72950E726007DF00C /* Product Details Screen */,
+				2C893CF62950E6ED007DF00C /* Profile Screen */,
+				2C893CF52950E6E5007DF00C /* Search Screen */,
+				2C893CF42950E6D4007DF00C /* Cart Screen */,
+				2C893CF32950E6C8007DF00C /* Feed Screen */,
+				2C893CF82950E74B007DF00C /* Notifications Screen */,
+				2C893CF22950E689007DF00C /* Sign In Screen */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2C746068291A6D9F006E1872 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2C74603C291A6A04006E1872 /* Assets.xcassets */,
+				2C74603E291A6A04006E1872 /* LaunchScreen.storyboard */,
+				2C746039291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld */,
+				2C74606B291A6DDE006E1872 /* Extensions */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		2C746069291A6DB4006E1872 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				2C746030291A6A02006E1872 /* AppDelegate.swift */,
+				2C746032291A6A02006E1872 /* SceneDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2C74606A291A6DBF006E1872 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E08E829797D74002717B2 /* Constants.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		2C74606B291A6DDE006E1872 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E08E629797D4E002717B2 /* UINavigationController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2C893CF22950E689007DF00C /* Sign In Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sign In Screen";
+			sourceTree = "<group>";
+		};
+		2C893CF32950E6C8007DF00C /* Feed Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E08EA29797DFB002717B2 /* FeedViewController.swift */,
+			);
+			path = "Feed Screen";
+			sourceTree = "<group>";
+		};
+		2C893CF42950E6D4007DF00C /* Cart Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E08EC29797E2D002717B2 /* CartViewController.swift */,
+			);
+			path = "Cart Screen";
+			sourceTree = "<group>";
+		};
+		2C893CF52950E6E5007DF00C /* Search Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E08EE29797E57002717B2 /* SearchViewController.swift */,
+			);
+			path = "Search Screen";
+			sourceTree = "<group>";
+		};
+		2C893CF62950E6ED007DF00C /* Profile Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E08F229797EF9002717B2 /* ProfileViewController.swift */,
+			);
+			path = "Profile Screen";
+			sourceTree = "<group>";
+		};
+		2C893CF72950E726007DF00C /* Product Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Product Details Screen";
+			sourceTree = "<group>";
+		};
+		2C893CF82950E74B007DF00C /* Notifications Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E08F029797E91002717B2 /* NotificationsViewController.swift */,
+			);
+			path = "Notifications Screen";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +305,10 @@
 			dependencies = (
 			);
 			name = ZolotoyeSechenie;
+			packageProductDependencies = (
+				2C4E08DB2979797B002717B2 /* SnapKit */,
+				2C4E08DE29797BED002717B2 /* ReSwift */,
+			);
 			productName = ZolotoyeSechenie;
 			productReference = 2C74602D291A6A02006E1872 /* ZolotoyeSechenie.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +381,10 @@
 				Base,
 			);
 			mainGroup = 2C746024291A6A02006E1872;
+			packageReferences = (
+				2C4E08DA2979797B002717B2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2C4E08DD29797BED002717B2 /* XCRemoteSwiftPackageReference "ReSwift" */,
+			);
 			productRefGroup = 2C74602E291A6A02006E1872 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,7 +403,6 @@
 			files = (
 				2C746040291A6A04006E1872 /* LaunchScreen.storyboard in Resources */,
 				2C74603D291A6A04006E1872 /* Assets.xcassets in Resources */,
-				2C746038291A6A02006E1872 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +428,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C746035291A6A02006E1872 /* ViewController.swift in Sources */,
+				2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */,
+				2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */,
+				2C4E08F129797E91002717B2 /* NotificationsViewController.swift in Sources */,
+				2C4E08F329797EF9002717B2 /* ProfileViewController.swift in Sources */,
+				2C4E08E529797D06002717B2 /* Coordinator.swift in Sources */,
+				2C4E08E129797CBA002717B2 /* TabBarCoordinator.swift in Sources */,
 				2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */,
+				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
+				2C4E08ED29797E2D002717B2 /* CartViewController.swift in Sources */,
+				2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */,
 				2C746033291A6A02006E1872 /* SceneDelegate.swift in Sources */,
+				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +477,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2C746036291A6A02006E1872 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C746037291A6A02006E1872 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2C74603E291A6A04006E1872 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -446,9 +614,10 @@
 				INFOPLIST_FILE = ZolotoyeSechenie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,9 +625,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ulGord.ZolotoyeSechenie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -474,9 +646,10 @@
 				INFOPLIST_FILE = ZolotoyeSechenie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,9 +657,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ulGord.ZolotoyeSechenie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -606,6 +782,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2C4E08DA2979797B002717B2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		2C4E08DD29797BED002717B2 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2C4E08DB2979797B002717B2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C4E08DA2979797B002717B2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		2C4E08DE29797BED002717B2 /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C4E08DD29797BED002717B2 /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2C746039291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld */ = {
