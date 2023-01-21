@@ -15,3 +15,10 @@ struct ProductCellViewModel {
     var image: String = ""
     var price: String = "1500 руб."
 }
+
+
+struct FeedHeaderViewModel {
+    var careProgramms: [MockData.CareProgramms] = []
+    var cosmeticCategories: [MockData.DecorativeCategories] = []
+    var specialProducts: [MockData.SpecialProducts] = []
+}

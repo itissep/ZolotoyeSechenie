@@ -9,8 +9,14 @@ import UIKit
 
 // or json from server?
 
+protocol CollectionableMock {
+    var id: String { get }
+    var title: String { get }
+    var image: UIImage? { get }
+}
+
 struct MockData {
-    struct CareProgramms {
+    struct CareProgramms: CollectionableMock {
         let id: String
         let title: String
         let image: UIImage?
@@ -40,7 +46,7 @@ struct MockData {
     }
 
 
-    struct SpecialProducts {
+    struct SpecialProducts: CollectionableMock {
         let id: String
         let title: String
         let image: UIImage?
@@ -49,8 +55,6 @@ struct MockData {
             SpecialProducts(id: "first", title: "First Category", image: UIImage(named: "1")),
             SpecialProducts(id: "second", title: "second Category", image: UIImage(named: "2")),
             SpecialProducts(id: "third", title: "third Category", image: UIImage(named: "3")),
-            SpecialProducts(id: "forth", title: "forth Category", image: UIImage(named: "4")),
-            SpecialProducts(id: "fifth", title: "fifth Category", image: UIImage(named: "5")),
         ]
     }
 }

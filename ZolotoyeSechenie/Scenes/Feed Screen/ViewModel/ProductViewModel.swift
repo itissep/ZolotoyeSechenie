@@ -12,14 +12,27 @@ class ProductsViewModel: NSObject {
     private var productService: ProductsServiceProtocol
     
     var reloadTableView: (() -> Void)?
+    var reloadHeader: (() -> Void)?
     
     var products = Products()
+    
+    var cares = [MockData.CareProgramms]()
+    var cosmetics = [MockData.DecorativeCategories]()
+    var specials = [MockData.SpecialProducts]()
+    
     
     var productCellViewModels = [ProductCellViewModel]() {
         didSet {
             reloadTableView?()
         }
     }
+    
+    var headerViewModel = FeedHeaderViewModel(){
+        didSet {
+            reloadHeader?()
+        }
+    }
+    
     
     func fetchData(products: Products) {
         self.products = products // Cache
@@ -32,8 +45,6 @@ class ProductsViewModel: NSObject {
     
     init(productService: ProductsServiceProtocol = ProductsService()) {
         self.productService = productService
-        
-        // ...
         
     }
     
@@ -49,14 +60,38 @@ class ProductsViewModel: NSObject {
     }
     
     
+    func getHeaderData() {
+        // TODO: change to json getter later
+        
+        let cares = MockData.CareProgramms.all
+        let specials = MockData.SpecialProducts.all
+        let cosmetics = MockData.DecorativeCategories.all
+        
+        self.headerViewModel = FeedHeaderViewModel(careProgramms: cares, cosmeticCategories: cosmetics, specialProducts: specials)
+    }
+    
+    
     func createCellModel(product: Product) -> ProductCellViewModel {
         let id = product.id
         
-        return ProductCellViewModel(id: id)
+        return ProductCellViewModel(id: id) // change properties
     }
+    
     
     func getCellViewModel(at indexPath: IndexPath) -> ProductCellViewModel {
         return productCellViewModels[indexPath.row]
+    }
+    
+    func getCareCellViewModel(at indexPath: IndexPath) -> MockData.CareProgramms {
+        return headerViewModel.careProgramms[indexPath.row]
+    }
+    
+    func getCosmeticsCellViewModel(at indexPath: IndexPath) -> MockData.DecorativeCategories {
+        return headerViewModel.cosmeticCategories[indexPath.row]
+    }
+    
+    func getSpecialsCellViewModel(at indexPath: IndexPath) -> MockData.SpecialProducts {
+        return headerViewModel.specialProducts[indexPath.row]
     }
     
     

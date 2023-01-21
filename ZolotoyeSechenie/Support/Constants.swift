@@ -30,6 +30,7 @@ class K{
     class Colors{
         static let gold = UIColor(named: "gold")!
         static let darkGold = UIColor(named: "darkGold")!
+        static let prettyGold = UIColor(named: "prettyGold")!
         
         static let gray = UIColor(named: "Aviator Gray")!
         static let brown = UIColor(named: "Brown River")!
