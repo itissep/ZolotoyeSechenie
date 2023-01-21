@@ -73,7 +73,7 @@ class ProductsViewModel: NSObject {
     
     func createCellModel(product: Product) -> ProductCellViewModel {
         let id = product.id
-        
+        // TODO: change data later
         return ProductCellViewModel(id: id) // change properties
     }
     

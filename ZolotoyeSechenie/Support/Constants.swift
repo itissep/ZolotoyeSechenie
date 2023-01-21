@@ -60,6 +60,8 @@ class K{
         
         static let cart = UIImage(named: "cartOnGold")!
         
+        static let disclosureIndicator = UIImage(named: "Disclosure Indicator")!
+        
     }
     
     class Images{

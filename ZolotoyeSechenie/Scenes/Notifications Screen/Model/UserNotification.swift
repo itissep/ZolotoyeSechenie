@@ -1,22 +1,20 @@
 //
-//  Product.swift
+//  UserNotification.swift
 //  ZolotoyeSechenie
 //
-//  Created by Someone on 21.01.2023.
+//  Created by Someone on 22.01.2023.
 //
 
 import Foundation
 
+typealias Notifications = [UserNotification]
 
-typealias Products = [Product]
-
-// MARK: - Employee
-struct Product: Codable {
+struct UserNotification: Codable {
     let id: String
-//    let employeeName: String
-//    let employeeSalary: String
-//    let employeeAge: String
-//
+//    let title: String
+//    let message: String
+//    let image: String
+    
 //    enum CodingKeys: String, CodingKey {
 //        case id
 //        case employeeName = "employee_name"

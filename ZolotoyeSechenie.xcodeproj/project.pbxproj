@@ -18,6 +18,12 @@
 		2C260AEE297C288D00771809 /* IconCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AED297C288D00771809 /* IconCollectionCell.swift */; };
 		2C260AF1297C28F900771809 /* IconCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AF0297C28F900771809 /* IconCollectionView.swift */; };
 		2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AF2297C292600771809 /* GenericCollectionView.swift */; };
+		2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AF6297C52CE00771809 /* NotificationsViewModel.swift */; };
+		2C260AF9297C5E2400771809 /* GenericTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AF8297C5E2400771809 /* GenericTableView.swift */; };
+		2C260AFB297C5E4D00771809 /* GenericTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AFA297C5E4D00771809 /* GenericTableCell.swift */; };
+		2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AFC297C5E8F00771809 /* UserNotification.swift */; };
+		2C260AFF297C5EBA00771809 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AFE297C5EBA00771809 /* NotificationsService.swift */; };
+		2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260B00297C5EEF00771809 /* NotificationCellViewModel.swift */; };
 		2C4E08DC2979797B002717B2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C4E08DB2979797B002717B2 /* SnapKit */; };
 		2C4E08DF29797BED002717B2 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C4E08DE29797BED002717B2 /* ReSwift */; };
 		2C4E08E129797CBA002717B2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E029797CBA002717B2 /* TabBarCoordinator.swift */; };
@@ -75,6 +81,12 @@
 		2C260AED297C288D00771809 /* IconCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionCell.swift; sourceTree = "<group>"; };
 		2C260AF0297C28F900771809 /* IconCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCollectionView.swift; sourceTree = "<group>"; };
 		2C260AF2297C292600771809 /* GenericCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionView.swift; sourceTree = "<group>"; };
+		2C260AF6297C52CE00771809 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		2C260AF8297C5E2400771809 /* GenericTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableView.swift; sourceTree = "<group>"; };
+		2C260AFA297C5E4D00771809 /* GenericTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableCell.swift; sourceTree = "<group>"; };
+		2C260AFC297C5E8F00771809 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
+		2C260AFE297C5EBA00771809 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
+		2C260B00297C5EEF00771809 /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
 		2C4E08E029797CBA002717B2 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		2C4E08E229797CEA002717B2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2C4E08E429797D06002717B2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -144,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				2C260AE2297BB76C00771809 /* ProductsService.swift */,
+				2C260AFE297C5EBA00771809 /* NotificationsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +178,23 @@
 				2C260AF2297C292600771809 /* GenericCollectionView.swift */,
 			);
 			path = "Custom Scroll Views";
+			sourceTree = "<group>";
+		};
+		2C260AF4297C526E00771809 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C260AFC297C5E8F00771809 /* UserNotification.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C260AF5297C527800771809 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C260AF6297C52CE00771809 /* NotificationsViewModel.swift */,
+				2C260B00297C5EEF00771809 /* NotificationCellViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2C4E08FA29798F9A002717B2 /* View */ = {
@@ -205,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				2C4E08F029797E91002717B2 /* NotificationsViewController.swift */,
+				2C260AF8297C5E2400771809 /* GenericTableView.swift */,
+				2C260AFA297C5E4D00771809 /* GenericTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,6 +435,8 @@
 		2C893CF82950E74B007DF00C /* Notifications Screen */ = {
 			isa = PBXGroup;
 			children = (
+				2C260AF5297C527800771809 /* ViewModel */,
+				2C260AF4297C526E00771809 /* Model */,
 				2C4E08FE29798FC1002717B2 /* View */,
 			);
 			path = "Notifications Screen";
@@ -568,8 +602,10 @@
 				2C260AE3297BB76C00771809 /* ProductsService.swift in Sources */,
 				2C260AE7297BB8D900771809 /* MockData.swift in Sources */,
 				2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */,
+				2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */,
 				2C260ADD297BB71300771809 /* Product.swift in Sources */,
 				2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */,
+				2C260AFF297C5EBA00771809 /* NotificationsService.swift in Sources */,
 				2C4E08F5297988EB002717B2 /* SignInViewController.swift in Sources */,
 				2C4E08F929798953002717B2 /* TabCoordinator.swift in Sources */,
 				2C260AE5297BB79100771809 /* ProductViewModel.swift in Sources */,
@@ -579,10 +615,13 @@
 				2C4E08E129797CBA002717B2 /* TabBarCoordinator.swift in Sources */,
 				2C260AF1297C28F900771809 /* IconCollectionView.swift in Sources */,
 				2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */,
+				2C260AFB297C5E4D00771809 /* GenericTableCell.swift in Sources */,
 				2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */,
+				2C260AF9297C5E2400771809 /* GenericTableView.swift in Sources */,
 				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
+				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
 				2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */,
 				2C4E08ED29797E2D002717B2 /* CartViewController.swift in Sources */,
 				2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */,
@@ -591,6 +630,7 @@
 				2C260AE9297BBA3D00771809 /* AppSettings.swift in Sources */,
 				2C9EFBB3297BAE98006DF273 /* ProductTableCell.swift in Sources */,
 				2C4E08F729798915002717B2 /* LoginCoordinator.swift in Sources */,
+				2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */,
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 			);

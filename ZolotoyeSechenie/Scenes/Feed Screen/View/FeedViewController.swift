@@ -67,7 +67,6 @@ class FeedViewController: UIViewController {
                 self?.caresCollectionView.reloadData()
                 self?.cosmeticsCollectionView.reloadData()
                 self?.specialsCollectionView.reloadData()
-                // TODO: reload other collection views
             }
             
         }
@@ -205,7 +204,6 @@ class FeedViewController: UIViewController {
         }
     
         tableView.separatorStyle = .none
-        tableView.allowsSelection = false
         tableView.isScrollEnabled = false
         
         tableView.delegate = self
