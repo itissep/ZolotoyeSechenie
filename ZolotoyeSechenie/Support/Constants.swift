@@ -68,8 +68,8 @@ class K{
         static let logo = UIImage(named: "logo")!
     }
     
-//    class Unspecified{
-//        static let titleAttributes = [NSAttributedString.Key.foregroundColor: K.Colors.darkRed]
-//    }
+    class Unspecified{
+        static let titleAttributes = [NSAttributedString.Key.foregroundColor: K.Colors.darkGold]
+    }
     
 }

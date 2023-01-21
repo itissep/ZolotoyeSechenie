@@ -22,6 +22,7 @@ class NotificationsViewController: UIViewController {
         
         view.backgroundColor = .white
         title = "Уведомления"
+        navigationController?.navigationBar.titleTextAttributes = K.Unspecified.titleAttributes
 
         
         initViewModel()
