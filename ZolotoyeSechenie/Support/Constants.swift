@@ -23,6 +23,7 @@ class K{
         static let bold24 = UIFont.systemFont(ofSize: 24, weight: .bold)
         static let bold30 = UIFont.systemFont(ofSize: 30, weight: .bold)
         
+        static let medium20 = UIFont.systemFont(ofSize: 20, weight: .medium)
         static let medium17 = UIFont.systemFont(ofSize: 17, weight: .medium)
         static let medium15 = UIFont.systemFont(ofSize: 15, weight: .medium)
     }

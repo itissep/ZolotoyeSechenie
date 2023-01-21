@@ -12,7 +12,7 @@ struct ProductCellViewModel {
     var title: String = "Some title"
     var description: String = "Some description"
     var amount: String = "15 ml"
-    var image: String = ""
+    var image: String = "1"
     var price: String = "1500 руб."
 }
 
