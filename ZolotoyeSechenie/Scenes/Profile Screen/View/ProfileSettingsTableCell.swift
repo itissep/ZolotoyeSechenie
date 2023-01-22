@@ -36,7 +36,7 @@ class ProfileSettingsTableCell: UITableViewCell {
         contentView.backgroundColor = .white
         
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
-        coverImageView.contentMode = .scaleAspectFit
+//        coverImageView.contentMode = .scaleAspectFit
         
         contentView.addSubview(coverImageView)
         
@@ -57,7 +57,7 @@ class ProfileSettingsTableCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().inset(30)
             
         }
         

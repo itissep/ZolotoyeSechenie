@@ -19,6 +19,7 @@ class K{
         static let semibold17 = UIFont.systemFont(ofSize: 17, weight: .semibold) //authorFont
         static let semibold15 = UIFont.systemFont(ofSize: 15, weight: .semibold) //authorFont
         static let semibold20 = UIFont.systemFont(ofSize: 20, weight: .semibold) //  pictureTitleFont
+        static let semibold30 = UIFont.systemFont(ofSize: 30, weight: .semibold) //  name on profile screen
         
         static let bold24 = UIFont.systemFont(ofSize: 24, weight: .bold)
         static let bold30 = UIFont.systemFont(ofSize: 30, weight: .bold)
