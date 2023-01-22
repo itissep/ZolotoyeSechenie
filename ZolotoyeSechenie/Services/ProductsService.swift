@@ -9,11 +9,11 @@ import Foundation
 
 
 protocol ProductsServiceProtocol {
-    func getEmployees(completion: @escaping (_ success: Bool, _ results: Products?, _ error: String?) -> ())
+    func getProducts(completion: @escaping (_ success: Bool, _ results: Products?, _ error: String?) -> ())
 }
 
 class ProductsService: ProductsServiceProtocol {
-    func getEmployees(completion: @escaping (Bool, Products?, String?) -> ()) {
+    func getProducts(completion: @escaping (Bool, Products?, String?) -> ()) {
         HttpRequestHelper().GET(url: "https://raw.githubusercontent.com/johncodeos-blog/MVVMiOSExample/main/demo.json", params: ["": ""], httpHeader: .application_json) { success, data in
             if success {
                 do {

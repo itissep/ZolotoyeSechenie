@@ -62,6 +62,14 @@ class K{
         
         static let disclosureIndicator = UIImage(named: "Disclosure Indicator")!
         
+        class Settings {
+            static let payments = UIImage(named: "creditcard.fill")!
+            static let history = UIImage(named: "shippingbox.fill")!
+            static let delete = UIImage(named: "trash.fill")!
+            static let signOut = UIImage(named: "rectangle.portrait.and.arrow.right.fill")!
+            static let addresses = UIImage(named: "house.fill")!
+        }
+        
     }
     
     class Images{

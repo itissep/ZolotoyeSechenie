@@ -27,6 +27,8 @@ class ProductsViewModel: NSObject {
         }
     }
     
+    
+    // TODO: get rid of it
     var headerViewModel = FeedHeaderViewModel(){
         didSet {
             reloadHeader?()
@@ -50,7 +52,7 @@ class ProductsViewModel: NSObject {
     
     
     func getProducts() {
-        productService.getEmployees { success, model, error in
+        productService.getProducts { success, model, error in
             if success, let products = model {
                 self.fetchData(products: products)
             } else {
