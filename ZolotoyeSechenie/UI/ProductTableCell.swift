@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 
 
+
 class ProductTableCell: UITableViewCell {
     let coverImageView = UIImageView()
     let titleLabel = UILabel()

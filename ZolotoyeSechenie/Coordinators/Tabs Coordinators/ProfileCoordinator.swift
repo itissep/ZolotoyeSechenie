@@ -7,6 +7,9 @@
 
 import UIKit
 
+enum OrdersType {
+    case deliveries, history
+}
 
 protocol ProfileBaseCoordinated: Coordinated {
     var coordinator: ProfileBaseCoordinator? { get }
@@ -43,7 +46,8 @@ class ProfileCoordinator: ProfileBaseCoordinator {
     
     
     func goToDeliveries() {
-        //
+        let deliveriesViewController = OrdersViewController(coordinator: self, type: .deliveries)
+        navigationRootViewController?.pushViewController(deliveriesViewController, animated: true)
     }
     
     func goToFavourites() {
@@ -65,7 +69,8 @@ class ProfileCoordinator: ProfileBaseCoordinator {
     }
     
     func goToHistory() {
-        //
+        let historyViewController = OrdersViewController(coordinator: self, type: .history)
+        navigationRootViewController?.pushViewController(historyViewController, animated: true)
     }
     
     func deleteProfile() {

@@ -1,30 +1,27 @@
 //
-//  GenericTableCell.swift
+//  AddressTableCell.swift
 //  ZolotoyeSechenie
 //
-//  Created by Someone on 22.01.2023.
+//  Created by Someone on 23.01.2023.
 //
 
 import UIKit
-import SnapKit
 
-class GenericTableCell: UITableViewCell {
+
+class AddressesTableCell: UITableViewCell {
     
     let coverImageView = UIImageView()
     let titleLabel = UILabel()
-    let messageLabel = UILabel()
-    let dateLabel = UILabel()
+    let cityLabel = UILabel()
+    let indexLabel = UILabel()
     
     class var identifier: String { return String(describing: self) }
     
-    var cellViewModel: NotificationCellViewModel? {
+    var cellViewModel: AddressCellViewModel? {
         didSet {
             titleLabel.text = cellViewModel?.title
-            messageLabel.text = cellViewModel?.message
-            dateLabel.text = cellViewModel?.date
-            
-            // TODO: Proper Image Setter
-            coverImageView.image = UIImage(named: cellViewModel?.image ?? "2")
+            cityLabel.text = cellViewModel?.message
+            indexLabel.text = cellViewModel?.index
         }
     }
     
@@ -42,14 +39,18 @@ class GenericTableCell: UITableViewCell {
         contentView.backgroundColor = .white
         
         var imageView : UIImageView
-                imageView  = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-                imageView.image = UIImage(named:"Disclosure Indicator")
-                self.accessoryView = imageView
-
-    
-        coverImageView.contentMode = .scaleAspectFill
+        imageView  = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        imageView.image = UIImage(named:"Disclosure Indicator")
+        self.accessoryView = imageView
+        
         coverImageView.layer.masksToBounds = true
-        coverImageView.layer.cornerRadius = 16
+        coverImageView.layer.cornerRadius = 51/2
+        coverImageView.backgroundColor = K.Colors.prettyGold
+        
+        let houseIcon = UIImage(systemName: "house.fill")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        coverImageView.contentMode = .center
+        coverImageView.preferredSymbolConfiguration = .init(pointSize: 23)
+        coverImageView.image = houseIcon
         
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(coverImageView)
@@ -57,7 +58,7 @@ class GenericTableCell: UITableViewCell {
         coverImageView.snp.makeConstraints { make in
             make.width.equalTo(51)
             make.height.equalTo(51)
-            make.top.equalToSuperview().offset(6)
+            make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(30)
         }
         
@@ -74,27 +75,27 @@ class GenericTableCell: UITableViewCell {
             make.trailing.equalToSuperview().inset(30)
         }
         
-        messageLabel.font = K.Fonts.regular15
-        messageLabel.textColor = .black
-        messageLabel.numberOfLines = 0
+        cityLabel.font = K.Fonts.regular15
+        cityLabel.textColor = .black
+        cityLabel.numberOfLines = 0
         
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(messageLabel)
+        cityLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(cityLabel)
         
-        messageLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+        cityLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(2)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(30)
         }
         
-        dateLabel.textColor = .gray
-        dateLabel.font = K.Fonts.semibold15
+        indexLabel.textColor = .gray
+        indexLabel.font = K.Fonts.semibold15
         
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(dateLabel)
+        indexLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(indexLabel)
         
-        dateLabel.snp.makeConstraints { make in
-            make.top.equalTo(messageLabel.snp.bottom).offset(4)
+        indexLabel.snp.makeConstraints { make in
+            make.top.equalTo(cityLabel.snp.bottom).offset(4)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(30)
             make.bottom.equalToSuperview().inset(6)

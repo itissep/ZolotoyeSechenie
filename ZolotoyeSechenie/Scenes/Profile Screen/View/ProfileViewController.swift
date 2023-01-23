@@ -37,14 +37,17 @@ class ProfileViewController: UIViewController {
             fatalError("init(coder:) has not been implemented")
         }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        title = "Мой профиль"
+        title = "Профиль"
         navigationController?.navigationBar.titleTextAttributes = K.Unspecified.titleAttributes
+        
         
         initViewModel()
     }
@@ -162,7 +165,7 @@ class ProfileViewController: UIViewController {
     
     @objc
     func deliveriesBtnPressed(){
-        print("go to deliveries")
+        coordinator?.goToDeliveries()
     }
     
     @objc
@@ -203,6 +206,8 @@ extension ProfileViewController: UITableViewDelegate {
         switch cell.cellViewModel?.type {
         case .addresses:
             coordinator?.goToAddresses()
+        case .history:
+            coordinator?.goToHistory()
         default:
             print("go somewhere")
         }

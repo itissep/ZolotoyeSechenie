@@ -37,7 +37,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
     
     
     
-    let tableView = UITableView()
+    let tableView = ProductTableView()
     
     let scrollView = UIScrollView()
     let contentView = UIView()
@@ -217,13 +217,11 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
             make.top.equalTo(specialsCollectionView.snp.bottom).offset(20)
             make.leading.trailing.equalTo(30)
         }
-    
-        tableView.separatorStyle = .none
+        
         tableView.isScrollEnabled = false
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ProductTableCell.self, forCellReuseIdentifier: ProductTableCell.identifier)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(tableView)

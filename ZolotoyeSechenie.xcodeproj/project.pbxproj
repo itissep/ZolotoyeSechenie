@@ -61,6 +61,16 @@
 		2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FFB297EBE83000A6FD6 /* CartCoordinator.swift */; };
 		2CA71FFE297EC01E000A6FD6 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FFD297EC01E000A6FD6 /* NotificationsController.swift */; };
 		2CA72000297EC5B9000A6FD6 /* CollectionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FFF297EC5B9000A6FD6 /* CollectionTypes.swift */; };
+		2CA72004297ED140000A6FD6 /* AddressTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72003297ED140000A6FD6 /* AddressTableCell.swift */; };
+		2CA72006297ED189000A6FD6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72005297ED189000A6FD6 /* Address.swift */; };
+		2CA72008297ED1A4000A6FD6 /* AddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72007297ED1A4000A6FD6 /* AddressCellViewModel.swift */; };
+		2CA7200A297ED1C2000A6FD6 /* AddressesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72009297ED1C2000A6FD6 /* AddressesService.swift */; };
+		2CA72015297ED8E3000A6FD6 /* ProductTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72014297ED8E3000A6FD6 /* ProductTableView.swift */; };
+		2CA72017297EDB06000A6FD6 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72016297EDB06000A6FD6 /* OrderViewController.swift */; };
+		2CA72019297EDBEF000A6FD6 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72018297EDBEF000A6FD6 /* OrdersViewModel.swift */; };
+		2CA7201B297EDD7F000A6FD6 /* OrderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201A297EDD7F000A6FD6 /* OrderCellViewModel.swift */; };
+		2CA7201D297EDD9D000A6FD6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201C297EDD9D000A6FD6 /* Order.swift */; };
+		2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201E297EDDD0000A6FD6 /* OrderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +148,16 @@
 		2CA71FFB297EBE83000A6FD6 /* CartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
 		2CA71FFD297EC01E000A6FD6 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		2CA71FFF297EC5B9000A6FD6 /* CollectionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTypes.swift; sourceTree = "<group>"; };
+		2CA72003297ED140000A6FD6 /* AddressTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableCell.swift; sourceTree = "<group>"; };
+		2CA72005297ED189000A6FD6 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		2CA72007297ED1A4000A6FD6 /* AddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellViewModel.swift; sourceTree = "<group>"; };
+		2CA72009297ED1C2000A6FD6 /* AddressesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesService.swift; sourceTree = "<group>"; };
+		2CA72014297ED8E3000A6FD6 /* ProductTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableView.swift; sourceTree = "<group>"; };
+		2CA72016297EDB06000A6FD6 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		2CA72018297EDBEF000A6FD6 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
+		2CA7201A297EDD7F000A6FD6 /* OrderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellViewModel.swift; sourceTree = "<group>"; };
+		2CA7201C297EDD9D000A6FD6 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		2CA7201E297EDDD0000A6FD6 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +199,8 @@
 			children = (
 				2C260AE2297BB76C00771809 /* ProductsService.swift */,
 				2CA71FCC297D32C6000A6FD6 /* ProfileService.swift */,
+				2CA7201E297EDDD0000A6FD6 /* OrderService.swift */,
+				2CA72009297ED1C2000A6FD6 /* AddressesService.swift */,
 				2C260AFE297C5EBA00771809 /* NotificationsService.swift */,
 			);
 			path = Services;
@@ -187,7 +209,6 @@
 		2C260AEC297C286F00771809 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2C9EFBB2297BAE98006DF273 /* ProductTableCell.swift */,
 				2C260AEA297C0C3C00771809 /* GenericCollectionCell.swift */,
 				2C260AED297C288D00771809 /* IconCollectionCell.swift */,
 			);
@@ -259,8 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				2C4E08F029797E91002717B2 /* NotificationsViewController.swift */,
-				2C260AF8297C5E2400771809 /* GenericTableView.swift */,
-				2C260AFA297C5E4D00771809 /* GenericTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +315,7 @@
 		2C74602F291A6A02006E1872 /* ZolotoyeSechenie */ = {
 			isa = PBXGroup;
 			children = (
+				2CA72013297ED815000A6FD6 /* UI */,
 				2C746063291A6D34006E1872 /* Models */,
 				2C746066291A6D7E006E1872 /* Coordinators */,
 				2C746064291A6D6B006E1872 /* Protocols */,
@@ -358,9 +378,11 @@
 		2C746067291A6D98006E1872 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2CA7200F297ED711000A6FD6 /* Orders Screens */,
+				2CA7200B297ED5C9000A6FD6 /* Edit Address Screen */,
 				2CA71FE5297E7198000A6FD6 /* Addresses Screen */,
-				2C893CF72950E726007DF00C /* Product Details Screen */,
 				2C893CF62950E6ED007DF00C /* Profile Screen */,
+				2C893CF72950E726007DF00C /* Product Details Screen */,
 				2C893CF52950E6E5007DF00C /* Search Screen */,
 				2C893CF42950E6D4007DF00C /* Cart Screen */,
 				2C893CF32950E6C8007DF00C /* Feed Screen */,
@@ -510,7 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA71FEA297E7211000A6FD6 /* AddressesViewController.swift */,
-				2CA71FEC297E7258000A6FD6 /* AddressesViewModel.swift */,
+				2CA72003297ED140000A6FD6 /* AddressTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -518,6 +540,8 @@
 		2CA71FE7297E71E0000A6FD6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2CA71FEC297E7258000A6FD6 /* AddressesViewModel.swift */,
+				2CA72007297ED1A4000A6FD6 /* AddressCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -525,6 +549,7 @@
 		2CA71FE8297E71EF000A6FD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2CA72005297ED189000A6FD6 /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -539,6 +564,83 @@
 				2CA71FFB297EBE83000A6FD6 /* CartCoordinator.swift */,
 			);
 			path = "Tabs Coordinators";
+			sourceTree = "<group>";
+		};
+		2CA7200B297ED5C9000A6FD6 /* Edit Address Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2CA7200E297ED5DF000A6FD6 /* View */,
+				2CA7200D297ED5D8000A6FD6 /* ViewModel */,
+				2CA7200C297ED5D4000A6FD6 /* Model */,
+			);
+			path = "Edit Address Screen";
+			sourceTree = "<group>";
+		};
+		2CA7200C297ED5D4000A6FD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CA7200D297ED5D8000A6FD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2CA7200E297ED5DF000A6FD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CA7200F297ED711000A6FD6 /* Orders Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2CA72012297ED746000A6FD6 /* Model */,
+				2CA72011297ED73C000A6FD6 /* ViewModel */,
+				2CA72010297ED730000A6FD6 /* View */,
+			);
+			path = "Orders Screens";
+			sourceTree = "<group>";
+		};
+		2CA72010297ED730000A6FD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CA72016297EDB06000A6FD6 /* OrderViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CA72011297ED73C000A6FD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2CA72018297EDBEF000A6FD6 /* OrdersViewModel.swift */,
+				2CA7201A297EDD7F000A6FD6 /* OrderCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2CA72012297ED746000A6FD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2CA7201C297EDD9D000A6FD6 /* Order.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CA72013297ED815000A6FD6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2C9EFBB2297BAE98006DF273 /* ProductTableCell.swift */,
+				2CA72014297ED8E3000A6FD6 /* ProductTableView.swift */,
+				2C260AF8297C5E2400771809 /* GenericTableView.swift */,
+				2C260AFA297C5E4D00771809 /* GenericTableCell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,6 +782,7 @@
 				2C260AEE297C288D00771809 /* IconCollectionCell.swift in Sources */,
 				2C746035291A6A02006E1872 /* ViewController.swift in Sources */,
 				2C260AE3297BB76C00771809 /* ProductsService.swift in Sources */,
+				2CA7201D297EDD9D000A6FD6 /* Order.swift in Sources */,
 				2CA71FFE297EC01E000A6FD6 /* NotificationsController.swift in Sources */,
 				2C260AE7297BB8D900771809 /* MockData.swift in Sources */,
 				2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */,
@@ -689,6 +792,7 @@
 				2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */,
 				2C260AFF297C5EBA00771809 /* NotificationsService.swift in Sources */,
 				2C4E08F5297988EB002717B2 /* SignInViewController.swift in Sources */,
+				2CA72008297ED1A4000A6FD6 /* AddressCellViewModel.swift in Sources */,
 				2CA71FCF297D424B000A6FD6 /* UIAlertController.swift in Sources */,
 				2CA71FCB297D3285000A6FD6 /* SettingsCellViewModel.swift in Sources */,
 				2CA71FED297E7258000A6FD6 /* AddressesViewModel.swift in Sources */,
@@ -703,17 +807,24 @@
 				2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */,
 				2CA71FC7297D31E6000A6FD6 /* ProfileSettingsTableCell.swift in Sources */,
 				2CA71FF7297EB4C9000A6FD6 /* TabCoordinator.swift in Sources */,
+				2CA7201B297EDD7F000A6FD6 /* OrderCellViewModel.swift in Sources */,
 				2C260AF9297C5E2400771809 /* GenericTableView.swift in Sources */,
 				2CA72000297EC5B9000A6FD6 /* CollectionTypes.swift in Sources */,
+				2CA72019297EDBEF000A6FD6 /* OrdersViewModel.swift in Sources */,
 				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
+				2CA72004297ED140000A6FD6 /* AddressTableCell.swift in Sources */,
 				2CA71FF5297EB460000A6FD6 /* ProfileCoordinator.swift in Sources */,
+				2CA7200A297ED1C2000A6FD6 /* AddressesService.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2CA71FCD297D32C6000A6FD6 /* ProfileService.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
+				2CA72006297ED189000A6FD6 /* Address.swift in Sources */,
+				2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */,
 				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
 				2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */,
 				2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */,
 				2CA71FC5297C68FB000A6FD6 /* ProfileViewModel.swift in Sources */,
+				2CA72015297ED8E3000A6FD6 /* ProductTableView.swift in Sources */,
 				2CA71FC9297D326D000A6FD6 /* ProfileSettingsType.swift in Sources */,
 				2CA71FF3297EB41D000A6FD6 /* FeedCoordinator.swift in Sources */,
 				2C4E08ED29797E2D002717B2 /* CartViewController.swift in Sources */,
@@ -725,6 +836,7 @@
 				2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */,
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
+				2CA72017297EDB06000A6FD6 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
