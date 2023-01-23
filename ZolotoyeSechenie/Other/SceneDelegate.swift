@@ -32,7 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = MainCoordinator().start()
+            window.rootViewController = AppCoordinator().start()
 //            window?.makeKeyAndVisible()
     
         self.window = window

@@ -8,7 +8,7 @@
 import UIKit
 
 
-enum AppFlow {
+enum TabFlow {
     case Feed
     case Search
     case Cart
@@ -18,12 +18,15 @@ enum AppFlow {
 }
 
 protocol MainBaseCoordinator: Coordinator {
-    var profileCoordinator: ProfileBaseCoordinator { get }
+
     var feedCoordinator: FeedBaseCoordinator { get }
+    var searchCoordinator: SearchBaseCoordinator { get }
+    var cartCoordinator: CartBaseCoordinator { get }
+    var notificationsCoordinator: NotificationsBaseCoordinator { get }
+    var profileCoordinator: ProfileBaseCoordinator { get }
     
     var deepLinkCoordinator: DeepLinkBaseCoordinator { get }
-    func moveTo(flow: AppFlow)
-//    func handleDeepLink(text: String)
+    func moveTo(flow: TabFlow)
 }
 
 
@@ -83,7 +86,7 @@ class MainCoordinator: NSObject, MainBaseCoordinator {
     }
     
     // Mark 7
-    func moveTo(flow: AppFlow) {
+    func moveTo(flow: TabFlow) {
         switch flow {
         case .Feed:
             (rootViewController as? UITabBarController)?.selectedIndex = 0
