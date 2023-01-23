@@ -36,9 +36,8 @@ class AppCoordinator: NSObject, AppBaseCoordinator {
         if isAuth {
             
         } else {
-            let searchViewController = tabbarCoordinator.start()
-            rootViewController = UINavigationController(rootViewController: searchViewController)
-            return rootViewController
+            let tabbarViewController = tabbarCoordinator.start()
+            return tabbarViewController
         }
         
         return UIViewController()
