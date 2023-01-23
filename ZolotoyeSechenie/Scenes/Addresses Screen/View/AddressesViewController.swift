@@ -9,13 +9,26 @@ import UIKit
 import SnapKit
 
 
-class AddressesViewController: UIViewController {
+class AddressesViewController: UIViewController, ProfileBaseCoordinated {
     
     lazy var viewModel = {
         AddressesViewModel()
     }()
     
+    weak var coordinator: ProfileBaseCoordinator?
+    
     let tableView = UITableView()
+    
+    init(coordinator: ProfileBaseCoordinator) {
+        super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +58,7 @@ class AddressesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.register(AddressesTableCell.self, forCellReuseIdentifier: AddressesTableCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         

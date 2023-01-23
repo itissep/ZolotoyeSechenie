@@ -8,8 +8,22 @@
 import UIKit
 
 
-class SearchViewController: UIViewController {
-
+class SearchViewController: UIViewController, SearchBaseCoordinated {
+    
+    weak var coordinator: SearchBaseCoordinator?
+    
+    
+    init(coordinator: SearchBaseCoordinator) {
+        super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,12 +35,12 @@ class SearchViewController: UIViewController {
         label.textColor = .brown
         
         view.addSubview(label)
-
+        
         label.snp.makeConstraints { (make) -> Void in
-                   make.width.height.equalTo(100)
-                   make.center.equalTo(self.view)
-                }
+            make.width.height.equalTo(100)
+            make.center.equalTo(self.view)
+        }
     }
-
-
+    
+    
 }

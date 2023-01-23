@@ -9,11 +9,25 @@ import UIKit
 import SnapKit
 
 
-class NotificationsViewController: UIViewController {
+class NotificationsViewController: UIViewController, NotificationsBaseCoordinated {
     
     lazy var viewModel = {
         NotificationsViewModel()
     }()
+    
+    weak var coordinator: NotificationsBaseCoordinator?
+    
+    
+    init(coordinator: NotificationsBaseCoordinator) {
+        super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     let tableView = GenericTableView()
 

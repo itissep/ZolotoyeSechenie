@@ -16,11 +16,26 @@ import UIKit
 import SnapKit
 
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, FeedBaseCoordinated {
     
     lazy var viewModel = {
         ProductsViewModel()
     }()
+    
+    weak var coordinator: FeedBaseCoordinator?
+
+        
+        init(coordinator: FeedBaseCoordinator) {
+            super.init(nibName: nil, bundle: nil)
+            self.coordinator = coordinator
+
+        }
+        
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    
+    
     
     let tableView = UITableView()
     

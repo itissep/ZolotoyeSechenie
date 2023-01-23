@@ -9,7 +9,8 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
-    var appCoordinator: AppCoordinator?
+//    var appCoordinator: AppCoordinator?
+    
     var window: UIWindow?
     var auth = true
 
@@ -17,17 +18,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
+//        let window = UIWindow(windowScene: windowScene)
     
         
         let navigationController: UINavigationController = .init()
 
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
+//        window.rootViewController = navigationController
+//        window.makeKeyAndVisible()
+//
+//        appCoordinator = AppCoordinator.init(navigationController)
+//        appCoordinator?.start()
+//
         
-        appCoordinator = AppCoordinator.init(navigationController)
-        appCoordinator?.start()
         
+        let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = MainCoordinator().start()
+//            window?.makeKeyAndVisible()
     
         self.window = window
         window.makeKeyAndVisible()

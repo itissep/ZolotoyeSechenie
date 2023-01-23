@@ -8,7 +8,20 @@
 import UIKit
 
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, CartBaseCoordinated {
+    
+    weak var coordinator: CartBaseCoordinator?
+    
+    init(coordinator: CartBaseCoordinator) {
+        super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

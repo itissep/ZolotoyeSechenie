@@ -57,7 +57,14 @@
 		2CA71FCF297D424B000A6FD6 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */; };
 		2CA71FEB297E7211000A6FD6 /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FEA297E7211000A6FD6 /* AddressesViewController.swift */; };
 		2CA71FED297E7258000A6FD6 /* AddressesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FEC297E7258000A6FD6 /* AddressesViewModel.swift */; };
-		2CA71FEF297E7638000A6FD6 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FEE297E7638000A6FD6 /* ProfileCoordinator.swift */; };
+		2CA71FF1297EB3BD000A6FD6 /* DeepLinkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FF0297EB3BD000A6FD6 /* DeepLinkCoordinator.swift */; };
+		2CA71FF3297EB41D000A6FD6 /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FF2297EB41D000A6FD6 /* FeedCoordinator.swift */; };
+		2CA71FF5297EB460000A6FD6 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FF4297EB460000A6FD6 /* ProfileCoordinator.swift */; };
+		2CA71FF7297EB4C9000A6FD6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FF6297EB4C9000A6FD6 /* MainCoordinator.swift */; };
+		2CA71FFA297EBD00000A6FD6 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FF9297EBD00000A6FD6 /* SearchCoordinator.swift */; };
+		2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FFB297EBE83000A6FD6 /* CartCoordinator.swift */; };
+		2CA71FFE297EC01E000A6FD6 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FFD297EC01E000A6FD6 /* NotificationsController.swift */; };
+		2CA72000297EC5B9000A6FD6 /* CollectionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FFF297EC5B9000A6FD6 /* CollectionTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +138,14 @@
 		2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		2CA71FEA297E7211000A6FD6 /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
 		2CA71FEC297E7258000A6FD6 /* AddressesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewModel.swift; sourceTree = "<group>"; };
-		2CA71FEE297E7638000A6FD6 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		2CA71FF0297EB3BD000A6FD6 /* DeepLinkCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkCoordinator.swift; sourceTree = "<group>"; };
+		2CA71FF2297EB41D000A6FD6 /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
+		2CA71FF4297EB460000A6FD6 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		2CA71FF6297EB4C9000A6FD6 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		2CA71FF9297EBD00000A6FD6 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		2CA71FFB297EBE83000A6FD6 /* CartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoordinator.swift; sourceTree = "<group>"; };
+		2CA71FFD297EC01E000A6FD6 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		2CA71FFF297EC5B9000A6FD6 /* CollectionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,14 +281,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2C4E09002979911F002717B2 /* TabCoordinator */ = {
+		2C4E09002979911F002717B2 /* Old coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				2C4E08F629798915002717B2 /* LoginCoordinator.swift */,
+				2C4E08E229797CEA002717B2 /* AppCoordinator.swift */,
 				2C4E08E029797CBA002717B2 /* TabBarCoordinator.swift */,
 				2C4E08F829798953002717B2 /* TabCoordinator.swift */,
 				2C4E09012979916D002717B2 /* TabBarPage.swift */,
 			);
-			path = TabCoordinator;
+			path = "Old coordinators";
 			sourceTree = "<group>";
 		};
 		2C746024291A6A02006E1872 = {
@@ -335,6 +351,7 @@
 		2C746063291A6D34006E1872 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2CA71FFF297EC5B9000A6FD6 /* CollectionTypes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -350,10 +367,10 @@
 			isa = PBXGroup;
 			children = (
 				2C4E08E429797D06002717B2 /* Coordinator.swift */,
-				2C4E08E229797CEA002717B2 /* AppCoordinator.swift */,
-				2CA71FEE297E7638000A6FD6 /* ProfileCoordinator.swift */,
-				2C4E08F629798915002717B2 /* LoginCoordinator.swift */,
-				2C4E09002979911F002717B2 /* TabCoordinator */,
+				2CA71FF6297EB4C9000A6FD6 /* MainCoordinator.swift */,
+				2CA71FF8297EB517000A6FD6 /* Tabs Coordinators */,
+				2CA71FF0297EB3BD000A6FD6 /* DeepLinkCoordinator.swift */,
+				2C4E09002979911F002717B2 /* Old coordinators */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -532,6 +549,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2CA71FF8297EB517000A6FD6 /* Tabs Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				2CA71FF4297EB460000A6FD6 /* ProfileCoordinator.swift */,
+				2CA71FFD297EC01E000A6FD6 /* NotificationsController.swift */,
+				2CA71FF2297EB41D000A6FD6 /* FeedCoordinator.swift */,
+				2CA71FF9297EBD00000A6FD6 /* SearchCoordinator.swift */,
+				2CA71FFB297EBE83000A6FD6 /* CartCoordinator.swift */,
+			);
+			path = "Tabs Coordinators";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -671,9 +700,11 @@
 				2C260AEE297C288D00771809 /* IconCollectionCell.swift in Sources */,
 				2C746035291A6A02006E1872 /* ViewController.swift in Sources */,
 				2C260AE3297BB76C00771809 /* ProductsService.swift in Sources */,
+				2CA71FFE297EC01E000A6FD6 /* NotificationsController.swift in Sources */,
 				2C260AE7297BB8D900771809 /* MockData.swift in Sources */,
 				2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */,
 				2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */,
+				2CA71FFA297EBD00000A6FD6 /* SearchCoordinator.swift in Sources */,
 				2C260ADD297BB71300771809 /* Product.swift in Sources */,
 				2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */,
 				2C260AFF297C5EBA00771809 /* NotificationsService.swift in Sources */,
@@ -693,25 +724,30 @@
 				2C260AFB297C5E4D00771809 /* GenericTableCell.swift in Sources */,
 				2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */,
 				2CA71FC7297D31E6000A6FD6 /* ProfileSettingsTableCell.swift in Sources */,
+				2CA71FF7297EB4C9000A6FD6 /* MainCoordinator.swift in Sources */,
 				2C260AF9297C5E2400771809 /* GenericTableView.swift in Sources */,
+				2CA72000297EC5B9000A6FD6 /* CollectionTypes.swift in Sources */,
 				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
+				2CA71FF5297EB460000A6FD6 /* ProfileCoordinator.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2CA71FCD297D32C6000A6FD6 /* ProfileService.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
 				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
+				2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */,
 				2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */,
 				2CA71FC5297C68FB000A6FD6 /* ProfileViewModel.swift in Sources */,
 				2CA71FC9297D326D000A6FD6 /* ProfileSettingsType.swift in Sources */,
+				2CA71FF3297EB41D000A6FD6 /* FeedCoordinator.swift in Sources */,
 				2C4E08ED29797E2D002717B2 /* CartViewController.swift in Sources */,
 				2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */,
 				2C4E09022979916D002717B2 /* TabBarPage.swift in Sources */,
 				2C746033291A6A02006E1872 /* SceneDelegate.swift in Sources */,
+				2CA71FF1297EB3BD000A6FD6 /* DeepLinkCoordinator.swift in Sources */,
 				2C260AE9297BBA3D00771809 /* AppSettings.swift in Sources */,
 				2C9EFBB3297BAE98006DF273 /* ProductTableCell.swift in Sources */,
 				2C4E08F729798915002717B2 /* LoginCoordinator.swift in Sources */,
 				2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */,
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
-				2CA71FEF297E7638000A6FD6 /* ProfileCoordinator.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
