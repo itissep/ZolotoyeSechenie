@@ -8,5 +8,5 @@
 import Foundation
 
 enum CollectionType {
-case Programms, Cosmetics, Specials, all
+case Programms, Cosmetics, Specials, all, Favourites
 }

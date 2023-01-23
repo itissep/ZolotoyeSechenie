@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: special coordinator for collections of products 
 
 enum TabFlow {
     case Feed

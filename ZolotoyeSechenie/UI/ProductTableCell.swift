@@ -8,7 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol ProductCellViewModelProtocol {
+    
+    var id: String { get }
+    var title: String { get }
+    var description: String { get }
+    var amount: String { get }
+    var image: String? { get }
+    var price: String { get }
 
+}
 
 class ProductTableCell: UITableViewCell {
     let coverImageView = UIImageView()
@@ -16,12 +25,12 @@ class ProductTableCell: UITableViewCell {
     let descriptionLabel = UILabel()
     let amountLabel = UILabel()
     let priceLabel = UILabel()
-
-
+    
+    
     
     class var identifier: String { return String(describing: self) }
     
-    var cellViewModel: ProductCellViewModel? {
+    var cellViewModel: ProductCellViewModelProtocol? {
         didSet {
             titleLabel.text = cellViewModel?.title
             descriptionLabel.text = cellViewModel?.description

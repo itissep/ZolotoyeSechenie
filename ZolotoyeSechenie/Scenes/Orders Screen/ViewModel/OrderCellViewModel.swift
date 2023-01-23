@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OrderCellViewModel: ProductCellProtocol {
+struct OrderCellViewModel: GenericCellViewModelProtocol {
     let id: String
     let title: String = "Заказ Номер"
     let message: String = "Статус заказа"

@@ -19,7 +19,7 @@ import SnapKit
 class FeedViewController: UIViewController, FeedBaseCoordinated {
     
     lazy var viewModel = {
-        ProductsViewModel()
+        FeedViewModel()
     }()
     
     weak var coordinator: FeedBaseCoordinator?
@@ -53,6 +53,9 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
     
     let moreBtn = UIButton()
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +101,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
     @objc
     func moreBtnPressed(){
         // TODO: go to all products
+        coordinator?.goToCollection(type: .all)
         print("moreBtn pressed")
     }
     
@@ -312,18 +316,21 @@ extension FeedViewController: UICollectionViewDelegate {
                 fatalError("something went wrong tapping on Cares Collection cells")
             }
             print(cell.cellViewModel?.id)
+            coordinator?.goToCollection(type: .Programms)
         } else if collectionView == self.cosmeticsCollectionView {
             guard let cell = collectionView.cellForItem(at: indexPath) as? IconCollectionViewCell else {
                 // TODO: add error handler
                 fatalError("something went wrong tapping on Cosmetics Collection cells")
             }
             print(cell.cellViewModel?.id)
+            coordinator?.goToCollection(type: .Cosmetics)
         } else if collectionView == self.specialsCollectionView {
             guard let cell = collectionView.cellForItem(at: indexPath) as? GenericCollectionCell else {
                 // TODO: add error handler
                 fatalError("something went wrong tapping on Cares Collection cells")
             }
             print(cell.cellViewModel?.id)
+            coordinator?.goToCollection(type: .Specials)
         } else {
             fatalError("Some spiritual collection view was detected. Do something!")
         }

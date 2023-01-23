@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NotificationCellViewModel: ProductCellProtocol {
+struct NotificationCellViewModel: GenericCellViewModelProtocol {
     let id: String
     let title: String = "Заказ отправлен"
     let message: String = "Вам необходимо подтвердить получение."

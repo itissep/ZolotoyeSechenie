@@ -71,6 +71,7 @@
 		2CA7201B297EDD7F000A6FD6 /* OrderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201A297EDD7F000A6FD6 /* OrderCellViewModel.swift */; };
 		2CA7201D297EDD9D000A6FD6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201C297EDD9D000A6FD6 /* Order.swift */; };
 		2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201E297EDDD0000A6FD6 /* OrderService.swift */; };
+		2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72024297EE354000A6FD6 /* ProductsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		2CA7201A297EDD7F000A6FD6 /* OrderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCellViewModel.swift; sourceTree = "<group>"; };
 		2CA7201C297EDD9D000A6FD6 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		2CA7201E297EDDD0000A6FD6 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
+		2CA72024297EE354000A6FD6 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,7 +380,8 @@
 		2C746067291A6D98006E1872 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2CA7200F297ED711000A6FD6 /* Orders Screens */,
+				2CA72020297EE2F1000A6FD6 /* Products Screen */,
+				2CA7200F297ED711000A6FD6 /* Orders Screen */,
 				2CA7200B297ED5C9000A6FD6 /* Edit Address Screen */,
 				2CA71FE5297E7198000A6FD6 /* Addresses Screen */,
 				2C893CF62950E6ED007DF00C /* Profile Screen */,
@@ -597,14 +600,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2CA7200F297ED711000A6FD6 /* Orders Screens */ = {
+		2CA7200F297ED711000A6FD6 /* Orders Screen */ = {
 			isa = PBXGroup;
 			children = (
 				2CA72012297ED746000A6FD6 /* Model */,
 				2CA72011297ED73C000A6FD6 /* ViewModel */,
 				2CA72010297ED730000A6FD6 /* View */,
 			);
-			path = "Orders Screens";
+			path = "Orders Screen";
 			sourceTree = "<group>";
 		};
 		2CA72010297ED730000A6FD6 /* View */ = {
@@ -641,6 +644,38 @@
 				2C260AFA297C5E4D00771809 /* GenericTableCell.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		2CA72020297EE2F1000A6FD6 /* Products Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2CA72023297EE310000A6FD6 /* View */,
+				2CA72022297EE309000A6FD6 /* ViewModel */,
+				2CA72021297EE301000A6FD6 /* Model */,
+			);
+			path = "Products Screen";
+			sourceTree = "<group>";
+		};
+		2CA72021297EE301000A6FD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2CA72022297EE309000A6FD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2CA72023297EE310000A6FD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CA72024297EE354000A6FD6 /* ProductsViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -814,6 +849,7 @@
 				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
 				2CA72004297ED140000A6FD6 /* AddressTableCell.swift in Sources */,
 				2CA71FF5297EB460000A6FD6 /* ProfileCoordinator.swift in Sources */,
+				2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */,
 				2CA7200A297ED1C2000A6FD6 /* AddressesService.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2CA71FCD297D32C6000A6FD6 /* ProfileService.swift in Sources */,

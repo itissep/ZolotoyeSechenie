@@ -8,7 +8,7 @@
 import Foundation
 
 
-class ProductsViewModel: NSObject {
+class FeedViewModel: NSObject {
     private var productService: ProductsServiceProtocol
     
     var reloadTableView: (() -> Void)?
@@ -29,7 +29,7 @@ class ProductsViewModel: NSObject {
     
     
     // TODO: get rid of it
-    var headerViewModel = FeedHeaderViewModel(){
+    var headerViewModel = FeedCollectionsViewModel(){
         didSet {
             reloadHeader?()
         }
@@ -69,7 +69,7 @@ class ProductsViewModel: NSObject {
         let specials = MockData.SpecialProducts.all
         let cosmetics = MockData.DecorativeCategories.all
         
-        self.headerViewModel = FeedHeaderViewModel(careProgramms: cares, cosmeticCategories: cosmetics, specialProducts: specials)
+        self.headerViewModel = FeedCollectionsViewModel(careProgramms: cares, cosmeticCategories: cosmetics, specialProducts: specials)
     }
     
     

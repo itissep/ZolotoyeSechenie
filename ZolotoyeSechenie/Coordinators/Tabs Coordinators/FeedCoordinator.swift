@@ -31,7 +31,8 @@ class FeedCoordinator: FeedBaseCoordinator {
     }
     
     func goToCollection(type: CollectionType) {
-        //
+        let vc = ProductsViewController(coordinator: self, type: type)
+        navigationRootViewController?.pushViewController(vc, animated: true)
     }
     
     func goToProduct(id: String) {

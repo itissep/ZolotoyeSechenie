@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-protocol ProductCellProtocol {
+protocol GenericCellViewModelProtocol {
     var id: String { get }
     var title: String { get }
     var message: String { get }
@@ -25,7 +25,7 @@ class GenericTableCell: UITableViewCell {
     
     class var identifier: String { return String(describing: self) }
     
-    var cellViewModel: ProductCellProtocol? {
+    var cellViewModel: GenericCellViewModelProtocol? {
         didSet {
             titleLabel.text = cellViewModel?.title
             messageLabel.text = cellViewModel?.message
