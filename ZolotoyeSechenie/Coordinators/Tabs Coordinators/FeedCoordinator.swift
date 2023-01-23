@@ -22,7 +22,7 @@ protocol FeedBaseCoordinator: Coordinator {
 
 class FeedCoordinator: FeedBaseCoordinator {
     
-    var parentCoordinator: MainBaseCoordinator?
+    var parentCoordinator: TabBaseCoordinator?
     var rootViewController: UIViewController = UIViewController()
     
     func start() -> UIViewController {

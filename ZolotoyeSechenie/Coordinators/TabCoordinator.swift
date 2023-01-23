@@ -17,7 +17,7 @@ enum TabFlow {
     //    case Login
 }
 
-protocol MainBaseCoordinator: Coordinator {
+protocol TabBaseCoordinator: Coordinator {
 
     var feedCoordinator: FeedBaseCoordinator { get }
     var searchCoordinator: SearchBaseCoordinator { get }
@@ -30,9 +30,9 @@ protocol MainBaseCoordinator: Coordinator {
 }
 
 
-class MainCoordinator: NSObject, MainBaseCoordinator {
+class TabCoordinator: NSObject, TabBaseCoordinator {
     
-    var parentCoordinator: MainBaseCoordinator?
+    var parentCoordinator: TabBaseCoordinator?
     
     lazy var feedCoordinator: FeedBaseCoordinator = FeedCoordinator()
     lazy var searchCoordinator: SearchBaseCoordinator = SearchCoordinator()
@@ -117,7 +117,7 @@ class MainCoordinator: NSObject, MainBaseCoordinator {
 
 
 
-extension MainCoordinator: UITabBarControllerDelegate {
+extension TabCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController,
                           didSelect viewController: UIViewController) {
         // Some implementation

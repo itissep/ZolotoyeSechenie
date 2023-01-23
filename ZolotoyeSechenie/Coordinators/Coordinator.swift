@@ -46,7 +46,7 @@ import UIKit
 
 
 protocol FlowCoordinator: AnyObject {
-    var parentCoordinator: MainBaseCoordinator? { get set }
+    var parentCoordinator: TabBaseCoordinator? { get set }
 }
 
 

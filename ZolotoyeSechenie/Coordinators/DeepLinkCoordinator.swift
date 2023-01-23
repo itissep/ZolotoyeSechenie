@@ -19,9 +19,9 @@ class DeepLinkCoordinator: DeepLinkBaseCoordinator {
         print(" handle deep link here \(deepLink)")
     }
     
-    var parentCoordinator: MainBaseCoordinator?
+    var parentCoordinator: TabBaseCoordinator?
     
-    init(mainBaseCoordinator: MainBaseCoordinator) {
+    init(mainBaseCoordinator: TabBaseCoordinator) {
         self.parentCoordinator = mainBaseCoordinator
     }
 }

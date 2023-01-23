@@ -19,7 +19,7 @@ protocol SearchBaseCoordinator: Coordinator {
 
 class SearchCoordinator: SearchBaseCoordinator {
     
-    var parentCoordinator: MainBaseCoordinator?
+    var parentCoordinator: TabBaseCoordinator?
     var rootViewController: UIViewController = UIViewController()
     
     func start() -> UIViewController {

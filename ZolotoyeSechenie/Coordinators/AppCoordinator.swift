@@ -12,7 +12,7 @@ import UIKit
 
 protocol AppBaseCoordinator: Coordinator {
     
-    var tabbarCoordinator: MainBaseCoordinator { get }
+    var tabbarCoordinator: TabBaseCoordinator { get }
 //    var loginCoordinator:
     func showLoginFlow()
     func showMainFlow()
@@ -24,9 +24,9 @@ class AppCoordinator: NSObject, AppBaseCoordinator {
     
     var isAuth = false // TODO: move to di container
     
-    var tabbarCoordinator: MainBaseCoordinator = MainCoordinator()
+    var tabbarCoordinator: TabBaseCoordinator = TabCoordinator()
     
-    var parentCoordinator: MainBaseCoordinator?
+    var parentCoordinator: TabBaseCoordinator?
     
     lazy var feedCoordinator: FeedBaseCoordinator = FeedCoordinator()
     

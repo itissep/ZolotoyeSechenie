@@ -32,7 +32,7 @@ protocol ProfileBaseCoordinator: Coordinator {
 
 class ProfileCoordinator: ProfileBaseCoordinator {
 
-    var parentCoordinator: MainBaseCoordinator?
+    var parentCoordinator: TabBaseCoordinator?
     
     lazy var rootViewController: UIViewController = UIViewController()
     
