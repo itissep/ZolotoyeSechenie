@@ -25,7 +25,6 @@
 		2C260AFF297C5EBA00771809 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AFE297C5EBA00771809 /* NotificationsService.swift */; };
 		2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260B00297C5EEF00771809 /* NotificationCellViewModel.swift */; };
 		2C4E08DC2979797B002717B2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C4E08DB2979797B002717B2 /* SnapKit */; };
-		2C4E08DF29797BED002717B2 /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2C4E08DE29797BED002717B2 /* ReSwift */; };
 		2C4E08E129797CBA002717B2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E029797CBA002717B2 /* TabBarCoordinator.swift */; };
 		2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E229797CEA002717B2 /* AppCoordinator.swift */; };
 		2C4E08E529797D06002717B2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E429797D06002717B2 /* Coordinator.swift */; };
@@ -55,6 +54,10 @@
 		2CA71FC9297D326D000A6FD6 /* ProfileSettingsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FC8297D326D000A6FD6 /* ProfileSettingsType.swift */; };
 		2CA71FCB297D3285000A6FD6 /* SettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FCA297D3285000A6FD6 /* SettingsCellViewModel.swift */; };
 		2CA71FCD297D32C6000A6FD6 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FCC297D32C6000A6FD6 /* ProfileService.swift */; };
+		2CA71FCF297D424B000A6FD6 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */; };
+		2CA71FEB297E7211000A6FD6 /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FEA297E7211000A6FD6 /* AddressesViewController.swift */; };
+		2CA71FED297E7258000A6FD6 /* AddressesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FEC297E7258000A6FD6 /* AddressesViewModel.swift */; };
+		2CA71FEF297E7638000A6FD6 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA71FEE297E7638000A6FD6 /* ProfileCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +128,10 @@
 		2CA71FC8297D326D000A6FD6 /* ProfileSettingsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsType.swift; sourceTree = "<group>"; };
 		2CA71FCA297D3285000A6FD6 /* SettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellViewModel.swift; sourceTree = "<group>"; };
 		2CA71FCC297D32C6000A6FD6 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		2CA71FEA297E7211000A6FD6 /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
+		2CA71FEC297E7258000A6FD6 /* AddressesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewModel.swift; sourceTree = "<group>"; };
+		2CA71FEE297E7638000A6FD6 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +140,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C4E08DC2979797B002717B2 /* SnapKit in Frameworks */,
-				2C4E08DF29797BED002717B2 /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +351,7 @@
 			children = (
 				2C4E08E429797D06002717B2 /* Coordinator.swift */,
 				2C4E08E229797CEA002717B2 /* AppCoordinator.swift */,
+				2CA71FEE297E7638000A6FD6 /* ProfileCoordinator.swift */,
 				2C4E08F629798915002717B2 /* LoginCoordinator.swift */,
 				2C4E09002979911F002717B2 /* TabCoordinator */,
 			);
@@ -354,6 +361,7 @@
 		2C746067291A6D98006E1872 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2CA71FE5297E7198000A6FD6 /* Addresses Screen */,
 				2C893CF72950E726007DF00C /* Product Details Screen */,
 				2C893CF62950E6ED007DF00C /* Profile Screen */,
 				2C893CF52950E6E5007DF00C /* Search Screen */,
@@ -391,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				2C4E08E629797D4E002717B2 /* UINavigationController.swift */,
+				2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,6 +499,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2CA71FE5297E7198000A6FD6 /* Addresses Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2CA71FE8297E71EF000A6FD6 /* Model */,
+				2CA71FE7297E71E0000A6FD6 /* ViewModel */,
+				2CA71FE6297E71DC000A6FD6 /* View */,
+			);
+			path = "Addresses Screen";
+			sourceTree = "<group>";
+		};
+		2CA71FE6297E71DC000A6FD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CA71FEA297E7211000A6FD6 /* AddressesViewController.swift */,
+				2CA71FEC297E7258000A6FD6 /* AddressesViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CA71FE7297E71E0000A6FD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2CA71FE8297E71EF000A6FD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -508,7 +550,6 @@
 			name = ZolotoyeSechenie;
 			packageProductDependencies = (
 				2C4E08DB2979797B002717B2 /* SnapKit */,
-				2C4E08DE29797BED002717B2 /* ReSwift */,
 			);
 			productName = ZolotoyeSechenie;
 			productReference = 2C74602D291A6A02006E1872 /* ZolotoyeSechenie.app */;
@@ -584,7 +625,6 @@
 			mainGroup = 2C746024291A6A02006E1872;
 			packageReferences = (
 				2C4E08DA2979797B002717B2 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				2C4E08DD29797BED002717B2 /* XCRemoteSwiftPackageReference "ReSwift" */,
 			);
 			productRefGroup = 2C74602E291A6A02006E1872 /* Products */;
 			projectDirPath = "";
@@ -638,12 +678,15 @@
 				2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */,
 				2C260AFF297C5EBA00771809 /* NotificationsService.swift in Sources */,
 				2C4E08F5297988EB002717B2 /* SignInViewController.swift in Sources */,
+				2CA71FCF297D424B000A6FD6 /* UIAlertController.swift in Sources */,
 				2C4E08F929798953002717B2 /* TabCoordinator.swift in Sources */,
 				2CA71FCB297D3285000A6FD6 /* SettingsCellViewModel.swift in Sources */,
+				2CA71FED297E7258000A6FD6 /* AddressesViewModel.swift in Sources */,
 				2C260AE5297BB79100771809 /* ProductViewModel.swift in Sources */,
 				2C4E08F129797E91002717B2 /* NotificationsViewController.swift in Sources */,
 				2C4E08F329797EF9002717B2 /* ProfileViewController.swift in Sources */,
 				2C4E08E529797D06002717B2 /* Coordinator.swift in Sources */,
+				2CA71FEB297E7211000A6FD6 /* AddressesViewController.swift in Sources */,
 				2C4E08E129797CBA002717B2 /* TabBarCoordinator.swift in Sources */,
 				2C260AF1297C28F900771809 /* IconCollectionView.swift in Sources */,
 				2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */,
@@ -668,6 +711,7 @@
 				2C4E08F729798915002717B2 /* LoginCoordinator.swift in Sources */,
 				2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */,
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
+				2CA71FEF297E7638000A6FD6 /* ProfileCoordinator.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1020,14 +1064,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		2C4E08DD29797BED002717B2 /* XCRemoteSwiftPackageReference "ReSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReSwift/ReSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1035,11 +1071,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C4E08DA2979797B002717B2 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		2C4E08DE29797BED002717B2 /* ReSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2C4E08DD29797BED002717B2 /* XCRemoteSwiftPackageReference "ReSwift" */;
-			productName = ReSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 
