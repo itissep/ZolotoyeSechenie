@@ -11,7 +11,7 @@ class ProfileViewModel: NSObject {
     private var profileService: ProfileServiceProtocol
     
     var settings: [ProfileSettingsType] =
-    [.addresses, .payments, .history, .deleteProfile, .signOut]
+    [.addresses, .history, .deleteProfile, .signOut]
     
     var deliveriesCount = 0 {
         didSet {

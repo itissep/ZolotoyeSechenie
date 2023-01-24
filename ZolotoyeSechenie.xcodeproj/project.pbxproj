@@ -72,6 +72,10 @@
 		2CA7201D297EDD9D000A6FD6 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201C297EDD9D000A6FD6 /* Order.swift */; };
 		2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7201E297EDDD0000A6FD6 /* OrderService.swift */; };
 		2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72024297EE354000A6FD6 /* ProductsViewController.swift */; };
+		2CA72028297FD978000A6FD6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72027297FD978000A6FD6 /* CustomTextField.swift */; };
+		2CA7202A297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72029297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift */; };
+		2CA7202C297FD9E0000A6FD6 /* CustonTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7202B297FD9E0000A6FD6 /* CustonTextFieldType.swift */; };
+		2CA7202E297FDA8D000A6FD6 /* LabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7202D297FDA8D000A6FD6 /* LabelTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +164,10 @@
 		2CA7201C297EDD9D000A6FD6 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		2CA7201E297EDDD0000A6FD6 /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
 		2CA72024297EE354000A6FD6 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		2CA72027297FD978000A6FD6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2CA72029297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldViewModel.swift; sourceTree = "<group>"; };
+		2CA7202B297FD9E0000A6FD6 /* CustonTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonTextFieldType.swift; sourceTree = "<group>"; };
+		2CA7202D297FDA8D000A6FD6 /* LabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,6 +646,7 @@
 		2CA72013297ED815000A6FD6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2CA72026297FD960000A6FD6 /* Custom TextField + Label */,
 				2C9EFBB2297BAE98006DF273 /* ProductTableCell.swift */,
 				2CA72014297ED8E3000A6FD6 /* ProductTableView.swift */,
 				2C260AF8297C5E2400771809 /* GenericTableView.swift */,
@@ -676,6 +685,17 @@
 				2CA72024297EE354000A6FD6 /* ProductsViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2CA72026297FD960000A6FD6 /* Custom TextField + Label */ = {
+			isa = PBXGroup;
+			children = (
+				2CA72027297FD978000A6FD6 /* CustomTextField.swift */,
+				2CA72029297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift */,
+				2CA7202B297FD9E0000A6FD6 /* CustonTextFieldType.swift */,
+				2CA7202D297FDA8D000A6FD6 /* LabelTextField.swift */,
+			);
+			path = "Custom TextField + Label";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -839,6 +859,7 @@
 				2C260AF1297C28F900771809 /* IconCollectionView.swift in Sources */,
 				2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */,
 				2C260AFB297C5E4D00771809 /* GenericTableCell.swift in Sources */,
+				2CA72028297FD978000A6FD6 /* CustomTextField.swift in Sources */,
 				2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */,
 				2CA71FC7297D31E6000A6FD6 /* ProfileSettingsTableCell.swift in Sources */,
 				2CA71FF7297EB4C9000A6FD6 /* TabCoordinator.swift in Sources */,
@@ -857,6 +878,7 @@
 				2CA72006297ED189000A6FD6 /* Address.swift in Sources */,
 				2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */,
 				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
+				2CA7202A297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift in Sources */,
 				2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */,
 				2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */,
 				2CA71FC5297C68FB000A6FD6 /* ProfileViewModel.swift in Sources */,
@@ -865,11 +887,13 @@
 				2CA71FF3297EB41D000A6FD6 /* FeedCoordinator.swift in Sources */,
 				2C4E08ED29797E2D002717B2 /* CartViewController.swift in Sources */,
 				2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */,
+				2CA7202C297FD9E0000A6FD6 /* CustonTextFieldType.swift in Sources */,
 				2C746033291A6A02006E1872 /* SceneDelegate.swift in Sources */,
 				2CA71FF1297EB3BD000A6FD6 /* DeepLinkCoordinator.swift in Sources */,
 				2C260AE9297BBA3D00771809 /* AppSettings.swift in Sources */,
 				2C9EFBB3297BAE98006DF273 /* ProductTableCell.swift in Sources */,
 				2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */,
+				2CA7202E297FDA8D000A6FD6 /* LabelTextField.swift in Sources */,
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 				2CA72017297EDB06000A6FD6 /* OrderViewController.swift in Sources */,

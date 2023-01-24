@@ -23,7 +23,7 @@ protocol ProfileBaseCoordinator: Coordinator {
     func goToAddresses()
     func goToChangeAddress()
     
-    func goToPayment()
+//    func goToPayment()
     
     func goToHistory()
     
@@ -63,10 +63,7 @@ class ProfileCoordinator: ProfileBaseCoordinator {
         //
         
     }
-    
-    func goToPayment() {
-        //
-    }
+
     
     func goToHistory() {
         let historyViewController = OrdersViewController(coordinator: self, type: .history)
