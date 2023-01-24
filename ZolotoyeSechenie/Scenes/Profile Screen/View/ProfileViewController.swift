@@ -28,19 +28,19 @@ class ProfileViewController: UIViewController {
     
     
     init(coordinator: ProfileBaseCoordinator) {
-            super.init(nibName: nil, bundle: nil)
-            self.coordinator = coordinator
-
-        }
+        super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
         
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +57,7 @@ class ProfileViewController: UIViewController {
         setupButtons()
         setupTableView()
     }
-
+    
     func initViewModel() {
         
         viewModel.getData()
@@ -120,7 +120,7 @@ class ProfileViewController: UIViewController {
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().inset(35)
         }
-                
+        
         favouritesBtn.setTitle("Избранное", for: .normal)
         favouritesBtn.addTarget(self, action: #selector(favouritesBtnPressed), for: .touchUpInside)
         
@@ -208,10 +208,28 @@ extension ProfileViewController: UITableViewDelegate {
             coordinator?.goToAddresses()
         case .history:
             coordinator?.goToHistory()
+        case .deleteProfile:
+            let alert = UIAlertController.createAlert(
+                withTitle: "Хотите удалить профиль?",
+                message: "Это дейстивие нельзя отменить. Ваш аккаунт будет удален.",
+                buttonString: "Удалить") { _ in
+                    // TODO: delete profile
+                    print("delete user info")
+                }
+            
+            self.present(alert, animated: true, completion: nil)
+        case .signOut:
+            let alert = UIAlertController.createAlert(
+                withTitle: "Хотите выйти из профиля?",
+                message: "Всегда сможете к нам вернуться.",
+                buttonString: "Выйти") { _ in
+                    print("log out")
+                    // TODO: coordinator.logout()
+                }
+            self.present(alert, animated: true, completion: nil)
         default:
             print("go somewhere")
         }
-        print("selected \(cell.cellViewModel?.type)")
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
