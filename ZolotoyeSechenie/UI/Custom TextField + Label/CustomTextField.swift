@@ -42,7 +42,7 @@ final class CustomTextField: UIView {
     private func backgroundViewSetup(){
         addSubview(backgroundView)
         
-        backgroundView.backgroundColor = K.Colors.prettyGold
+        backgroundView.backgroundColor = K.Colors.prettyGold.withAlphaComponent(0.1)
         backgroundView.layer.cornerRadius = 16
         
         backgroundView.snp.makeConstraints{make in
@@ -95,7 +95,7 @@ final class CustomTextField: UIView {
         
         textField.keyboardType = viewModel.keyboardType
         textField.attributedPlaceholder = NSAttributedString(string: viewModel.placeholder,
-                                                             attributes: [NSAttributedString.Key.foregroundColor: K.Colors.gray])
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         textField.font = K.Fonts.regular17
         textField.textColor = K.Colors.darkGold
         textField.clearsOnBeginEditing = false

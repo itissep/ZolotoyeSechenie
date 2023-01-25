@@ -76,6 +76,9 @@
 		2CA7202A297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA72029297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift */; };
 		2CA7202C297FD9E0000A6FD6 /* CustonTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7202B297FD9E0000A6FD6 /* CustonTextFieldType.swift */; };
 		2CA7202E297FDA8D000A6FD6 /* LabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7202D297FDA8D000A6FD6 /* LabelTextField.swift */; };
+		2CA72030297FF83B000A6FD6 /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7202F297FF83B000A6FD6 /* EditAddressViewController.swift */; };
+		2CA7203229802467000A6FD6 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7203129802467000A6FD6 /* ProductsViewModel.swift */; };
+		2CA720342980249D000A6FD6 /* EditAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA720332980249D000A6FD6 /* EditAddressViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +171,9 @@
 		2CA72029297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldViewModel.swift; sourceTree = "<group>"; };
 		2CA7202B297FD9E0000A6FD6 /* CustonTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonTextFieldType.swift; sourceTree = "<group>"; };
 		2CA7202D297FDA8D000A6FD6 /* LabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField.swift; sourceTree = "<group>"; };
+		2CA7202F297FF83B000A6FD6 /* EditAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
+		2CA7203129802467000A6FD6 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		2CA720332980249D000A6FD6 /* EditAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -582,21 +588,14 @@
 			children = (
 				2CA7200E297ED5DF000A6FD6 /* View */,
 				2CA7200D297ED5D8000A6FD6 /* ViewModel */,
-				2CA7200C297ED5D4000A6FD6 /* Model */,
 			);
 			path = "Edit Address Screen";
-			sourceTree = "<group>";
-		};
-		2CA7200C297ED5D4000A6FD6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		2CA7200D297ED5D8000A6FD6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2CA720332980249D000A6FD6 /* EditAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -604,6 +603,7 @@
 		2CA7200E297ED5DF000A6FD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2CA7202F297FF83B000A6FD6 /* EditAddressViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -675,6 +675,7 @@
 		2CA72022297EE309000A6FD6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2CA7203129802467000A6FD6 /* ProductsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -837,8 +838,10 @@
 				2C260AEE297C288D00771809 /* IconCollectionCell.swift in Sources */,
 				2C746035291A6A02006E1872 /* ViewController.swift in Sources */,
 				2C260AE3297BB76C00771809 /* ProductsService.swift in Sources */,
+				2CA7203229802467000A6FD6 /* ProductsViewModel.swift in Sources */,
 				2CA7201D297EDD9D000A6FD6 /* Order.swift in Sources */,
 				2CA71FFE297EC01E000A6FD6 /* NotificationsController.swift in Sources */,
+				2CA72030297FF83B000A6FD6 /* EditAddressViewController.swift in Sources */,
 				2C260AE7297BB8D900771809 /* MockData.swift in Sources */,
 				2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */,
 				2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */,
@@ -869,6 +872,7 @@
 				2CA72019297EDBEF000A6FD6 /* OrdersViewModel.swift in Sources */,
 				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
 				2CA72004297ED140000A6FD6 /* AddressTableCell.swift in Sources */,
+				2CA720342980249D000A6FD6 /* EditAddressViewModel.swift in Sources */,
 				2CA71FF5297EB460000A6FD6 /* ProfileCoordinator.swift in Sources */,
 				2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */,
 				2CA7200A297ED1C2000A6FD6 /* AddressesService.swift in Sources */,

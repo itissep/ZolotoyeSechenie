@@ -10,8 +10,13 @@ import Foundation
 
 typealias Addresses = [Address]
 
-struct Address: Codable {
+struct Address: Codable, Equatable {
     let id: String
+    let city: String
+    let district: String
+    let street: String
+    let building: String
+    let apartment: String
 //    let title: String
 //    let message: String
 //    let image: String

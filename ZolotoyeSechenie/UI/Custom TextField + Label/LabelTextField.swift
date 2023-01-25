@@ -13,8 +13,8 @@ final class LabelTextField: UIView {
     private let textField: CustomTextField
     private let label = UILabel()
     
-    init(frame: CGRect = CGRect.zero, CustomTextFieldViewModel: CustomTextFieldViewModel, labelText: String){
-        textField = CustomTextField(viewModel: CustomTextFieldViewModel)
+    init(frame: CGRect = CGRect.zero, viewModel: CustomTextFieldViewModel, labelText: String){
+        textField = CustomTextField(viewModel: viewModel)
         label.text = labelText
         super.init(frame: frame)
     }
@@ -57,8 +57,13 @@ final class LabelTextField: UIView {
         }
     }
     
-    public func returnText() -> String{
+    public func returnText() -> String {
         return textField.returnText()
+    }
+    
+    public func setText(){
+//        textField.
+        
     }
     
    

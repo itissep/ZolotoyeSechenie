@@ -21,7 +21,7 @@ protocol ProfileBaseCoordinator: Coordinator {
     func goToFavourites()
     
     func goToAddresses()
-    func goToChangeAddress()
+    func goToEditAddress(type: EditAddressType)
     
 //    func goToPayment()
     
@@ -59,9 +59,9 @@ class ProfileCoordinator: ProfileBaseCoordinator {
         navigationRootViewController?.pushViewController(addressesViewController, animated: true)
     }
     
-    func goToChangeAddress() {
-        //
-        
+    func goToEditAddress(type: EditAddressType) {
+        let editAddressVC = EditAddressViewController(coordinator: self, type: type)
+        navigationRootViewController?.pushViewController(editAddressVC, animated: true)
     }
 
     

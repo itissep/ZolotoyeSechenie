@@ -57,6 +57,10 @@ struct MockData {
             SpecialProducts(id: "third", title: "third Category", image: UIImage(named: "3")),
         ]
     }
+    
+    struct Addresses {
+        static var model = [Address(id: "one", city: "one", district: "one", street: "one", building: "one", apartment: "one"), Address(id: "two", city: "two", district: "two", street: "two", building: "two", apartment: "two")]
+    }
 }
 
 

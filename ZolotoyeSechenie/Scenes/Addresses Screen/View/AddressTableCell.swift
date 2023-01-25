@@ -37,6 +37,7 @@ class AddressesTableCell: UITableViewCell {
     
     func initView() {
         contentView.backgroundColor = .white
+        self.selectionStyle = .none
         
         var imageView : UIImageView
         imageView  = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))

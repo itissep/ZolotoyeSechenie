@@ -22,11 +22,12 @@ class AddressesViewModel: NSObject {
         }
     }
     
-    init(addressesService: AddressesServiceProtocol = AddressesService()) {
+    init(addressesService: AddressesServiceProtocol = AddressesMockService()) {
         self.addressesService = addressesService
     }
     
     func getAddresses() {
+        // TODO: change to real service
         addressesService.getAddresses { success, model, error in
             if success, let addresses = model {
                 self.fetchData(addresses: addresses)
@@ -47,8 +48,12 @@ class AddressesViewModel: NSObject {
     
     func createCellModel(address: Address) -> AddressCellViewModel {
         let id = address.id
-        // TODO: change data later
-        return AddressCellViewModel(id: id) // change properties
+        let title = "ул. \(address.street), д. \(address.building)"
+        let message = "г. \(address.city), \(address.district) р-н."
+        let index = "индекс ли?"
+        
+        let cellViewModel = AddressCellViewModel(id: id, title: title, message: message, index: index)
+        return cellViewModel
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> AddressCellViewModel {

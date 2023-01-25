@@ -78,7 +78,7 @@ class AddressesViewController: UIViewController, ProfileBaseCoordinated {
     
     @objc
     func addTapped(){
-        
+        coordinator?.goToEditAddress(type: .Add)
     }
 }
 
@@ -108,12 +108,14 @@ extension AddressesViewController: UITableViewDataSource {
 extension AddressesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: AddressesTableCell.identifier, for: indexPath) as? AddressesTableCell
+            let cell = tableView.cellForRow(at: indexPath) as? AddressesTableCell
         else {
             fatalError("something went wrong with addresses selection")
         }
-        // TODO: add coordination for address screen
-        print(cell.cellViewModel?.id)
+        guard let id = cell.cellViewModel?.id else {
+            return
+        }
+        coordinator?.goToEditAddress(type: .Edit(id))
     }
     
 }
