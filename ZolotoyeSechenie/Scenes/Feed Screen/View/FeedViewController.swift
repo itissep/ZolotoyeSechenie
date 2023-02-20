@@ -5,37 +5,29 @@
 //  Created by Someone on 19.01.2023.
 //
 
-
 // TODO: redo with https://jalpesh-iosdev.medium.com/how-to-create-a-compositional-layout-using-collection-view-in-swift-785a9a886fe9
 // pull to refresh
 // loader
 // skeleton???
 //
 
-import UIKit
 import SnapKit
-
+import UIKit
 
 class FeedViewController: UIViewController, FeedBaseCoordinated {
-    
-    lazy var viewModel = {
-        FeedViewModel()
-    }()
+    lazy var viewModel = FeedViewModel()
     
     weak var coordinator: FeedBaseCoordinator?
 
+    init(coordinator: FeedBaseCoordinator) {
+        super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
+    }
         
-        init(coordinator: FeedBaseCoordinator) {
-            super.init(nibName: nil, bundle: nil)
-            self.coordinator = coordinator
-
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    
-    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let tableView = ProductTableView()
     
@@ -60,11 +52,11 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        title = "Лента"
+        navigationController?.navigationBar.titleTextAttributes = K.Unspecified.titleAttributes
         
         initViewModel()
     }
-    
     
     override func viewDidLayoutSubviews() {
         setupScrollView()
@@ -77,7 +69,6 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         moreBtnSetup()
     }
     
-    
     func initViewModel() {
         viewModel.getHeaderData()
         viewModel.reloadHeader = { [weak self] in
@@ -86,7 +77,6 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
                 self?.cosmeticsCollectionView.reloadData()
                 self?.specialsCollectionView.reloadData()
             }
-            
         }
         
         viewModel.getProducts()
@@ -97,16 +87,14 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         }
     }
     
-    
     @objc
-    func moreBtnPressed(){
+    func moreBtnPressed() {
         // TODO: go to all products
         coordinator?.goToCollection(type: .all)
         print("moreBtn pressed")
     }
     
-    
-    func setupScrollView(){
+    func setupScrollView() {
         view.backgroundColor = .white
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,8 +116,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         }
     }
     
-    
-    private func caresCollectionSetup(){
+    private func caresCollectionSetup() {
         careProductsLabel.text = "Программы ухода"
         careProductsLabel.font = K.Fonts.semibold17
         careProductsLabel.textColor = K.Colors.darkGold
@@ -155,7 +142,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         }
     }
     
-    private func iconsCollectionSetup(){
+    private func iconsCollectionSetup() {
         cosmeticsLabel.text = "Декоративная косметика"
         cosmeticsLabel.font = K.Fonts.semibold17
         cosmeticsLabel.textColor = K.Colors.darkGold
@@ -166,7 +153,6 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         cosmeticsLabel.snp.makeConstraints { make in
             make.top.equalTo(caresCollectionView.snp.bottom).offset(20)
             make.leading.trailing.equalToSuperview().offset(30)
-            
         }
         
         cosmeticsCollectionView.delegate = self
@@ -182,8 +168,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         }
     }
     
-    
-    private func specialsCollectionSetup(){
+    private func specialsCollectionSetup() {
         specialProductsLabel.text = "Специальные средства"
         specialProductsLabel.font = K.Fonts.semibold17
         specialProductsLabel.textColor = K.Colors.darkGold
@@ -208,8 +193,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         }
     }
     
-    
-    private func tableViewSetup(){
+    private func tableViewSetup() {
         popularLabel.text = "Популярное"
         popularLabel.font = K.Fonts.semibold20
         popularLabel.textColor = K.Colors.darkGold
@@ -237,8 +221,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         }
     }
     
-    
-    private func moreBtnSetup(){
+    private func moreBtnSetup() {
         moreBtn.addTarget(self, action: #selector(moreBtnPressed), for: .touchUpInside)
         
         moreBtn.setTitle("Все продукты", for: .normal)
@@ -260,14 +243,12 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
     }
 }
 
-
 // MARK: - UITableViewDelegate
+
 extension FeedViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? ProductTableCell else {
@@ -278,10 +259,9 @@ extension FeedViewController: UITableViewDelegate {
     }
 }
 
-
 // MARK: - UITableViewDataSource
+
 extension FeedViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = viewModel.productCellViewModels.count
         if count >= 5 {
@@ -291,13 +271,11 @@ extension FeedViewController: UITableViewDataSource {
         }
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableCell.identifier, for: indexPath) as? ProductTableCell
         else {
             fatalError("xib does not exists")
-            
         }
         let cellVM = viewModel.getCellViewModel(at: indexPath)
         cell.cellViewModel = cellVM
@@ -305,11 +283,10 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 
-//MARK: - UICollectionViewDelegate
 extension FeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if collectionView == self.caresCollectionView {
             guard let cell = collectionView.cellForItem(at: indexPath) as? GenericCollectionCell else {
                 // TODO: add error handler
@@ -334,12 +311,11 @@ extension FeedViewController: UICollectionViewDelegate {
         } else {
             fatalError("Some spiritual collection view was detected. Do something!")
         }
-        
     }
 }
 
+// MARK: - UICollectionViewDataSource
 
-//MARK: - UICollectionViewDataSource
 extension FeedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.cosmeticsCollectionView {
@@ -352,7 +328,6 @@ extension FeedViewController: UICollectionViewDataSource {
             fatalError("Some spiritual collection view was detected. Do something!")
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.caresCollectionView {
@@ -382,6 +357,5 @@ extension FeedViewController: UICollectionViewDataSource {
         } else {
             fatalError("Some spiritual collection view was detected. Do something!")
         }
-        
     }
 }

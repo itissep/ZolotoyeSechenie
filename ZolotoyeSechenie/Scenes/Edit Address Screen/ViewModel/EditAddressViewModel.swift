@@ -41,7 +41,6 @@ class EditAddressViewModel: NSObject {
                     print(error)
                 } else {
                     self.address = result
-                    
                 }
             }
         }

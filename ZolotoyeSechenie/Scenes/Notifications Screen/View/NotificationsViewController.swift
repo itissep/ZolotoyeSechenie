@@ -5,29 +5,23 @@
 //  Created by Someone on 19.01.2023.
 //
 
-import UIKit
 import SnapKit
-
+import UIKit
 
 class NotificationsViewController: UIViewController, NotificationsBaseCoordinated {
-    
-    lazy var viewModel = {
-        NotificationsViewModel()
-    }()
+    lazy var viewModel = NotificationsViewModel()
     
     weak var coordinator: NotificationsBaseCoordinator?
-    
     
     init(coordinator: NotificationsBaseCoordinator) {
         super.init(nibName: nil, bundle: nil)
         self.coordinator = coordinator
-        
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     let tableView = GenericTableView()
 
@@ -38,7 +32,6 @@ class NotificationsViewController: UIViewController, NotificationsBaseCoordinate
         title = "Уведомления"
         navigationController?.navigationBar.titleTextAttributes = K.Unspecified.titleAttributes
 
-        
         initViewModel()
     }
     
@@ -55,7 +48,7 @@ class NotificationsViewController: UIViewController, NotificationsBaseCoordinate
         }
     }
     
-    private func tableViewSetup(){
+    private func tableViewSetup() {
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -70,8 +63,8 @@ class NotificationsViewController: UIViewController, NotificationsBaseCoordinate
     }
 }
 
+// MARK: - UITableViewDataSource
 
-//MARK: - UITableViewDataSource
 extension NotificationsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.notifications.count
@@ -87,12 +80,10 @@ extension NotificationsViewController: UITableViewDataSource {
         cell.cellViewModel = cellViewModel
         return cell
     }
-    
-    
 }
 
+// MARK: - UITableViewDelegate
 
-//MARK: - UITableViewDelegate
 extension NotificationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard
@@ -103,5 +94,4 @@ extension NotificationsViewController: UITableViewDelegate {
         // TODO: add coordination for notification screen
         print(cell.cellViewModel?.id)
     }
-    
 }

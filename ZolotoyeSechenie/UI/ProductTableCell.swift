@@ -5,18 +5,16 @@
 //  Created by Someone on 21.01.2023.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 protocol ProductCellViewModelProtocol {
-    
     var id: String { get }
     var title: String { get }
     var description: String { get }
     var amount: String { get }
     var image: String? { get }
     var price: String { get }
-
 }
 
 class ProductTableCell: UITableViewCell {
@@ -25,8 +23,6 @@ class ProductTableCell: UITableViewCell {
     let descriptionLabel = UILabel()
     let amountLabel = UILabel()
     let priceLabel = UILabel()
-    
-    
     
     class var identifier: String { return String(describing: self) }
     
@@ -122,7 +118,3 @@ class ProductTableCell: UITableViewCell {
         coverImageView.image = nil
     }
 }
-
-
-
-

@@ -5,8 +5,8 @@
 //  Created by Someone on 22.01.2023.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 protocol GenericCellViewModelProtocol {
     var id: String { get }
@@ -17,7 +17,6 @@ protocol GenericCellViewModelProtocol {
 }
 
 class GenericTableCell: UITableViewCell {
-    
     let coverImageView = UIImageView()
     let titleLabel = UILabel()
     let messageLabel = UILabel()
@@ -45,18 +44,16 @@ class GenericTableCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func initView() {
         contentView.backgroundColor = .white
         
         self.selectionStyle = .none
         
-        var imageView : UIImageView
-                imageView  = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-                imageView.image = UIImage(named:"Disclosure Indicator")
-                self.accessoryView = imageView
+        var imageView: UIImageView
+        imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        imageView.image = UIImage(named: "Disclosure Indicator")
+        self.accessoryView = imageView
 
-    
         coverImageView.contentMode = .scaleAspectFill
         coverImageView.layer.masksToBounds = true
         coverImageView.layer.cornerRadius = 16
@@ -117,5 +114,4 @@ class GenericTableCell: UITableViewCell {
         coverImageView.image = nil
     }
 }
-
 
