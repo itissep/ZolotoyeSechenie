@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MockProfileService: UserServiceDescription {
+final class MockUserService: UserServiceDescription {
     func getUserInfo(for userId: String, _ completion: @escaping (Result<User, Error>) -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             completion(.success(MockData.user))

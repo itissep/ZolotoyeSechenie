@@ -11,6 +11,6 @@ import UIKit
 
 struct SettingsCellViewModel {
     let title: String
-    let image: UIImage
+    let image: UIImage?
     let type: ProfileSettingsType
 }

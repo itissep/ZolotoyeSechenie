@@ -50,17 +50,17 @@ class AddressesViewController: UIViewController {
     }
     
     func initViewModel() {
-        viewModel.getAddresses()
-        viewModel.reloadTableView = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
+//        viewModel.getAddresses()
+//        viewModel.reloadTableView = { [weak self] in
+//            DispatchQueue.main.async {
+//                self?.tableView.reloadData()
+//            }
+//        }
     }
     
     private func tableViewSetup(){
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         
         tableView.separatorStyle = .none
         
@@ -84,40 +84,40 @@ class AddressesViewController: UIViewController {
 
 
 //MARK: - UITableViewDataSource
-extension AddressesViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.addresses.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: AddressesTableCell.identifier, for: indexPath) as? AddressesTableCell
-        else {
-            fatalError("something wrong with AddressesTable cell")
-        }
-        let cellViewModel = viewModel.getCellViewModel(at: indexPath)
-        cell.cellViewModel = cellViewModel
-        return cell
-    }
-    
-    
-}
+//extension AddressesViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModel.addresses.count
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard
+//            let cell = tableView.dequeueReusableCell(withIdentifier: AddressesTableCell.identifier, for: indexPath) as? AddressesTableCell
+//        else {
+//            fatalError("something wrong with AddressesTable cell")
+//        }
+//        let cellViewModel = viewModel.getCellViewModel(at: indexPath)
+//        cell.cellViewModel = cellViewModel
+//        return cell
+//    }
+//    
+//    
+//}
 
 
 //MARK: - UITableViewDelegate
-extension AddressesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard
-            let cell = tableView.cellForRow(at: indexPath) as? AddressesTableCell
-        else {
-            fatalError("something went wrong with addresses selection")
-        }
-        guard let id = cell.cellViewModel?.id else {
-            return
-        }
-//        coordinator?.goToEditAddress(type: .Edit(id))
-    }
-    
-}
+//extension AddressesViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard
+//            let cell = tableView.cellForRow(at: indexPath) as? AddressesTableCell
+//        else {
+//            fatalError("something went wrong with addresses selection")
+//        }
+//        guard let id = cell.cellViewModel?.id else {
+//            return
+//        }
+////        coordinator?.goToEditAddress(type: .Edit(id))
+//    }
+//    
+//}
 
 

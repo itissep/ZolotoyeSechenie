@@ -28,9 +28,9 @@ struct ProductCellViewModel: ProductCellViewModelProtocol {
     #warning("TODO: image loading ????")
 }
 
-
-struct FeedCollectionsViewModel {
-    var careProgramms: [MockData.CareProgramms] = []
-    var cosmeticCategories: [MockData.DecorativeCategories] = []
-    var specialProducts: [MockData.SpecialProducts] = []
-}
+//
+//struct FeedCollectionsViewModel {
+//    var careProgramms: [MockData.CareProgramms] = []
+//    var cosmeticCategories: [MockData.DecorativeCategories] = []
+//    var specialProducts: [MockData.SpecialProducts] = []
+//}

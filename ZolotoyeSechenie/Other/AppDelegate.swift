@@ -91,7 +91,7 @@ extension AppDelegate {
 //        }
         
         container.register(UserServiceDescription.self) { _ in
-            return MockProfileService()
+            return MockUserService()
         }
 
         container.register(ImageServiceDescription.self) { _ in
@@ -108,6 +108,10 @@ extension AppDelegate {
 
         container.register(ProductServiceDescription.self) { _ in
             return MockProductService()
+        }
+        
+        container.register(OrderServiceDescription.self) { _ in
+            return MockOrderService()
         }
 
         container.register(NotificationServiceDescription.self) { _ in

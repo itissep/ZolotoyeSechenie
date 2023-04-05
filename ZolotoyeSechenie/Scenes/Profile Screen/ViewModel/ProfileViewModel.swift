@@ -5,69 +5,98 @@
 //  Created by Someone on 22.01.2023.
 //
 
-import UIKit
+import Foundation
+import Combine
 
 class ProfileViewModel: NSObject {
-    private var profileService: ProfileServiceProtocol
+    private let userService: UserServiceDescription
+    private let orderService: OrderServiceDescription
+    private let userId: String
     
-    var settings: [ProfileSettingsType] =
-    [.addresses, .history, .deleteProfile, .signOut]
+    @Published var deliveriesCount = 0
+    @Published var userInfo: User?
+    @Published var isLoading: Bool = false
+    @Published var settingsViewModels: [SettingsCellViewModel] = []
     
-    var deliveriesCount = 0 {
-        didSet {
-            reloadData?()
-        }
+    let dispatchGroup = DispatchGroup()
+    let queue = DispatchQueue(label: "ru.zolotoyesechenie.queue.profile", qos: .background)
+    
+    let coordinator: ProfileCoordinatorDescription
+
+    
+    init(userId: String,
+         userService: UserServiceDescription,
+         orderService: OrderServiceDescription,
+         coordinator: ProfileCoordinatorDescription) {
+        self.userService = userService
+        self.orderService = orderService
+        self.userId = userId
+        self.coordinator = coordinator
+        super.init()
+        
+        getData()
+        createSettingsModels()
     }
     
-    
-    lazy var settingsViewModels: [SettingsCellViewModel] = []
-    
-    var reloadData: (() -> Void)?
-    
-    
-    init(userId: String) {
-        self.profileService = ProfileService()
-    }
-    
-    func getData() {
-        settingsViewModels = createSettingsModels()
-        profileService.getDeliveriesCount { success, result, error in
-            if success, let count = result {
-                self.deliveriesCount = count
-            } else {
-                print(error!)
+    private func getData() {
+        isLoading = true
+        dispatchGroup.enter()
+        orderService.getDelieveriesCount(for: userId) {[weak self] result in
+            switch result {
+            case .failure(let error):
+                #warning("TODO: error handling")
+                print(error)
+                self?.dispatchGroup.leave()
+            case .success(let count):
+                self?.deliveriesCount = count
+                self?.dispatchGroup.leave()
             }
         }
+        dispatchGroup.enter()
+        userService.getUserInfo(for: userId) {[weak self] result in
+            switch result {
+            case .failure(let error):
+                #warning("TODO: error handling")
+                print(error)
+                self?.dispatchGroup.leave()
+            case .success(let userInfo):
+                self?.userInfo = userInfo
+                self?.dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: queue) { [weak self] in
+            self?.isLoading = false
+        }
     }
     
-    
-    func createSettingsModels() -> [SettingsCellViewModel]{
+    private func createSettingsModels() {
         var models: [SettingsCellViewModel] = []
         
-        for item in settings {
-            let image: UIImage
-            switch item {
-            case .addresses:
-                image = K.Icons.Settings.addresses
-            case .deleteProfile:
-                image = K.Icons.Settings.delete
-            case .signOut:
-                image = K.Icons.Settings.signOut
-            case .history:
-                image = K.Icons.Settings.history
-            case .payments:
-                image = K.Icons.Settings.payments
-            }
-            
-            let model = SettingsCellViewModel(title: item.rawValue, image: image, type: item)
+        for type in ProfileSettingsType.allCases {
+            let image = type.getIcon()
+            let model = SettingsCellViewModel(title: type.rawValue, image: image, type: type)
             models.append(model)
-            
-            
         }
-        return models
+        settingsViewModels = models
     }
     
-    func getCellViewModel(at indexPath: IndexPath) -> SettingsCellViewModel {
-        return settingsViewModels[indexPath.row]
+    func goToScreen(for type: ProfileSettingsType) {
+        switch type {
+        case .addresses:
+            coordinator.goToAllAddresses()
+        case .history:
+            coordinator.goToHistory()
+        default:
+            break
+        }
+    }
+    
+    func sighOutWasPressed() {
+        
+    }
+    
+    func deleteProfileWasPressed() {
+        
     }
 }

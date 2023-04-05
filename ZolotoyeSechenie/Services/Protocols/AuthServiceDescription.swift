@@ -74,6 +74,8 @@ enum ServiceError: Error {
     case imageFetchFailture, imageUploadFailture
     // addressService
     case addAddressFailture, fetchAddressesFailture, fetchAddressInfoFailture, updateAddressFailture, deleteAddressFailture
+    // orderService
+    case createOrderFailture, deleteOrderFailture, fetchAllOrdersFailture, fetchOrderInfoFailture, deliveryCountFailture, updateOrderStatusFailture
     
 }
 
@@ -153,6 +155,37 @@ extension ServiceError: LocalizedError {
             return NSLocalizedString(
                 "Произошла ошибка с отправкой изображения. Попробуйте еще.",
                 comment: "Delete Address Failture"
+            )
+        // orderService
+        case .createOrderFailture:
+            return NSLocalizedString(
+                "Произошла ошибка с отправкой изображения. Попробуйте еще.",
+                comment: "Create Order Failture"
+            )
+        case .deleteOrderFailture:
+            return NSLocalizedString(
+                "Произошла ошибка с отправкой изображения. Попробуйте еще.",
+                comment: "Delete Order Failture"
+            )
+        case .fetchAllOrdersFailture:
+            return NSLocalizedString(
+                "Произошла ошибка с отправкой изображения. Попробуйте еще.",
+                comment: "Fetch All Orders Failture"
+            )
+        case .fetchOrderInfoFailture:
+            return NSLocalizedString(
+                "Произошла ошибка с отправкой изображения. Попробуйте еще.",
+                comment: "Fetch Order Info Failture"
+            )
+        case .deliveryCountFailture:
+            return NSLocalizedString(
+                "Произошла ошибка с отправкой изображения. Попробуйте еще.",
+                comment: "Delivery Count Fetch Failture"
+            )
+        case .updateOrderStatusFailture:
+            return NSLocalizedString(
+                "Произошла ошибка с отправкой изображения. Попробуйте еще.",
+                comment: "Update Order Status Failture"
             )
         }
     }

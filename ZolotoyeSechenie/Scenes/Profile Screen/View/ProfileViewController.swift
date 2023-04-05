@@ -8,18 +8,21 @@
 
 import UIKit
 import SnapKit
+import Combine
 
-// TODO: add user category and information about it
+#warning("TODO: add user category and information about it")
 
 class ProfileViewController: UIViewController {
     
-    private let viewModel: ProfileViewModel
+    private lazy var tableView = UITableView()
+    private lazy var nameLabel = UILabel()
+    private lazy var countLabel = UILabel()
+    private lazy var deliveriesBtn = UIButton()
+    private lazy var favouritesBtn = UIButton()
+    private lazy var loadingView = LoadingView(withBackground: true)
     
-    let tableView = UITableView()
-    let nameLabel = UILabel()
-    var countLabel = UILabel()
-    let deliveriesBtn = UIButton()
-    let favouritesBtn = UIButton()
+    private let viewModel: ProfileViewModel
+    private var subscriptions = Set<AnyCancellable>()
     
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
@@ -42,33 +45,41 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = K.Unspecified.titleAttributes
         
         
-        initViewModel()
+        setupBinding()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupButtons()
         setupTableView()
+        
+        loadingView.frame = view.frame
+        view.addSubview(loadingView)
     }
     
-    func initViewModel() {
-        
-        viewModel.getData()
-        // TODO: not sure if it's ok...
-        self.countLabel.text = "\(self.viewModel.deliveriesCount)"
-        viewModel.reloadData = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                
+    private func setupBinding() {
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] isLoading in
+                if isLoading {
+                    self?.loadingView.startLoading()
+                } else {
+                    self?.countLabel.text = "\(self?.viewModel.deliveriesCount ?? 0)"
+                    self?.configureNameLabel()
+                    self?.loadingView.endLoading()
+                }
             }
-        }
+            .store(in: &subscriptions)
+    }
+    
+    private func configureNameLabel() {
+        guard let name = viewModel.userInfo?.name else { return }
+        nameLabel.text = "Здравствуйте, \n\(name)"
     }
     
     private func setupButtons() {
         
         nameLabel.textColor = K.Colors.darkGold
-        // TODO: get name from user defaults via viewModel
-        nameLabel.text = "Здравствуйте, \nИван"
         nameLabel.numberOfLines = 2
         nameLabel.font = K.Fonts.semibold30
         
@@ -93,7 +104,6 @@ class ProfileViewController: UIViewController {
         deliveriesBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 10)
         
         deliveriesBtn.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(deliveriesBtn)
         
         deliveriesBtn.snp.makeConstraints { make in
@@ -142,7 +152,6 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.register(ProfileSettingsTableCell.self, forCellReuseIdentifier: ProfileSettingsTableCell.identifier)
         tableView.isScrollEnabled = false
-        // TODO: remove last separator
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -155,15 +164,34 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    private func showDeleteProfileAlert(){
+        let alert = UIAlertController.createAlert(
+            withTitle: "Хотите удалить профиль?",
+            message: "Это дейстивие нельзя отменить. Ваш аккаунт будет удален.",
+            buttonString: "Удалить") {[weak self] _ in
+                self?.viewModel.deleteProfileWasPressed()
+            }
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showSignOutAlert(){
+        let alert = UIAlertController.createAlert(
+            withTitle: "Хотите выйти из профиля?",
+            message: "Всегда сможете к нам вернуться.",
+            buttonString: "Выйти") {[weak self] _ in
+                self?.viewModel.sighOutWasPressed()
+            }
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @objc
     func deliveriesBtnPressed(){
-//        coordinator?.goToDeliveries()
+#warning("TODO: coordinator?.goToDeliveries()")
     }
     
     @objc
     func favouritesBtnPressed(){
-        print("go to favourites")
+        #warning("TODO: coordinator?.goToFavourites()")
     }
 }
 
@@ -175,13 +203,16 @@ extension ProfileViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileSettingsTableCell.identifier, for: indexPath)
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileSettingsTableCell.identifier, for: indexPath) as? ProfileSettingsTableCell
+            let cell = cell as? ProfileSettingsTableCell
         else {
             fatalError("something wrong with profile settings cell")
         }
-        let cellViewModel = viewModel.getCellViewModel(at: indexPath)
-        cell.cellViewModel = cellViewModel
+        let cellViewModel = viewModel.settingsViewModels[indexPath.row]
+        cell.configure(with: cellViewModel)
+        let isLast = indexPath.row == viewModel.settingsViewModels.count - 1
+        cell.removeSeparator(isLast)
         
         return cell
     }
@@ -191,40 +222,17 @@ extension ProfileViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard
-            let cell = tableView.cellForRow(at: indexPath) as? ProfileSettingsTableCell
-        else {
-            fatalError("problems with profile settings selections")
-        }
-        switch cell.cellViewModel?.type {
-        case .addresses:
-//            coordinator?.goToAddresses()
-            print("addresses")
-        case .history:
-//            coordinator?.goToHistory()
-            print("history")
-            //
+        let type = viewModel.settingsViewModels[indexPath.row].type
+        
+        switch type {
+        case .addresses, .history:
+            viewModel.goToScreen(for: type)
         case .deleteProfile:
-            let alert = UIAlertController.createAlert(
-                withTitle: "Хотите удалить профиль?",
-                message: "Это дейстивие нельзя отменить. Ваш аккаунт будет удален.",
-                buttonString: "Удалить") { _ in
-                    // TODO: delete profile
-                    print("delete user info")
-                }
-            
-            self.present(alert, animated: true, completion: nil)
+            self.showDeleteProfileAlert()
         case .signOut:
-            let alert = UIAlertController.createAlert(
-                withTitle: "Хотите выйти из профиля?",
-                message: "Всегда сможете к нам вернуться.",
-                buttonString: "Выйти") { _ in
-                    print("log out")
-                    // TODO: coordinator.logout()
-                }
-            self.present(alert, animated: true, completion: nil)
+            self.showSignOutAlert()
         default:
-            print("go somewhere")
+            break
         }
     }
     

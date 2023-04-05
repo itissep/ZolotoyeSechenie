@@ -17,7 +17,7 @@
 		2C04D6E229DAD54D00002294 /* UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6E129DAD54D00002294 /* UIActivityIndicatorView.swift */; };
 		2C04D6E429DB00E900002294 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6E329DB00E900002294 /* MockAuthService.swift */; };
 		2C04D6E629DB01E000002294 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6E529DB01E000002294 /* UIImage.swift */; };
-		2C04D6E829DB048B00002294 /* MockProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6E729DB048B00002294 /* MockProfileService.swift */; };
+		2C04D6E829DB048B00002294 /* MockUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6E729DB048B00002294 /* MockUserService.swift */; };
 		2C04D6EA29DB069300002294 /* MockProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6E929DB069300002294 /* MockProductService.swift */; };
 		2C04D6EC29DB15D500002294 /* MockImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6EB29DB15D500002294 /* MockImageService.swift */; };
 		2C04D6EE29DB164000002294 /* ImageServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04D6ED29DB164000002294 /* ImageServiceDescription.swift */; };
@@ -94,6 +94,10 @@
 		2CA72030297FF83B000A6FD6 /* EditAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7202F297FF83B000A6FD6 /* EditAddressViewController.swift */; };
 		2CA7203229802467000A6FD6 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA7203129802467000A6FD6 /* ProductsViewModel.swift */; };
 		2CA720342980249D000A6FD6 /* EditAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA720332980249D000A6FD6 /* EditAddressViewModel.swift */; };
+		2CCE1AB929DDE3A300A93D27 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE1AB829DDE3A300A93D27 /* ImageService.swift */; };
+		2CCE1ABB29DDE3D900A93D27 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE1ABA29DDE3D900A93D27 /* ImageLoader.swift */; };
+		2CCE1ABD29DDE41900A93D27 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE1ABC29DDE41900A93D27 /* UIImageView.swift */; };
+		2CCE1ABF29DDFA0C00A93D27 /* MockOrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCE1ABE29DDFA0C00A93D27 /* MockOrderService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +127,7 @@
 		2C04D6E129DAD54D00002294 /* UIActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		2C04D6E329DB00E900002294 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		2C04D6E529DB01E000002294 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
-		2C04D6E729DB048B00002294 /* MockProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProfileService.swift; sourceTree = "<group>"; };
+		2C04D6E729DB048B00002294 /* MockUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserService.swift; sourceTree = "<group>"; };
 		2C04D6E929DB069300002294 /* MockProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductService.swift; sourceTree = "<group>"; };
 		2C04D6EB29DB15D500002294 /* MockImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockImageService.swift; sourceTree = "<group>"; };
 		2C04D6ED29DB164000002294 /* ImageServiceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceDescription.swift; sourceTree = "<group>"; };
@@ -203,6 +207,10 @@
 		2CA7202F297FF83B000A6FD6 /* EditAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewController.swift; sourceTree = "<group>"; };
 		2CA7203129802467000A6FD6 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		2CA720332980249D000A6FD6 /* EditAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAddressViewModel.swift; sourceTree = "<group>"; };
+		2CCE1AB829DDE3A300A93D27 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		2CCE1ABA29DDE3D900A93D27 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		2CCE1ABC29DDE41900A93D27 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		2CCE1ABE29DDFA0C00A93D27 /* MockOrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockOrderService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +247,8 @@
 				2C04D6E929DB069300002294 /* MockProductService.swift */,
 				2C04D6EF29DB179700002294 /* MockAddressesService.swift */,
 				2C04D6F129DB1BBA00002294 /* MockNotificationService.swift */,
-				2C04D6E729DB048B00002294 /* MockProfileService.swift */,
+				2CCE1ABE29DDFA0C00A93D27 /* MockOrderService.swift */,
+				2C04D6E729DB048B00002294 /* MockUserService.swift */,
 				2C04D6EB29DB15D500002294 /* MockImageService.swift */,
 			);
 			path = MockServices;
@@ -258,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				2C260ADF297BB73D00771809 /* HttpHelper.swift */,
+				2CCE1ABA29DDE3D900A93D27 /* ImageLoader.swift */,
+				2CCE1AB829DDE3A300A93D27 /* ImageService.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -485,6 +496,7 @@
 				2C4E08E629797D4E002717B2 /* UINavigationController.swift */,
 				2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */,
 				2C04D6E529DB01E000002294 /* UIImage.swift */,
+				2CCE1ABC29DDE41900A93D27 /* UIImageView.swift */,
 				2C04D6E129DAD54D00002294 /* UIActivityIndicatorView.swift */,
 			);
 			path = Extensions;
@@ -897,6 +909,7 @@
 				2CA7201D297EDD9D000A6FD6 /* Order.swift in Sources */,
 				2CA71FFE297EC01E000A6FD6 /* NotificationsController.swift in Sources */,
 				2C04D6DA29DA8D6400002294 /* AuthServiceDescription.swift in Sources */,
+				2CCE1ABF29DDFA0C00A93D27 /* MockOrderService.swift in Sources */,
 				2CA72030297FF83B000A6FD6 /* EditAddressViewController.swift in Sources */,
 				2C04D6DE29DA943600002294 /* ProfileCoordinator.swift in Sources */,
 				2C260AE7297BB8D900771809 /* MockData.swift in Sources */,
@@ -923,6 +936,7 @@
 				2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */,
 				2C260AFB297C5E4D00771809 /* GenericTableCell.swift in Sources */,
 				2CA72028297FD978000A6FD6 /* CustomTextField.swift in Sources */,
+				2CCE1ABB29DDE3D900A93D27 /* ImageLoader.swift in Sources */,
 				2C04D6E629DB01E000002294 /* UIImage.swift in Sources */,
 				2C04D6D429DA8C3E00002294 /* AuthCoordinator.swift in Sources */,
 				2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */,
@@ -942,13 +956,15 @@
 				2CA7200A297ED1C2000A6FD6 /* AddressesService.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2CA71FCD297D32C6000A6FD6 /* ProfileService.swift in Sources */,
+				2CCE1ABD29DDE41900A93D27 /* UIImageView.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
 				2CA72006297ED189000A6FD6 /* Address.swift in Sources */,
 				2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */,
 				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
 				2CA7202A297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift in Sources */,
 				2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */,
-				2C04D6E829DB048B00002294 /* MockProfileService.swift in Sources */,
+				2CCE1AB929DDE3A300A93D27 /* ImageService.swift in Sources */,
+				2C04D6E829DB048B00002294 /* MockUserService.swift in Sources */,
 				2C04D6E029DAD51D00002294 /* LoadingView.swift in Sources */,
 				2C04D6DC29DA8DEA00002294 /* User.swift in Sources */,
 				2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */,

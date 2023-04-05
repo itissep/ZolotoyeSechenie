@@ -9,35 +9,25 @@ import UIKit
 
 
 class ProfileSettingsTableCell: UITableViewCell {
-    let coverImageView = UIImageView()
-    let titleLabel = UILabel()
+    private lazy var coverImageView = UIImageView()
+    private lazy var titleLabel = UILabel()
     
     class var identifier: String { return String(describing: self) }
     
-    var cellViewModel: SettingsCellViewModel? {
-        didSet {
-            titleLabel.text = cellViewModel?.title
-            // TODO: Proper Image Setter
-            coverImageView.image = cellViewModel?.image
-        }
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        initView()
+        layout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func initView() {
+    private func layout() {
         // Cell view customization
         contentView.backgroundColor = .white
         
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
-//        coverImageView.contentMode = .scaleAspectFit
-        
         contentView.addSubview(coverImageView)
         
         coverImageView.snp.makeConstraints { make in
@@ -61,6 +51,17 @@ class ProfileSettingsTableCell: UITableViewCell {
             
         }
         
+    }
+    
+    public func configure(with model: SettingsCellViewModel) {
+        titleLabel.text = model.title
+        coverImageView.image = model.image
+    }
+    
+    public func removeSeparator(_ isRemoved: Bool) {
+        if isRemoved {
+            self.separatorInset = .zero
+        }
     }
 }
 

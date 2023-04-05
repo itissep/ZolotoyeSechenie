@@ -43,44 +43,44 @@ struct AddressesService:AddressesServiceProtocol {
 
 
 
-struct AddressesMockService:AddressesServiceProtocol {
+//struct AddressesMockService:AddressesServiceProtocol {
     
     
-    func getAddresses(completion: @escaping (Bool, Addresses?, String?) -> ()) {
-        let model = MockData.Addresses.model
-        completion(true, model, nil)
-    }
+//    func getAddresses(completion: @escaping (Bool, Addresses?, String?) -> ()) {
+//        let model = MockData.Addresses.model
+//        completion(true, model, nil)
+//    }
+//
+//    func getAddressById(id: String, completion: @escaping (_ success: Bool, _ result: Address?, _ error: String?) -> ()) {
+//        let model = MockData.Addresses.model
+//        var result: Address? = nil
+//        for item in model {
+//            if item.id == id {
+//                result = item
+//            }
+//        }
+//        if let result = result {
+//            completion(true, result, nil)
+//        } else {
+//            completion(false, result, "no addresses with this id")
+//        }
+//
+//    }
+//
+//    func updateAddress(with address: Address, completion: @escaping (Bool, String?) -> ()) {
+//
+//        let model = MockData.Addresses.model
+//        var newModels = model.filter { $0.id != address.id }
+//        newModels.append(address)
+//
+//        if model == newModels {
+//            MockData.Addresses.model = newModels
+//            completion(false, "nothing changed")
+//
+//        } else {
+//            completion(true, nil)
+//        }
+//    }
     
-    func getAddressById(id: String, completion: @escaping (_ success: Bool, _ result: Address?, _ error: String?) -> ()) {
-        let model = MockData.Addresses.model
-        var result: Address? = nil
-        for item in model {
-            if item.id == id {
-                result = item
-            }
-        }
-        if let result = result {
-            completion(true, result, nil)
-        } else {
-            completion(false, result, "no addresses with this id")
-        }
-        
-    }
     
-    func updateAddress(with address: Address, completion: @escaping (Bool, String?) -> ()) {
-        
-        let model = MockData.Addresses.model
-        var newModels = model.filter { $0.id != address.id }
-        newModels.append(address)
-
-        if model == newModels {
-            MockData.Addresses.model = newModels
-            completion(false, "nothing changed")
-            
-        } else {
-            completion(true, nil)
-        }
-    }
-    
-    
-}
+//}

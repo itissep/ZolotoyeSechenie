@@ -34,9 +34,9 @@ class EditAddressViewController: UIViewController {
     private let aboutMeTextView = UITextView()
     
     
-    lazy var viewModel = {
-        EditAddressViewModel(type: type)
-    }()
+//    lazy var viewModel = {
+////        EditAddressViewModel(type: EditAddressType.Add)
+//    }()
     
 //    weak var coordinator: ProfileBaseCoordinator?
     
@@ -62,7 +62,7 @@ class EditAddressViewController: UIViewController {
         
         view.backgroundColor = .white
 
-        title = viewModel.getTitle()
+//        title = viewModel.getTitle()
         navigationController?.navigationBar.titleTextAttributes = K.Unspecified.titleAttributes
         
         
@@ -76,18 +76,18 @@ class EditAddressViewController: UIViewController {
     
     func initViewModel() {
         
-        viewModel.reloadData = { [weak self] in
-            let address = self?.viewModel.address
-            
-            print(address)
-            DispatchQueue.main.async {
-                
-//                self?.buildingLabelTextField.text = address?.building
-                
-
-            }
-        }
-        viewModel.getData()
+//        viewModel.reloadData = { [weak self] in
+//            let address = self?.viewModel.address
+//            
+//            print(address)
+//            DispatchQueue.main.async {
+//                
+////                self?.buildingLabelTextField.text = address?.building
+//                
+//
+//            }
+//        }
+//        viewModel.getData()
 
     }
     
