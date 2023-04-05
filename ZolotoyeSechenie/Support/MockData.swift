@@ -16,6 +16,52 @@ protocol CollectionableMock {
 }
 
 struct MockData {
+    static let user = User(id: "userId", name: "Аноним", imageUrl: "iamgeUrl")
+    
+    static let product = Product(
+        id: "productId",
+        name: "Cool product",
+        imageUrl: "imageUrl",
+        price: 1300,
+        amount: "10 ml",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        ingredients: ["sugar", "milk", "eggs"],
+        categories: ["sugar", "milk", "eggs"])
+    
+    static let products = [product,
+                           Product(id: "2"),
+                           Product(id: "3"),
+                           Product(id: "4"),
+                           Product(id: "5"),
+                           Product(id: "6"),]
+    
+    static let collection = ProductCollection(
+        id: "1",
+        title: "Main Category",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        imageUrl: "imageUrl",
+        productsId: ["2", "4", "5"])
+    
+    static let collections = [
+        collection,
+        ProductCollection(id: "2"),
+        ProductCollection(id: "3"),
+        ProductCollection(id: "4"),
+    ]
+    
+    static let address = Address(
+        id: "1",
+        city: "Wonderland",
+        district: "Red-light",
+        street: "White",
+        building: "1",
+        apartment: "228 A")
+    
+    static var addresses = [address,
+                            Address(id: "one", city: "one", district: "one", street: "one", building: "one", apartment: "one"),
+                            Address(id: "two", city: "two", district: "two", street: "two", building: "two", apartment: "two")]
+    
+    
     struct CareProgramms: CollectionableMock {
         let id: String
         let title: String
@@ -62,6 +108,3 @@ struct MockData {
         static var model = [Address(id: "one", city: "one", district: "one", street: "one", building: "one", apartment: "one"), Address(id: "two", city: "two", district: "two", street: "two", building: "two", apartment: "two")]
     }
 }
-
-
-

@@ -56,7 +56,7 @@ class GenericTableCell: UITableViewCell {
 
         coverImageView.contentMode = .scaleAspectFill
         coverImageView.layer.masksToBounds = true
-        coverImageView.layer.cornerRadius = 16
+        coverImageView.layer.cornerRadius = K.cornerRadius
         
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(coverImageView)
@@ -65,7 +65,7 @@ class GenericTableCell: UITableViewCell {
             make.width.equalTo(51)
             make.height.equalTo(51)
             make.top.equalToSuperview().offset(6)
-            make.leading.equalToSuperview().offset(30)
+            make.leading.equalToSuperview().offset(K.hPadding)
         }
         
         titleLabel.numberOfLines = 0
@@ -78,7 +78,7 @@ class GenericTableCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(6)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         messageLabel.font = K.Fonts.regular15
@@ -91,7 +91,7 @@ class GenericTableCell: UITableViewCell {
         messageLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         dateLabel.textColor = .gray
@@ -103,7 +103,7 @@ class GenericTableCell: UITableViewCell {
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(messageLabel.snp.bottom).offset(4)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
             make.bottom.equalToSuperview().inset(6)
         }
     }

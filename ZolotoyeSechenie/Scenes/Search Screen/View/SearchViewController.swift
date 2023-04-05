@@ -8,14 +8,14 @@
 import UIKit
 
 
-class SearchViewController: UIViewController, SearchBaseCoordinated {
+class SearchViewController: UIViewController {
     
-    weak var coordinator: SearchBaseCoordinator?
+//    weak var coordinator: SearchBaseCoordinator?
     
     
-    init(coordinator: SearchBaseCoordinator) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
+//        self.coordinator = coordinator
         
     }
     

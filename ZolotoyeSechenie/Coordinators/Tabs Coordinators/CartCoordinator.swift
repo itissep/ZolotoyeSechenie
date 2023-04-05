@@ -6,25 +6,27 @@
 //
 
 import UIKit
+import Swinject
 
-
-protocol CartBaseCoordinated: Coordinated {
-    var coordinator: CartBaseCoordinator? { get }
-}
-
-protocol CartBaseCoordinator: Coordinator {
+protocol CartCoordinatorDescription: Coordinator {
     //    @discardableResult func goToOrder2Screen(animated: Bool ) -> Self
     //    @discardableResult func goToOrder3Screen(animated: Bool) -> Self
 }
 
-class CartCoordinator: CartBaseCoordinator {
+class CartCoordinator: CartCoordinatorDescription {
+    var parentCoordinator: Coordinator?
+    var children: [Coordinator] = []
+    var navigationController: UINavigationController
+
+    var container: Container?
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
     
-    var parentCoordinator: TabBaseCoordinator?
-    var rootViewController: UIViewController = UIViewController()
-    
-    func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: CartViewController(coordinator: self))
-        return rootViewController
+    func start() {
+        let cartVC = CartViewController()
+        navigationController.pushViewController(cartVC, animated: true)
     }
     
     //    func goToOrder2Screen(animated: Bool = false) -> Self {

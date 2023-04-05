@@ -8,13 +8,24 @@
 import Foundation
 
 struct ProductCellViewModel: ProductCellViewModelProtocol {
+    let id: String
+    let title: String
+    let description: String
+    let amount: String
+    let image: String?
+    let price: String
     
-    var id: String
-    var title: String = "Some title"
-    var description: String = "Some description"
-    var amount: String = "15 ml"
-    var image: String? = "1"
-    var price: String = "1500 руб."
+    init(from model: Product){
+        self.id = model.id
+        self.title = model.name
+        self.description = model.description
+        self.amount = model.amount
+        self.image = model.imageUrl
+        self.price = "\(model.price)"
+    }
+    
+    #warning("TODO: price converter")
+    #warning("TODO: image loading ????")
 }
 
 

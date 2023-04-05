@@ -12,7 +12,7 @@ final class IconsCollectionView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 63, height: 63)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 30)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: K.hPadding, bottom: 0, right: K.hPadding)
         layout.minimumInteritemSpacing = 12
         layout.minimumLineSpacing = 12
         

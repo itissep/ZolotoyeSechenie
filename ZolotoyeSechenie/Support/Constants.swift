@@ -7,9 +7,11 @@
 
 import UIKit
 
-class K{
+class K {
+    static let hPadding: CGFloat = 16
+    static let cornerRadius: CGFloat = 12
     
-    class Fonts{
+    class Fonts {
         static let regular11 = UIFont.systemFont(ofSize: 11 , weight: .regular)
         static let regular13 = UIFont.systemFont(ofSize: 13 , weight: .regular)
         static let regular15 = UIFont.systemFont(ofSize: 15 , weight: .regular)
@@ -29,7 +31,7 @@ class K{
         static let medium15 = UIFont.systemFont(ofSize: 15, weight: .medium)
     }
     
-    class Colors{
+    class Colors {
         static let gold = UIColor(named: "gold")!
         static let darkGold = UIColor(named: "darkGold")!
         static let prettyGold = UIColor(named: "prettyGold")!
@@ -45,7 +47,7 @@ class K{
         static let black = UIColor(named: "Blackish")!
     }
     
-    class Icons{
+    class Icons {
         
         static let house = UIImage(named: "house")!
         static let houseFill = UIImage(named: "houseFill")!
@@ -73,11 +75,11 @@ class K{
         
     }
     
-    class Images{
+    class Images {
         static let logo = UIImage(named: "logo")!
     }
     
-    class Unspecified{
+    class Unspecified {
         static let titleAttributes = [NSAttributedString.Key.foregroundColor: K.Colors.darkGold]
     }
     

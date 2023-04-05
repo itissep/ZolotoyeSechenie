@@ -13,15 +13,34 @@
 
 import SnapKit
 import UIKit
+import Combine
 
-class FeedViewController: UIViewController, FeedBaseCoordinated {
-    lazy var viewModel = FeedViewModel()
+class FeedViewController: UIViewController {
+    private lazy var tableView = ProductTableView()
     
-    weak var coordinator: FeedBaseCoordinator?
+    private lazy var scrollView = UIScrollView()
+    private lazy var contentView = UIView()
+    
+    private lazy var careProductsLabel = UILabel()
+    private lazy var specialProductsLabel = UILabel()
+    private lazy var cosmeticsLabel = UILabel()
+    private lazy var popularLabel = UILabel()
+    
+    private lazy var caresCollectionView = GenericCollectionView()
+    private lazy var cosmeticsCollectionView = IconsCollectionView()
+    private lazy var specialsCollectionView = GenericCollectionView()
+    
+    private lazy var moreBtn = UIButton()
+    private lazy var loadingView = LoadingView(withBackground: true)
+    
+    private let viewModel: FeedViewModel
+    private var subscriptions = Set<AnyCancellable>()
 
-    init(coordinator: FeedBaseCoordinator) {
+    // MARK: - Life Cycle
+    
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
     }
         
     @available(*, unavailable)
@@ -29,23 +48,9 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let tableView = ProductTableView()
-    
-    let scrollView = UIScrollView()
-    let contentView = UIView()
-    
-    let careProductsLabel = UILabel()
-    let specialProductsLabel = UILabel()
-    let cosmeticsLabel = UILabel()
-    let popularLabel = UILabel()
-    
-    let caresCollectionView = GenericCollectionView()
-    let cosmeticsCollectionView = IconsCollectionView()
-    let specialsCollectionView = GenericCollectionView()
-    
-    let moreBtn = UIButton()
-    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -55,7 +60,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         title = "Лента"
         navigationController?.navigationBar.titleTextAttributes = K.Unspecified.titleAttributes
         
-        initViewModel()
+        setupBindings()
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,34 +72,44 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         
         tableViewSetup()
         moreBtnSetup()
+        loadingViewSetup()
     }
     
-    func initViewModel() {
-        viewModel.getHeaderData()
-        viewModel.reloadHeader = { [weak self] in
-            DispatchQueue.main.async {
+    private func setupBindings() {
+        viewModel.$isLoading
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isLoading in
+                if isLoading {
+                    self?.loadingView.startLoading()
+                } else {
+                    self?.loadingView.endLoading()
+                }
+            }
+            .store(in: &subscriptions)
+        
+        viewModel.$productCellViewModels
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &subscriptions)
+        viewModel.$collectionsCellViewModels
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
                 self?.caresCollectionView.reloadData()
                 self?.cosmeticsCollectionView.reloadData()
                 self?.specialsCollectionView.reloadData()
             }
-        }
-        
-        viewModel.getProducts()
-        viewModel.reloadTableView = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
+            .store(in: &subscriptions)
     }
     
     @objc
-    func moreBtnPressed() {
-        // TODO: go to all products
-        coordinator?.goToCollection(type: .all)
+    private func moreBtnPressed() {
+        viewModel.goToCollection(type: .all)
         print("moreBtn pressed")
     }
     
-    func setupScrollView() {
+    private func setupScrollView() {
         view.backgroundColor = .white
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -116,6 +131,11 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         }
     }
     
+    private func loadingViewSetup() {
+        loadingView.frame = view.frame
+        view.addSubview(loadingView)
+    }
+    
     private func caresCollectionSetup() {
         careProductsLabel.text = "Программы ухода"
         careProductsLabel.font = K.Fonts.semibold17
@@ -126,7 +146,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         
         careProductsLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.left.right.equalToSuperview().offset(30)
+            make.leading.trailing.equalToSuperview().offset(K.hPadding)
         }
         
         caresCollectionView.delegate = self
@@ -136,7 +156,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         contentView.addSubview(caresCollectionView)
         
         caresCollectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(careProductsLabel.snp.bottom).offset(15)
             make.height.equalTo(125)
         }
@@ -152,7 +172,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         
         cosmeticsLabel.snp.makeConstraints { make in
             make.top.equalTo(caresCollectionView.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().offset(30)
+            make.leading.trailing.equalToSuperview().offset(K.hPadding)
         }
         
         cosmeticsCollectionView.delegate = self
@@ -162,7 +182,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         contentView.addSubview(cosmeticsCollectionView)
         
         cosmeticsCollectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(cosmeticsLabel.snp.bottom).offset(15)
             make.height.equalTo(63)
         }
@@ -177,7 +197,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         contentView.addSubview(specialProductsLabel)
         specialProductsLabel.snp.makeConstraints { make in
             make.top.equalTo(cosmeticsCollectionView.snp.bottom).offset(20)
-            make.leading.trailing.equalToSuperview().offset(30)
+            make.leading.trailing.equalToSuperview().offset(K.hPadding)
         }
         
         specialsCollectionView.delegate = self
@@ -187,7 +207,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         contentView.addSubview(specialsCollectionView)
         
         specialsCollectionView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(specialProductsLabel.snp.bottom).offset(15)
             make.height.equalTo(125)
         }
@@ -203,7 +223,7 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         
         popularLabel.snp.makeConstraints { make in
             make.top.equalTo(specialsCollectionView.snp.bottom).offset(20)
-            make.leading.trailing.equalTo(30)
+            make.leading.trailing.equalTo(K.hPadding)
         }
         
         tableView.isScrollEnabled = false
@@ -228,13 +248,13 @@ class FeedViewController: UIViewController, FeedBaseCoordinated {
         moreBtn.titleLabel?.font = K.Fonts.semibold17
         moreBtn.backgroundColor = K.Colors.prettyGold
         moreBtn.layer.masksToBounds = false
-        moreBtn.layer.cornerRadius = 16
+        moreBtn.layer.cornerRadius = K.cornerRadius
         
         moreBtn.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(moreBtn)
         
         moreBtn.snp.makeConstraints { make in
-            make.width.equalToSuperview().inset(30)
+            make.width.equalToSuperview().inset(K.hPadding)
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
             make.top.equalTo(tableView.snp.bottom).offset(10)
@@ -292,22 +312,22 @@ extension FeedViewController: UICollectionViewDelegate {
                 // TODO: add error handler
                 fatalError("something went wrong tapping on Cares Collection cells")
             }
-            print(cell.cellViewModel?.id)
-            coordinator?.goToCollection(type: .Programms)
+            print(viewModel.getCellViewModel(for: .Programms, at: indexPath)?.id)
+            viewModel.goToCollection(type: .Programms)
         } else if collectionView == self.cosmeticsCollectionView {
             guard let cell = collectionView.cellForItem(at: indexPath) as? IconCollectionViewCell else {
                 // TODO: add error handler
                 fatalError("something went wrong tapping on Cosmetics Collection cells")
             }
-            print(cell.cellViewModel?.id)
-            coordinator?.goToCollection(type: .Cosmetics)
+            print(viewModel.getCellViewModel(for: .Cosmetics, at: indexPath)?.id)
+            viewModel.goToCollection(type: .Cosmetics)
         } else if collectionView == self.specialsCollectionView {
             guard let cell = collectionView.cellForItem(at: indexPath) as? GenericCollectionCell else {
                 // TODO: add error handler
                 fatalError("something went wrong tapping on Cares Collection cells")
             }
-            print(cell.cellViewModel?.id)
-            coordinator?.goToCollection(type: .Specials)
+            print(viewModel.getCellViewModel(for: .Specials, at: indexPath)?.id)
+            viewModel.goToCollection(type: .Specials)
         } else {
             fatalError("Some spiritual collection view was detected. Do something!")
         }
@@ -315,15 +335,15 @@ extension FeedViewController: UICollectionViewDelegate {
 }
 
 // MARK: - UICollectionViewDataSource
-
+#warning("FIXIT: this collections NIGHTMARE")
 extension FeedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.cosmeticsCollectionView {
-            return viewModel.headerViewModel.cosmeticCategories.count
+            return viewModel.collectionsCellViewModels[.Cosmetics]?.count ?? 0
         } else if collectionView == self.caresCollectionView {
-            return viewModel.headerViewModel.careProgramms.count
+            return viewModel.collectionsCellViewModels[.Programms]?.count ?? 0
         } else if collectionView == self.specialsCollectionView {
-            return viewModel.headerViewModel.specialProducts.count
+            return viewModel.collectionsCellViewModels[.Specials]?.count ?? 0
         } else {
             fatalError("Some spiritual collection view was detected. Do something!")
         }
@@ -335,27 +355,33 @@ extension FeedViewController: UICollectionViewDataSource {
                 fatalError("something went wrong with Cares Collection cells")
             }
             
-            let cellViewModel = viewModel.getCareCellViewModel(at: indexPath)
-            cell.cellViewModel = cellViewModel
+            let cellViewModel = viewModel.getCellViewModel(for: .Programms, at: indexPath)
+            if let cellViewModel {
+                cell.configure(with: cellViewModel)
+            }
             return cell
         } else if collectionView == self.cosmeticsCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IconCollectionViewCell.identifier, for: indexPath) as? IconCollectionViewCell else {
-                fatalError("something went wrong with Cares Collection cells")
+                fatalError("something went wrong with Cosmetics Collection cells")
             }
             
-            let cellViewModel = viewModel.getCosmeticsCellViewModel(at: indexPath)
-            cell.cellViewModel = cellViewModel
+            let cellViewModel = viewModel.getCellViewModel(for: .Cosmetics, at: indexPath)
+            if let cellViewModel {
+                cell.configure(with: cellViewModel)
+            }
             return cell
         } else if collectionView == self.specialsCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenericCollectionCell.identifier, for: indexPath) as? GenericCollectionCell else {
                 fatalError("something went wrong with Special Collection cells")
             }
             
-            let cellViewModel = viewModel.getSpecialsCellViewModel(at: indexPath)
-            cell.cellViewModel = cellViewModel
+            let cellViewModel = viewModel.getCellViewModel(for: .Specials, at: indexPath)
+            if let cellViewModel {
+                cell.configure(with: cellViewModel)
+            }
             return cell
         } else {
-            fatalError("Some spiritual collection view was detected. Do something!")
+            fatalError("Some spiritual collection view was detected. Do something ASAP!")
         }
     }
 }

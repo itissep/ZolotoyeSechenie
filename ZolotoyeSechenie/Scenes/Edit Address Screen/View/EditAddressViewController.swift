@@ -38,13 +38,13 @@ class EditAddressViewController: UIViewController {
         EditAddressViewModel(type: type)
     }()
     
-    weak var coordinator: ProfileBaseCoordinator?
+//    weak var coordinator: ProfileBaseCoordinator?
     
     
-    init(coordinator: ProfileBaseCoordinator, type: EditAddressType) {
+    init(type: EditAddressType) {
         self.type = type
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
+//        self.coordinator = coordinator
 //        self.type = type
         
     }
@@ -96,31 +96,31 @@ class EditAddressViewController: UIViewController {
         view.addSubview(cityLabelTextField)
         cityLabelTextField.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(12)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         view.addSubview(districtLabelTextField)
         districtLabelTextField.snp.makeConstraints { make in
             make.top.equalTo(cityLabelTextField.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         view.addSubview(streetLabelTextField)
         streetLabelTextField.snp.makeConstraints { make in
             make.top.equalTo(districtLabelTextField.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         view.addSubview(buildingLabelTextField)
         buildingLabelTextField.snp.makeConstraints { make in
             make.top.equalTo(streetLabelTextField.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         view.addSubview(apartmentLabelTextField)
         apartmentLabelTextField.snp.makeConstraints { make in
             make.top.equalTo(buildingLabelTextField.snp.bottom).offset(12)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.leading.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         
@@ -152,7 +152,7 @@ class EditAddressViewController: UIViewController {
         
         aboutMeTextView.textColor = K.Colors.darkGold
         aboutMeTextView.font = K.Fonts.regular17
-        aboutMeTextView.layer.cornerRadius = 16
+        aboutMeTextView.layer.cornerRadius = K.cornerRadius
         aboutMeTextView.backgroundColor = K.Colors.darkGold.withAlphaComponent(0.1)
 //        aboutMeTextView.attributedPlaceholder = NSAttributedString(string: "Как найти вход или другое.",
 //                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])

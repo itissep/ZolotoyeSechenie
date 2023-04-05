@@ -8,47 +8,51 @@
 //
 //
 import UIKit
+import Swinject
 
-
-protocol AppBaseCoordinator: Coordinator {
-    
-    var tabbarCoordinator: TabBaseCoordinator { get }
-//    var loginCoordinator:
-    func showLoginFlow()
-    func showMainFlow()
+protocol AppCoordinatorDescription: Coordinator {
+    func goToAuth()
+    func goToHome()
+    func childDidFinish(_ child: Coordinator)
 }
 
+class AppCoordinator: AppCoordinatorDescription {
+    var parentCoordinator: Coordinator?
+    var children: [Coordinator] = []
+    var navigationController: UINavigationController
 
-class AppCoordinator: NSObject, AppBaseCoordinator {
-//    var parentCoordinator: AppBaseCoordinator?
-    
-    var isAuth = false // TODO: move to di container
-    
-    var tabbarCoordinator: TabBaseCoordinator = TabCoordinator()
-    
-    var parentCoordinator: TabBaseCoordinator?
-    
-    lazy var feedCoordinator: FeedBaseCoordinator = FeedCoordinator()
-    
-    var rootViewController: UIViewController = UIViewController()
-    
-    func start() -> UIViewController {
-        if isAuth {
-            
-        } else {
-            let tabbarViewController = tabbarCoordinator.start()
-            return tabbarViewController
-        }
-        
-        return UIViewController()
+    var container: Container?
+//    var userService: UserServiceDescription?
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
-    
-        func showLoginFlow() {
-            //
+
+    func goToAuth() {
+        let authCoordinator = AuthCoordinator(navigationController: navigationController)
+        authCoordinator.container = container
+        authCoordinator.parentCoordinator = self
+        children.append(authCoordinator)
+        authCoordinator.start()
+    }
+
+    func goToHome() {
+        let coordinator = TabBarCoordinator(navigationController: navigationController)
+        children.removeAll()
+        coordinator.container = container
+        coordinator.parentCoordinator = self
+        coordinator.start()
+    }
+
+    func start() {
+        print("App Coordinator start")
+//        userService = container?.resolve(UserServiceDescription.self)
+//        guard let userService else { return }
+
+        if true { #warning("TODO: normal auth service")
+            goToHome()
+        } else {
+            goToAuth()
         }
-        
-        func showMainFlow() {
-            //
-        }
-    
+    }
 }

@@ -6,13 +6,9 @@
 //
 
 import UIKit
+import Swinject
 
-
-protocol FeedBaseCoordinated: Coordinated {
-    var coordinator: FeedBaseCoordinator? { get }
-}
-
-protocol FeedBaseCoordinator: Coordinator {
+protocol FeedCoordinatorDescription: Coordinator {
     func goToCollection(type: CollectionType)
     func goToProduct(id: String)
     
@@ -20,19 +16,39 @@ protocol FeedBaseCoordinator: Coordinator {
     //    @discardableResult func goToOrder3Screen(animated: Bool) -> Self
 }
 
-class FeedCoordinator: FeedBaseCoordinator {
+class FeedCoordinator: FeedCoordinatorDescription {
     
-    var parentCoordinator: TabBaseCoordinator?
-    var rootViewController: UIViewController = UIViewController()
+    var parentCoordinator: Coordinator?
+    var children: [Coordinator] = []
+    var navigationController: UINavigationController
+
+    var container: Container?
     
-    func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: FeedViewController(coordinator: self))
-        return rootViewController
+    var productService: ProductServiceDescription?
+    var imageService: ImageServiceDescription?
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start(){
+        productService = container?.resolve(ProductServiceDescription.self)
+        imageService = container?.resolve(ImageServiceDescription.self)
+        
+        goToFeedScreen()
+    }
+    
+    func goToFeedScreen() {
+        guard let productService else { return }
+        
+        let viewModel = FeedViewModel(productService: productService, coordinator: self)
+        let homeVC = FeedViewController(viewModel: viewModel)
+        navigationController.pushViewController(homeVC, animated: true)
     }
     
     func goToCollection(type: CollectionType) {
-        let vc = ProductsViewController(coordinator: self, type: type)
-        navigationRootViewController?.pushViewController(vc, animated: true)
+        let vc = ProductsViewController(type: type)
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func goToProduct(id: String) {

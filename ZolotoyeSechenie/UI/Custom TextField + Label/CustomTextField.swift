@@ -43,7 +43,7 @@ final class CustomTextField: UIView {
         addSubview(backgroundView)
         
         backgroundView.backgroundColor = K.Colors.prettyGold.withAlphaComponent(0.1)
-        backgroundView.layer.cornerRadius = 16
+        backgroundView.layer.cornerRadius = K.cornerRadius
         
         backgroundView.snp.makeConstraints{make in
             make.edges.equalToSuperview()

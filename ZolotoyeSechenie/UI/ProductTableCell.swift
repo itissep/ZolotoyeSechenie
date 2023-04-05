@@ -55,7 +55,7 @@ class ProductTableCell: UITableViewCell {
         coverImageView.contentMode = .scaleAspectFill
         
         coverImageView.layer.masksToBounds = true
-        coverImageView.layer.cornerRadius = 16
+        coverImageView.layer.cornerRadius = K.cornerRadius
         
         contentView.addSubview(coverImageView)
         
@@ -64,7 +64,7 @@ class ProductTableCell: UITableViewCell {
             make.height.equalTo(120)
             make.top.equalToSuperview().offset(6)
             make.bottom.equalToSuperview().inset(6)
-            make.leading.equalToSuperview().offset(30)
+            make.leading.equalToSuperview().offset(K.hPadding)
         }
         
         priceLabel.translatesAutoresizingMaskIntoConstraints = true
@@ -74,7 +74,7 @@ class ProductTableCell: UITableViewCell {
         
         contentView.addSubview(priceLabel)
         priceLabel.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
             make.top.equalToSuperview().offset(6)
         }
         

@@ -10,17 +10,35 @@ import Foundation
 
 typealias Products = [Product]
 
-// MARK: - Employee
 struct Product: Codable {
     let id: String
-//    let employeeName: String
-//    let employeeSalary: String
-//    let employeeAge: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case employeeName = "employee_name"
-//        case employeeSalary = "employee_salary"
-//        case employeeAge = "employee_age"
-//    }
+    let name: String
+    let imageUrl: String?
+    let price: Double
+    let amount: String // ???
+    let description: String
+    let ingredients: [String]
+    let categories: [String] // categories Id ???
+    
+    init(id: String, name: String, imageUrl: String?, price: Double, amount: String, description: String, ingredients: [String], categories: [String]) {
+        self.id = id
+        self.name = name
+        self.imageUrl = imageUrl
+        self.price = price
+        self.amount = amount
+        self.description = description
+        self.ingredients = ingredients
+        self.categories = categories
+    }
+    
+    init(id: String) {
+        self.id = id
+        self.name = "Some name"
+        self.imageUrl = "imageUrl"
+        self.price = 1500
+        self.amount = "15 ml"
+        self.description = "Long and extremely special description of this unique product."
+        self.ingredients = ["one","two","three"]
+        self.categories = ["one","two","three"]
+    }
 }

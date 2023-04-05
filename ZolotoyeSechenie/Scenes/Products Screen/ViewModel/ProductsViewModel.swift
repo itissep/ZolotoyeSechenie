@@ -36,7 +36,6 @@ class ProductsViewModel: NSObject {
     }
     
     func fetchData(products: Products) {
-        self.products = products // Cache
         var vms = [ProductCellViewModel]()
         for product in products {
             vms.append(createCellModel(product: product))
@@ -45,9 +44,7 @@ class ProductsViewModel: NSObject {
     }
     
     func createCellModel(product: Product) -> ProductCellViewModel {
-        let id = product.id
-        // TODO: change data later
-        return ProductCellViewModel(id: id) // change properties
+        return ProductCellViewModel(from: product)
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> ProductCellViewModel {

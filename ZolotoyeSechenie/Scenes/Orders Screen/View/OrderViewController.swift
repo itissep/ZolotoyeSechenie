@@ -9,25 +9,26 @@ import UIKit
 import SnapKit
 
 
-class OrdersViewController: UIViewController, ProfileBaseCoordinated {
+class OrdersViewController: UIViewController {
     
     lazy var viewModel = {
         OrdersViewModel()
     }()
     
-    weak var coordinator: ProfileBaseCoordinator?
+//    weak var coordinator: ProfileBaseCoordinator?
     
     
-    init(coordinator: ProfileBaseCoordinator, type: OrdersType) {
+//    init(coordinator: ProfileBaseCoordinator, type: OrdersType) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
-        switch type {
-        case .history:
-            title = "История заказов"
-        case .deliveries:
-            title = "Текущие доставки"
-        }
-        self.title = title
+//        self.coordinator = coordinator
+//        switch type {
+//        case .history:
+//            title = "История заказов"
+//        case .deliveries:
+//            title = "Текущие доставки"
+//        }
+//        self.title = title
         
     }
     

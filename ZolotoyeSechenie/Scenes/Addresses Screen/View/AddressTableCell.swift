@@ -60,7 +60,7 @@ class AddressesTableCell: UITableViewCell {
             make.width.equalTo(51)
             make.height.equalTo(51)
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(30)
+            make.leading.equalToSuperview().offset(K.hPadding)
         }
         
         titleLabel.numberOfLines = 0
@@ -73,7 +73,7 @@ class AddressesTableCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(6)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         cityLabel.font = K.Fonts.regular15
@@ -86,7 +86,7 @@ class AddressesTableCell: UITableViewCell {
         cityLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(2)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         indexLabel.textColor = .gray
@@ -98,7 +98,7 @@ class AddressesTableCell: UITableViewCell {
         indexLabel.snp.makeConstraints { make in
             make.top.equalTo(cityLabel.snp.bottom).offset(4)
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
             make.bottom.equalToSuperview().inset(6)
         }
     }

@@ -8,14 +8,14 @@
 import SnapKit
 import UIKit
 
-class NotificationsViewController: UIViewController, NotificationsBaseCoordinated {
+class NotificationsViewController: UIViewController {
     lazy var viewModel = NotificationsViewModel()
     
-    weak var coordinator: NotificationsBaseCoordinator?
+//    weak var coordinator: NotificationsBaseCoordinator?
     
-    init(coordinator: NotificationsBaseCoordinator) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
+//        self.coordinator = coordinator
     }
     
     @available(*, unavailable)

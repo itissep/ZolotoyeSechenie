@@ -13,9 +13,7 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
     
-    lazy var viewModel = {
-        ProfileViewModel()
-    }()
+    private let viewModel: ProfileViewModel
     
     let tableView = UITableView()
     let nameLabel = UILabel()
@@ -23,14 +21,9 @@ class ProfileViewController: UIViewController {
     let deliveriesBtn = UIButton()
     let favouritesBtn = UIButton()
     
-    
-    weak var coordinator: ProfileBaseCoordinator?
-    
-    
-    init(coordinator: ProfileBaseCoordinator) {
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
-        
     }
     
     required init?(coder: NSCoder) {
@@ -84,8 +77,8 @@ class ProfileViewController: UIViewController {
         
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(40)
-            make.leading.equalToSuperview().offset(30)
-            make.trailing.equalToSuperview().inset(30)
+            make.leading.equalToSuperview().offset(K.hPadding)
+            make.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         deliveriesBtn.setTitle("Мои доставки", for: .normal)
@@ -94,7 +87,7 @@ class ProfileViewController: UIViewController {
         deliveriesBtn.backgroundColor = K.Colors.prettyGold
         deliveriesBtn.titleLabel?.font = K.Fonts.semibold20
         deliveriesBtn.titleLabel?.textColor = .white
-        deliveriesBtn.layer.cornerRadius = 16
+        deliveriesBtn.layer.cornerRadius = K.cornerRadius
         deliveriesBtn.layer.masksToBounds = true
         deliveriesBtn.contentHorizontalAlignment = .left
         deliveriesBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 10)
@@ -105,9 +98,9 @@ class ProfileViewController: UIViewController {
         
         deliveriesBtn.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(25)
-            make.leading.equalToSuperview().offset(30)
+            make.leading.equalToSuperview().offset(K.hPadding)
             make.height.equalTo(80)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
         }
         
         countLabel.font = K.Fonts.semibold20
@@ -129,7 +122,7 @@ class ProfileViewController: UIViewController {
         favouritesBtn.titleLabel?.textColor = .white
         favouritesBtn.contentHorizontalAlignment = .left
         favouritesBtn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 35, bottom: 0, right: 10)
-        favouritesBtn.layer.cornerRadius = 16
+        favouritesBtn.layer.cornerRadius = K.cornerRadius
         favouritesBtn.layer.masksToBounds = true
         
         favouritesBtn.translatesAutoresizingMaskIntoConstraints = false
@@ -137,9 +130,9 @@ class ProfileViewController: UIViewController {
         
         favouritesBtn.snp.makeConstraints { make in
             make.top.equalTo(deliveriesBtn.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(30)
+            make.leading.equalToSuperview().offset(K.hPadding)
             make.height.equalTo(80)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
         }
     }
     
@@ -157,7 +150,7 @@ class ProfileViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(favouritesBtn.snp.bottom).offset(40)
             make.leading.equalToSuperview()
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
             make.bottom.equalToSuperview()
         }
     }
@@ -165,7 +158,7 @@ class ProfileViewController: UIViewController {
     
     @objc
     func deliveriesBtnPressed(){
-        coordinator?.goToDeliveries()
+//        coordinator?.goToDeliveries()
     }
     
     @objc
@@ -205,9 +198,12 @@ extension ProfileViewController: UITableViewDelegate {
         }
         switch cell.cellViewModel?.type {
         case .addresses:
-            coordinator?.goToAddresses()
+//            coordinator?.goToAddresses()
+            print("addresses")
         case .history:
-            coordinator?.goToHistory()
+//            coordinator?.goToHistory()
+            print("history")
+            //
         case .deleteProfile:
             let alert = UIAlertController.createAlert(
                 withTitle: "Хотите удалить профиль?",

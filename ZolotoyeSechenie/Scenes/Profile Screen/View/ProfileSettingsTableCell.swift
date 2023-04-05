@@ -45,7 +45,7 @@ class ProfileSettingsTableCell: UITableViewCell {
             make.height.equalTo(30)
             make.top.equalToSuperview().offset(6)
             make.bottom.equalToSuperview().inset(6)
-            make.leading.equalToSuperview().offset(30)
+            make.leading.equalToSuperview().offset(K.hPadding)
         }
         
         
@@ -57,7 +57,7 @@ class ProfileSettingsTableCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
-            make.trailing.equalToSuperview().inset(30)
+            make.trailing.equalToSuperview().inset(K.hPadding)
             
         }
         

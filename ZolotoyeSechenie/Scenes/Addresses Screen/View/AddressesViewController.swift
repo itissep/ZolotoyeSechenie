@@ -9,19 +9,19 @@ import UIKit
 import SnapKit
 
 
-class AddressesViewController: UIViewController, ProfileBaseCoordinated {
+class AddressesViewController: UIViewController {
     
     lazy var viewModel = {
         AddressesViewModel()
     }()
     
-    weak var coordinator: ProfileBaseCoordinator?
+//    weak var coordinator: ProfileBaseCoordinator?
     
     let tableView = UITableView()
     
-    init(coordinator: ProfileBaseCoordinator) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
+//        self.coordinator = coordinator
         
     }
     
@@ -78,7 +78,7 @@ class AddressesViewController: UIViewController, ProfileBaseCoordinated {
     
     @objc
     func addTapped(){
-        coordinator?.goToEditAddress(type: .Add)
+//        coordinator?.goToEditAddress(type: .Add)
     }
 }
 
@@ -115,7 +115,7 @@ extension AddressesViewController: UITableViewDelegate {
         guard let id = cell.cellViewModel?.id else {
             return
         }
-        coordinator?.goToEditAddress(type: .Edit(id))
+//        coordinator?.goToEditAddress(type: .Edit(id))
     }
     
 }

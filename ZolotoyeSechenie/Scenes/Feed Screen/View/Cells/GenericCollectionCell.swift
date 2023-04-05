@@ -17,15 +17,6 @@ class GenericCollectionCell: UICollectionViewCell {
     
     class var identifier: String { return String(describing: self) }
     
-    
-    var cellViewModel: CollectionableMock? {
-        didSet {
-            titleLabel.text = cellViewModel?.title
-            // TODO: Get image properly
-            coverImageView.image = cellViewModel?.image
-        }
-    }
-    
     override init(frame: CGRect){
         super.init(frame: frame)
         initView()
@@ -40,7 +31,7 @@ class GenericCollectionCell: UICollectionViewCell {
         coverImageView.contentMode = .scaleAspectFill
         coverImageView.backgroundColor = K.Colors.darkGold
         coverImageView.layer.masksToBounds = true
-        coverImageView.layer.cornerRadius = 16
+        coverImageView.layer.cornerRadius = K.cornerRadius
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = K.Fonts.semibold20
@@ -52,7 +43,7 @@ class GenericCollectionCell: UICollectionViewCell {
         opacityView.backgroundColor = K.Colors.darkGold
         opacityView.alpha = 0.6
         opacityView.layer.masksToBounds = true
-        opacityView.layer.cornerRadius = 16
+        opacityView.layer.cornerRadius = K.cornerRadius
         
         contentView.addSubview(coverImageView)
         contentView.addSubview(opacityView)
@@ -71,14 +62,17 @@ class GenericCollectionCell: UICollectionViewCell {
             make.centerY.equalToSuperview()
             make.width.equalToSuperview()
         }
-        
-        
+    }
+    
+    public func configure(with model: CollectionCellViewModel){
+        titleLabel.text = model.title
+        #warning("TODO: add loader for imageUrl")
+        coverImageView.image = UIImage.placeholder()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         coverImageView.image = nil
-        titleLabel.text = nil
     }
     
 }

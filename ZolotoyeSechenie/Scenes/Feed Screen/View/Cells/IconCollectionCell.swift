@@ -14,14 +14,6 @@ class IconCollectionViewCell: UICollectionViewCell {
     
     class var identifier: String { return String(describing: self) }
     
-    
-    var cellViewModel: MockData.DecorativeCategories? {
-        didSet {
-            // TODO: Get image properly
-//            imageView.image = cellViewModel?.image
-        }
-    }
-    
     override init(frame: CGRect){
         super.init(frame: frame)
         initView()
@@ -36,7 +28,7 @@ class IconCollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = K.Colors.prettyGold
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 16
+        imageView.layer.cornerRadius = K.cornerRadius
         
         contentView.addSubview(imageView)
         
@@ -44,7 +36,11 @@ class IconCollectionViewCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.top.bottom.right.left.equalTo(contentView)
         }
-        
+    }
+    
+    public func configure(with model: CollectionCellViewModel) {
+        #warning("TODO: add OK-ish images for IconsCollection")
+        imageView.image = UIImage.placeholder()
     }
     
     override func prepareForReuse() {

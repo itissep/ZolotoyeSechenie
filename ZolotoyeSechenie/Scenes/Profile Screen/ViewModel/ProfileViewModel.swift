@@ -25,8 +25,8 @@ class ProfileViewModel: NSObject {
     var reloadData: (() -> Void)?
     
     
-    init(profileService: ProfileServiceProtocol = ProfileService()) {
-        self.profileService = profileService
+    init(userId: String) {
+        self.profileService = ProfileService()
     }
     
     func getData() {

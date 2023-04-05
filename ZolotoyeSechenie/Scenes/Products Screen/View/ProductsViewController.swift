@@ -10,18 +10,18 @@ import SnapKit
 
 
 
-class ProductsViewController: UIViewController, FeedBaseCoordinated {
+class ProductsViewController: UIViewController {
     
     lazy var viewModel = {
         ProductsViewModel()
     }()
     
-    weak var coordinator: FeedBaseCoordinator?
+//    weak var coordinator: FeedBaseCoordinator?
     
     
-    init(coordinator: FeedBaseCoordinator, type: CollectionType) {
+    init(type: CollectionType) {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
+//        self.coordinator = coordinator
 //        switch type {
 //        case .programm:
 //            title = "Какая-то программа"
@@ -34,7 +34,7 @@ class ProductsViewController: UIViewController, FeedBaseCoordinated {
 //        case .favourites:
 //            title = "Избранное"
 //        }
-        title = "\(type)"
+//        title = "\(type)"
         
     }
     

@@ -6,27 +6,37 @@
 //
 
 import UIKit
+import Swinject
 
-
-protocol NotificationsBaseCoordinated: Coordinated {
-    var coordinator: NotificationsBaseCoordinator? { get }
-}
-
-
-protocol NotificationsBaseCoordinator: Coordinator {
+protocol NotificationsCoordinatorDescription: Coordinator {
     //    @discardableResult func goToOrder2Screen(animated: Bool ) -> Self
     //    @discardableResult func goToOrder3Screen(animated: Bool) -> Self
 }
 
 
-class NotificationsCoordinator: NotificationsBaseCoordinator {
+class NotificationsCoordinator: NotificationsCoordinatorDescription {
+    var parentCoordinator: Coordinator?
+    var children: [Coordinator] = []
+    var navigationController: UINavigationController
+
+    var container: Container?
+
+//    var userService: UserServiceDescription?
+//    var imageService: ImageServiceDescription?
+//    var userDefaultsService: UserDefaultsService?
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
     
-    var parentCoordinator: TabBaseCoordinator?
-    var rootViewController: UIViewController = UIViewController()
+    func start() {
+        goToNotifications()
+    }
     
-    func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: NotificationsViewController(coordinator: self))
-        return rootViewController
+    func goToNotifications() {
+        let notificationsVC = NotificationsViewController()
+        navigationController.pushViewController(notificationsVC, animated: true)
     }
     
     //    func goToOrder2Screen(animated: Bool = false) -> Self {

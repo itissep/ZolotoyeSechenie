@@ -6,25 +6,37 @@
 //
 
 import UIKit
+import Swinject
 
 
-protocol SearchBaseCoordinated: Coordinated {
-    var coordinator: SearchBaseCoordinator? { get }
-}
+//protocol SearchBaseCoordinated: Coordinated {
+//    var coordinator: SearchBaseCoordinator? { get }
+//}
 
-protocol SearchBaseCoordinator: Coordinator {
+protocol SearchCoordinatorDescription: Coordinator {
     //    @discardableResult func goToOrder2Screen(animated: Bool ) -> Self
     //    @discardableResult func goToOrder3Screen(animated: Bool) -> Self
 }
 
-class SearchCoordinator: SearchBaseCoordinator {
+class SearchCoordinator: SearchCoordinatorDescription {
+    var parentCoordinator: Coordinator?
+    var children: [Coordinator] = []
+    var navigationController: UINavigationController
+
+    var container: Container?
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
+    func start() {
+
+        goToSearch()
+    }
     
-    var parentCoordinator: TabBaseCoordinator?
-    var rootViewController: UIViewController = UIViewController()
-    
-    func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: SearchViewController(coordinator: self))
-        return rootViewController
+    func goToSearch() {
+        let searchVC = SearchViewController()
+        navigationController.pushViewController(searchVC, animated: true)
     }
     
     //    func goToOrder2Screen(animated: Bool = false) -> Self {

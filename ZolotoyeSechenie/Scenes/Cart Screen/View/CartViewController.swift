@@ -8,13 +8,13 @@
 import UIKit
 
 
-class CartViewController: UIViewController, CartBaseCoordinated {
+class CartViewController: UIViewController {
     
-    weak var coordinator: CartBaseCoordinator?
+//    weak var coordinator: CartBaseCoordinator?
     
-    init(coordinator: CartBaseCoordinator) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
+//        self.coordinator = coordinator
         
     }
     
