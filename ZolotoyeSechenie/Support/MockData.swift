@@ -55,11 +55,13 @@ struct MockData {
         district: "Red-light",
         street: "White",
         building: "1",
-        apartment: "228 A")
+        apartment: "228 A",
+        comment: "Some fantastic details about this place",
+        userId: "")
     
     static var addresses = [address,
-                            Address(id: "one", city: "one", district: "one", street: "one", building: "one", apartment: "one"),
-                            Address(id: "two", city: "two", district: "two", street: "two", building: "two", apartment: "two")]
+                            Address(id: "one", city: "one", district: "one", street: "one", building: "one", apartment: "one", comment: nil, userId: ""),
+                            Address(id: "two", city: "two", district: "two", street: "two", building: "two", apartment: "two", comment: nil, userId: "")]
     
     static let order = Order(id: "12")
     static let orders = [

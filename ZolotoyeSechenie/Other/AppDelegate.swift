@@ -102,7 +102,7 @@ extension AppDelegate {
             return MockAuthService()
         }
 
-        container.register(AddressesServiceDescription.self) { _ in
+        container.register(AddressServiceDescription.self) { _ in
             return MockAddressesService()
         }
 

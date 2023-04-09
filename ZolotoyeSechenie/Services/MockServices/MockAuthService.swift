@@ -13,7 +13,7 @@ final class MockAuthService: AuthServiceDescription {
     }
     
     func signIn(with phoneNumber: String, _ completion: @escaping (Result<User, Error>) -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + K.loadingTime) {
             completion(.success(MockData.user))
 //            completion(.failure(ServiceError.sighInFailture))
         }
@@ -24,7 +24,7 @@ final class MockAuthService: AuthServiceDescription {
         // maybe that is the way to keep only one logged in client with one userId??
         
         // delele userId from userDefaults, clear cashe and favourites from core data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + K.loadingTime) {
             completion(.success(()))
 //            completion(.failure(ServiceError.sighInFailture))
             

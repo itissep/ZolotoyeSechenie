@@ -7,13 +7,13 @@
 
 import UIKit
 import Swinject
-
+#warning("TODO: add normal userId fetcher")
 protocol ProfileCoordinatorDescription: Coordinator {
     func goToProfile()
 //    func goToEditProfileScreen(with userId: String)
     func goToSignIn()
     func goToAllAddresses()
-    func goToAddress(with addressId: String)
+    func goToAddress(_ type: EditAddressType)
     func goToHistory()
     func goToDeliveries()
     func goToFavourites()
@@ -29,6 +29,7 @@ class ProfileCoordinator: ProfileCoordinatorDescription {
     var userService: UserServiceDescription?
     var userDefaultsService: UserDefaultsService?
     var orderService: OrderServiceDescription?
+    var addressService: AddressServiceDescription?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -37,6 +38,7 @@ class ProfileCoordinator: ProfileCoordinatorDescription {
     func start() {
         userService = container?.resolve(UserServiceDescription.self)
         orderService = container?.resolve(OrderServiceDescription.self)
+        addressService = container?.resolve(AddressServiceDescription.self)
 //        userDefaultsService = container?.resolve(UserDefaultsService.self)
 
         goToProfile()
@@ -57,11 +59,17 @@ class ProfileCoordinator: ProfileCoordinatorDescription {
     }
     
     func goToAllAddresses() {
-        //
+        guard let addressService else { return }
+        let viewModel = AddressesViewModel(userId: "", addressService: addressService, coordinator: self)
+        let addressesVc = AddressesViewController(viewModel: viewModel)
+        navigationController.pushViewController(addressesVc, animated: true)
     }
     
-    func goToAddress(with addressId: String) {
-        //
+    func goToAddress(_ type: EditAddressType) {
+        guard let addressService else { return }
+        let viewModel = EditAddressViewModel(userId: "", type: type, addressService: addressService, coordinator: self)
+        let editAddressVC = EditAddressViewController(viewModel: viewModel)
+        navigationController.pushViewController(editAddressVC, animated: true)
     }
     
     func goToHistory() {

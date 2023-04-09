@@ -17,14 +17,7 @@ struct Address: Codable, Equatable {
     let street: String
     let building: String
     let apartment: String
-//    let title: String
-//    let message: String
-//    let image: String
+    let comment: String?
     
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case employeeName = "employee_name"
-//        case employeeSalary = "employee_salary"
-//        case employeeAge = "employee_age"
-//    }
+    let userId: String
 }

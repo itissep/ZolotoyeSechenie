@@ -14,4 +14,10 @@ struct AddressCellViewModel {
     let message: String
     let index: String
     
+    init(from address: Address) {
+        self.id = address.id
+        self.title = "ул. \(address.street), д. \(address.building)"
+        self.message = "г. \(address.city), \(address.district) р-н."
+        self.index = "индекс ли?"
+    }
 }

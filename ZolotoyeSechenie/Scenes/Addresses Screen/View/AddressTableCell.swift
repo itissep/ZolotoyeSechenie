@@ -10,24 +10,16 @@ import UIKit
 
 class AddressesTableCell: UITableViewCell {
     
-    let coverImageView = UIImageView()
-    let titleLabel = UILabel()
-    let cityLabel = UILabel()
-    let indexLabel = UILabel()
+    private lazy var coverImageView = UIImageView()
+    private lazy var titleLabel = UILabel()
+    private lazy var cityLabel = UILabel()
+    private lazy var indexLabel = UILabel()
     
     class var identifier: String { return String(describing: self) }
     
-    var cellViewModel: AddressCellViewModel? {
-        didSet {
-            titleLabel.text = cellViewModel?.title
-            cityLabel.text = cellViewModel?.message
-            indexLabel.text = cellViewModel?.index
-        }
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        initView()
+        layout()
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +27,7 @@ class AddressesTableCell: UITableViewCell {
     }
     
     
-    func initView() {
+    private func layout() {
         contentView.backgroundColor = .white
         self.selectionStyle = .none
         
@@ -103,10 +95,10 @@ class AddressesTableCell: UITableViewCell {
         }
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        coverImageView.image = nil
+    func configure(with model: AddressCellViewModel) {
+        indexLabel.text = model.index
+        titleLabel.text = model.title
+        cityLabel.text = model.message
     }
 }
 

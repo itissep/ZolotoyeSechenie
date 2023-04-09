@@ -128,6 +128,10 @@ final class CustomTextField: UIView {
         }
     }
     
+    public func setText(_ text: String) {
+        textField.text = text
+    }
+    
     var lastText: String?
     
     @objc private func changePasswordVisibility() {

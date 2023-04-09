@@ -49,11 +49,11 @@ protocol OrderServiceDescription { // add types like history, currents and so on
     func updateOrderStatus(for orderId: String, _ completion: @escaping (Result<Order, Error>) -> Void)
 }
 
-protocol AddressesServiceDescription {
+protocol AddressServiceDescription {
     func getAllAddresses(for userId: String, _ completion: @escaping (Result<[Address], Error>) -> Void)
     func getAddress(with id: String,_ completion: @escaping (Result<Address, Error>) -> Void)
     func updateAddress(for addressId: String, with address: Address,_ completion: @escaping (Result<Address, Error>) -> Void)
-    func addAddress(for userId: String, with address: Address, _ completion: @escaping (Result<Address, Error>) -> Void)
+    func putAddress(for userId: String, with address: Address, _ completion: @escaping (Result<Address, Error>) -> Void)
     func deleteAddress(with addressId: String, _ completion: @escaping (Result<Void, Error>) -> Void)
 }
 

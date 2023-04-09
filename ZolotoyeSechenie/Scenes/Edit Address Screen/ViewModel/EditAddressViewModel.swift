@@ -6,63 +6,93 @@
 //
 
 import Foundation
+import Combine
 
 enum EditAddressType{
     case Edit(String)
     case Add
 }
 
-
 class EditAddressViewModel: NSObject {
-//    private var addressService: AddressesServiceProtocol // TODO: userDefaults service
-//
-//    var address: Address? {
-//        didSet {
-//            reloadData?()
-//        }
-//    }
-//    var type: EditAddressType
-//    
-//    var reloadData: (() -> Void)?
-//    
-//    
-//    init(addressService: AddressesServiceProtocol = AddressesMockService(), type: EditAddressType) {
-//        self.type = type
-//        self.addressService = addressService
-//    }
-//    
-//    func getData() {
-//        switch type {
-//        case .Add:
-//            print("get data case .Add")
-//        case .Edit(let id):
-//            addressService.getAddressById(id: id) { success, result, error in
-//                if let error = error {
-//                    print(error)
-//                } else {
-//                    self.address = result
-//                }
-//            }
-//        }
-//    }
-//    
-//    func getTitle() -> String {
-//        switch type {
-//        case .Add:
-//            return "Добавить адрес"
-//        case .Edit:
-//            return "Редактировать адрес"
-//        }
-//    }
-//    
-//    func safeData(with address: Address){
-//        switch type {
-//        case .Edit(let id):
-//            print("addreess edited \(id)")
-//            // TODO: edit address by id with new data
-//        case .Add:
-//            print("address added")
-//            // TODO: add address by id
-//        }
-//    }
+    private let addressService: AddressServiceDescription
+    private let coordinator: ProfileCoordinatorDescription
+    private var userId: String
+    
+    @Published var isLoading = false
+    @Published var title: String?
+    @Published var addressInfo: Address?
+    @Published var error: String?
+    #warning("TODO: change error to alert with title and message")
+    
+    init(userId: String, type: EditAddressType, addressService: AddressServiceDescription, coordinator: ProfileCoordinatorDescription) {
+        self.userId = userId
+        self.addressService = addressService
+        self.coordinator = coordinator
+        super.init()
+        
+        setup(with: type)
+        title = configureTitle(with: type)
+    }
+    
+    private func setup(with type: EditAddressType) {
+        isLoading = true
+        switch type {
+        case .Edit(let addressId):
+            self.fetchAddressInfo(with: addressId)
+        case .Add:
+            isLoading = false
+        }
+    }
+    
+    private func configureTitle(with type: EditAddressType) -> String {
+        switch type {
+        case .Edit(_):
+            return "Изменение адреса"
+        case .Add:
+            return "Новый адрес"
+        }
+    }
+    
+    private func fetchAddressInfo(with addressId: String) {
+        addressService.getAddress(with: addressId) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.isLoading = true
+                self?.error = error.localizedDescription
+            case .success(let address):
+                self?.addressInfo = address
+                self?.isLoading = false
+            }
+        }
+    }
+    
+    public func saveAddress(_ address: Address) {
+        guard wasEdited(address) else {
+            error = "Вы ничего не изменили."
+            return
+        }
+        isLoading = true
+        addressService.putAddress(for: userId, with: address) {[weak self] result in
+            switch result {
+            case .failure(let error):
+                self?.isLoading = false
+                self?.error = error.localizedDescription
+            case .success(_ ):
+                self?.isLoading = false
+                #warning("TODO: show alert with success")
+            }
+        }
+    }
+    
+    public func goBack() {
+        coordinator.navigationController.popViewController(animated: true)
+    }
+    
+    public func wasEdited(_ newAddress: Address) -> Bool {
+        if let oldAddress = addressInfo {
+            return oldAddress != newAddress
+        } else {
+            return true
+        }
+    }
 }

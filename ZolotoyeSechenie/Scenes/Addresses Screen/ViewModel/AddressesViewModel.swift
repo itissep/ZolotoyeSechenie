@@ -6,58 +6,60 @@
 //
 
 import Foundation
-
+import Combine
 
 class AddressesViewModel: NSObject {
+    private var addressService: AddressServiceDescription
+    private var userId: String
+
+    @Published var isLoading = false
+    var addressCellViewModels = [AddressCellViewModel]()
+    private let coordinator: ProfileCoordinatorDescription
+
+    init(userId: String,
+         addressService: AddressServiceDescription,
+         coordinator: ProfileCoordinatorDescription) {
+        self.addressService = addressService
+        self.coordinator = coordinator
+        self.userId = userId
+        super.init()
+        
+        isLoading = true
+        fetchData() 
+    }
     
-    //    private var addressesService: AddressesServiceProtocol
-    //
-    //    var reloadTableView: (() -> Void)?
-    //
-    //    var addresses = Addresses()
-    //
-    //    var addressCellViewModels = [AddressCellViewModel]() {
-    //        didSet {
-    //            reloadTableView?()
-    //        }
-    //    }
-    //
-    //    init(addressesService: AddressesServiceProtocol = AddressesMockService()) {
-    //        self.addressesService = addressesService
-    //    }
-    //
-    //    func getAddresses() {
-    //        // TODO: change to real service
-    //        addressesService.getAddresses { success, model, error in
-    //            if success, let addresses = model {
-    //                self.fetchData(addresses: addresses)
-    //            } else {
-    //                print(error!)
-    //            }
-    //        }
-    //    }
-    //
-    //    func fetchData(addresses: Addresses) {
-    //        self.addresses = addresses // Cache
-    //        var vms = [AddressCellViewModel]()
-    //        for address in addresses {
-    //            vms.append(createCellModel(address: address))
-    //        }
-    //        addressCellViewModels = vms
-    //    }
-    //
-    //    func createCellModel(address: Address) -> AddressCellViewModel {
-    //        let id = address.id
-    //        let title = "ул. \(address.street), д. \(address.building)"
-    //        let message = "г. \(address.city), \(address.district) р-н."
-    //        let index = "индекс ли?"
-    //
-    //        let cellViewModel = AddressCellViewModel(id: id, title: title, message: message, index: index)
-    //        return cellViewModel
-    //    }
-    //
-    //    func getCellViewModel(at indexPath: IndexPath) -> AddressCellViewModel {
-    //        return addressCellViewModels[indexPath.row]
-    //    }
-    //}
+    public func reload() {
+        fetchData()
+    }
+    
+    private func fetchData() {
+        addressService.getAllAddresses(for: userId) {[weak self] result in
+            switch result {
+            case .failure(let error):
+                #warning("TODO: error handling ")
+                print(error)
+                self?.isLoading = false
+            case .success(let addresses):
+                self?.toCellModels(addresses)
+            }
+        }
+    }
+    
+    private func toCellModels(_ models: [Address]) {
+        var viewModels: [AddressCellViewModel] = []
+        for model in models {
+            let viewModel = createCellModel(for: model)
+            viewModels.append(viewModel)
+        }
+        addressCellViewModels = viewModels
+        isLoading = false
+    }
+    
+    private func createCellModel(for address: Address) -> AddressCellViewModel {
+        return AddressCellViewModel(from: address)
+    }
+    
+    func goToAddress(_ type: EditAddressType) {
+        coordinator.goToAddress(type)
+    }
 }

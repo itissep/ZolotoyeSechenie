@@ -40,6 +40,7 @@
 		2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AFC297C5E8F00771809 /* UserNotification.swift */; };
 		2C260AFF297C5EBA00771809 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260AFE297C5EBA00771809 /* NotificationsService.swift */; };
 		2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260B00297C5EEF00771809 /* NotificationCellViewModel.swift */; };
+		2C3B58F229E2B81800E6AB95 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B58F129E2B81800E6AB95 /* UIViewController.swift */; };
 		2C4E08DC2979797B002717B2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2C4E08DB2979797B002717B2 /* SnapKit */; };
 		2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E229797CEA002717B2 /* AppCoordinator.swift */; };
 		2C4E08E529797D06002717B2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E08E429797D06002717B2 /* Coordinator.swift */; };
@@ -150,6 +151,7 @@
 		2C260AFC297C5E8F00771809 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		2C260AFE297C5EBA00771809 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		2C260B00297C5EEF00771809 /* NotificationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellViewModel.swift; sourceTree = "<group>"; };
+		2C3B58F129E2B81800E6AB95 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2C4E08E229797CEA002717B2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2C4E08E429797D06002717B2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2C4E08E629797D4E002717B2 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				2C4E08E629797D4E002717B2 /* UINavigationController.swift */,
 				2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */,
 				2C04D6E529DB01E000002294 /* UIImage.swift */,
+				2C3B58F129E2B81800E6AB95 /* UIViewController.swift */,
 				2CCE1ABC29DDE41900A93D27 /* UIImageView.swift */,
 				2C04D6E129DAD54D00002294 /* UIActivityIndicatorView.swift */,
 			);
@@ -960,6 +963,7 @@
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
 				2CA72006297ED189000A6FD6 /* Address.swift in Sources */,
 				2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */,
+				2C3B58F229E2B81800E6AB95 /* UIViewController.swift in Sources */,
 				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
 				2CA7202A297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift in Sources */,
 				2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */,

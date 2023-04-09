@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 import Combine
-
+#warning("TODO: view reload")
 #warning("TODO: add user category and information about it")
 
 class ProfileViewController: UIViewController {
