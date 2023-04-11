@@ -7,7 +7,7 @@
 
 import UIKit
 import Swinject
-#warning("TODO: add normal userId fetcher")
+
 protocol ProfileCoordinatorDescription: Coordinator {
     func goToProfile()
 //    func goToEditProfileScreen(with userId: String)
@@ -53,6 +53,7 @@ class ProfileCoordinator: ProfileCoordinatorDescription {
         else {
             return
         }
+        #warning("TODO: add userId")
         let viewModel = ProfileViewModel(userId: "", userService: userService, orderService: orderService, coordinator: self)
         let profileVC = ProfileViewController(viewModel: viewModel)
         navigationController.pushViewController(profileVC, animated: true)

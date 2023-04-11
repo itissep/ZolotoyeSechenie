@@ -16,7 +16,11 @@ protocol CollectionableMock {
 }
 
 struct MockData {
+    // MARK: - User
+    
     static let user = User(id: "userId", name: "Аноним", imageUrl: "iamgeUrl")
+    
+    // MARK: - Product
     
     static let product = Product(
         id: "productId",
@@ -35,6 +39,7 @@ struct MockData {
                            Product(id: "5"),
                            Product(id: "6"),]
     
+    // MARK: - Collection
     static let collection = ProductCollection(
         id: "1",
         title: "Main Category",
@@ -49,6 +54,8 @@ struct MockData {
         ProductCollection(id: "4"),
     ]
     
+    // MARK: - Address
+    
     static let address = Address(
         id: "1",
         city: "Wonderland",
@@ -60,8 +67,12 @@ struct MockData {
         userId: "")
     
     static var addresses = [address,
-                            Address(id: "one", city: "one", district: "one", street: "one", building: "one", apartment: "one", comment: nil, userId: ""),
-                            Address(id: "two", city: "two", district: "two", street: "two", building: "two", apartment: "two", comment: nil, userId: "")]
+                            Address(id: "one", city: "one", district: "one", street: "one",
+                                    building: "one", apartment: "one", comment: nil, userId: ""),
+                            Address(id: "two", city: "two", district: "two", street: "two",
+                                    building: "two", apartment: "two", comment: nil, userId: "")]
+    
+    // MARK: - Order
     
     static let order = Order(id: "12")
     static let orders = [
@@ -70,51 +81,22 @@ struct MockData {
         Order(id: "13"),
         Order(id: "14")
     ]
-//
-//
-//    struct CareProgramms: CollectionableMock {
-//        let id: String
-//        let title: String
-//        let image: UIImage?
-//
-//        static let all = [
-//            CareProgramms(id: "first", title: "First Category", image: UIImage(named: "1")),
-//            CareProgramms(id: "second", title: "second Category", image: UIImage(named: "2")),
-//            CareProgramms(id: "third", title: "third Category", image: UIImage(named: "3")),
-//            CareProgramms(id: "forth", title: "forth Category", image: UIImage(named: "4")),
-//            CareProgramms(id: "fifth", title: "fifth Category", image: UIImage(named: "5")),
-//        ]
-//    }
-//
-//    struct DecorativeCategories {
-//        let id: String
-//        let image: UIImage?
-//
-//        static let all = [
-//            DecorativeCategories(id: "first", image: UIImage(named: "1")),
-//            DecorativeCategories(id: "second", image: UIImage(named: "2")),
-//            DecorativeCategories(id: "third", image: UIImage(named: "3")),
-//            DecorativeCategories(id: "forth", image: UIImage(named: "4")),
-//            DecorativeCategories(id: "fifth", image: UIImage(named: "5")),
-//            DecorativeCategories(id: "sixth", image: UIImage(named: "6")),
-//            DecorativeCategories(id: "seventh", image: UIImage(named: "7")),
-//        ]
-//    }
-//
-//
-//    struct SpecialProducts: CollectionableMock {
-//        let id: String
-//        let title: String
-//        let image: UIImage?
-//
-//        static let all = [
-//            SpecialProducts(id: "first", title: "First Category", image: UIImage(named: "1")),
-//            SpecialProducts(id: "second", title: "second Category", image: UIImage(named: "2")),
-//            SpecialProducts(id: "third", title: "third Category", image: UIImage(named: "3")),
-//        ]
-//    }
-//
-//    struct Addresses {
-//        static var model = [Address(id: "one", city: "one", district: "one", street: "one", building: "one", apartment: "one"), Address(id: "two", city: "two", district: "two", street: "two", building: "two", apartment: "two")]
-//    }
+
+    // MARK: - Notifications
+    
+    static let notification = UserNotification(id: "1", title: "First Notification", message: "some greatest ever",
+                                               image: nil, date: Date(timeIntervalSince1970: 12345))
+    
+    static let notifications = [
+        notification,
+        UserNotification(id: "1", title: "First Notification", message: "some greatest words  ever",
+                                                   image: nil, date: Date(timeIntervalSince1970: 12345)),
+        UserNotification(id: "2", title: "Second Notification", message: "some words",
+                                                   image: nil, date: Date(timeIntervalSince1970: 12345)),
+        UserNotification(id: "3", title: "Third Notification",
+                         message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                         image: nil, date: Date(timeIntervalSince1970: 12345)),
+        UserNotification(id: "4", title: "Forth Notification", message: "something",
+                                                   image: nil, date: Date(timeIntervalSince1970: 12345)),
+    ]
 }

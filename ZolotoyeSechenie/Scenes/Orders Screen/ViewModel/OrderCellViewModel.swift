@@ -11,7 +11,7 @@ struct OrderCellViewModel: GenericCellViewModelProtocol {
     let id: String
     let title: String = "Заказ Номер"
     let message: String = "Статус заказа"
-    let date: String = "сегодня в 18:00"
+    let date: Date = Date(timeIntervalSince1970: 12345)
     let image: String? = "5"
     // TODO: date to string converter
     

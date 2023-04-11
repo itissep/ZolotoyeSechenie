@@ -7,18 +7,12 @@
 
 import Foundation
 
-typealias Notifications = [UserNotification]
-
 struct UserNotification: Codable {
     let id: String
-//    let title: String
-//    let message: String
-//    let image: String
+    let title: String
+    let message: String
+    let image: String?
+    let date: Date
+    #warning("TODO: type for next screen?")
     
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case employeeName = "employee_name"
-//        case employeeSalary = "employee_salary"
-//        case employeeAge = "employee_age"
-//    }
 }

@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class ProfileSettingsTableCell: UITableViewCell {
     private lazy var coverImageView = UIImageView()
     private lazy var titleLabel = UILabel()
@@ -24,8 +23,8 @@ class ProfileSettingsTableCell: UITableViewCell {
     }
     
     private func layout() {
-        // Cell view customization
         contentView.backgroundColor = .white
+        self.selectionStyle = .none
         
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(coverImageView)
@@ -48,9 +47,7 @@ class ProfileSettingsTableCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.leading.equalTo(coverImageView.snp.trailing).offset(12)
             make.trailing.equalToSuperview().inset(K.hPadding)
-            
         }
-        
     }
     
     public func configure(with model: SettingsCellViewModel) {
@@ -60,7 +57,7 @@ class ProfileSettingsTableCell: UITableViewCell {
     
     public func removeSeparator(_ isRemoved: Bool) {
         if isRemoved {
-            self.separatorInset = .zero
+            self.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         }
     }
 }

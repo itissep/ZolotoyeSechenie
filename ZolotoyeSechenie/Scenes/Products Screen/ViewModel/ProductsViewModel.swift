@@ -9,7 +9,7 @@ import Foundation
 
 class ProductsViewModel: NSObject {
     
-    private var productsService: ProductsServiceProtocol
+//    private var productsService: ProductsServiceProtocol
     
     var reloadTableView: (() -> Void)?
     
@@ -21,18 +21,18 @@ class ProductsViewModel: NSObject {
         }
     }
     
-    init(productsService: ProductsServiceProtocol = ProductsService()) {
-        self.productsService = productsService
-    }
+//    init() {
+////        self.productsService = productsService
+//    }
     
     func getProducts() {
-        productsService.getProducts { success, model, error in
-            if success, let products = model {
-                self.fetchData(products: products)
-            } else {
-                print(error!)
-            }
-        }
+//        productsService.getProducts { success, model, error in
+//            if success, let products = model {
+//                self.fetchData(products: products)
+//            } else {
+//                print(error!)
+//            }
+//        }
     }
     
     func fetchData(products: Products) {

@@ -21,9 +21,7 @@ class NotificationsCoordinator: NotificationsCoordinatorDescription {
 
     var container: Container?
 
-//    var userService: UserServiceDescription?
-//    var imageService: ImageServiceDescription?
-//    var userDefaultsService: UserDefaultsService?
+    var notificationService: NotificationServiceDescription?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -31,21 +29,18 @@ class NotificationsCoordinator: NotificationsCoordinatorDescription {
 
     
     func start() {
+        notificationService = container?.resolve(NotificationServiceDescription.self)
+    
         goToNotifications()
     }
     
     func goToNotifications() {
-        let notificationsVC = NotificationsViewController()
+        #warning("TODO: add normal userId")
+        guard let notificationService else { return }
+        let viewModel = NotificationsViewModel(userId: "",
+                                               notificationsService: notificationService,
+                                               coordinator: self)
+        let notificationsVC = NotificationsViewController(viewModel: viewModel)
         navigationController.pushViewController(notificationsVC, animated: true)
     }
-    
-    //    func goToOrder2Screen(animated: Bool = false) -> Self {
-    //        navigationRootViewController?.pushViewController(Orders2ViewController(coordinator: self), animated: animated)
-    //        return self
-    //    }
-    //
-    //    func goToOrder3Screen(animated: Bool = false) -> Self {
-    //        navigationRootViewController?.pushViewController(Orders3ViewController(coordinator: self), animated: animated)
-    //        return self
-    //    }
 }

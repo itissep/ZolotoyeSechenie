@@ -13,7 +13,6 @@ import Combine
 #warning("TODO: add user category and information about it")
 
 class ProfileViewController: UIViewController {
-    
     private lazy var tableView = UITableView()
     private lazy var nameLabel = UILabel()
     private lazy var countLabel = UILabel()

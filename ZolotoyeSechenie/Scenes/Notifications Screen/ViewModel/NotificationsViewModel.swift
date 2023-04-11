@@ -6,52 +6,54 @@
 //
 
 import Foundation
-
+import Combine
 
 class NotificationsViewModel: NSObject {
     
-    private var notificationsService: NotificationServiceProtocol
+    private var notificationsService: NotificationServiceDescription
+    private let userId: String
+    private let coordinator: NotificationsCoordinatorDescription
     
-    var reloadTableView: (() -> Void)?
+    @Published var notificationCellViewModels = [NotificationCellViewModel]()
+    @Published var isLoading = false
     
-    var notifications = Notifications()
-    
-    var notificationCellViewModels = [NotificationCellViewModel]() {
-        didSet {
-            reloadTableView?()
-        }
-    }
-    
-    init(notificationsService: NotificationServiceProtocol = NotificationsService()) {
+    init(userId: String, notificationsService: NotificationServiceDescription, coordinator: NotificationsCoordinatorDescription) {
         self.notificationsService = notificationsService
+        self.userId = userId
+        self.coordinator = coordinator
+        super.init()
+        
+        isLoading = true
+        getNotifications()
     }
     
     func getNotifications() {
-        notificationsService.getNotifications { success, model, error in
-            if success, let notifications = model {
-                self.fetchData(notifications: notifications)
-            } else {
-                print(error!)
+        notificationsService.getAllNotifications(for: userId) {[weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+                self?.isLoading = false
+                #warning("TODO: add error handler")
+            case .success(let notifications):
+                self?.fetchData(notifications: notifications)
             }
         }
     }
     
-    func fetchData(notifications: Notifications) {
-        self.notifications = notifications // Cache
+    func fetchData(notifications: [UserNotification]) {
         var vms = [NotificationCellViewModel]()
         for notification in notifications {
             vms.append(createCellModel(notification: notification))
         }
         notificationCellViewModels = vms
+        isLoading = false
     }
     
     func createCellModel(notification: UserNotification) -> NotificationCellViewModel {
-        let id = notification.id
-        // TODO: change data later
-        return NotificationCellViewModel(id: id) // change properties
+        return NotificationCellViewModel(from: notification)
     }
     
-    func getCellViewModel(at indexPath: IndexPath) -> NotificationCellViewModel {
-        return notificationCellViewModels[indexPath.row]
+    func reloadData() {
+        getNotifications()
     }
 }

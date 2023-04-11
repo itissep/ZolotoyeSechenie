@@ -12,7 +12,7 @@ protocol GenericCellViewModelProtocol {
     var id: String { get }
     var title: String { get }
     var message: String { get }
-    var date: String { get }
+    var date: Date { get }
     var image: String? { get }
 }
 
@@ -28,7 +28,7 @@ class GenericTableCell: UITableViewCell {
         didSet {
             titleLabel.text = cellViewModel?.title
             messageLabel.text = cellViewModel?.message
-            dateLabel.text = cellViewModel?.date
+            dateLabel.text = "\(cellViewModel?.date)"
             
             // TODO: Proper Image Setter
             coverImageView.image = UIImage(named: cellViewModel?.image ?? "2")
