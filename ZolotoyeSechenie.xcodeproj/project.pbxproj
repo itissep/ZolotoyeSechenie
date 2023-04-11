@@ -29,6 +29,11 @@
 		2C10107A29E5B79D0052367A /* NotificationServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10107929E5B79D0052367A /* NotificationServiceDescription.swift */; };
 		2C10107C29E5B7BB0052367A /* ProductServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10107B29E5B7BB0052367A /* ProductServiceDescription.swift */; };
 		2C10107E29E5B7E00052367A /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10107D29E5B7E00052367A /* ServiceError.swift */; };
+		2C10108129E5BCB00052367A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108029E5BCB00052367A /* CoreDataManager.swift */; };
+		2C10108529E5BCF30052367A /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108329E5BCF30052367A /* DataBase.xcdatamodeld */; };
+		2C10108929E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108729E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift */; };
+		2C10108A29E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108829E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift */; };
+		2C10108D29E5C3E00052367A /* EntitiesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108C29E5C3E00052367A /* EntitiesDB.swift */; };
 		2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */; };
 		2C260ADD297BB71300771809 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADC297BB71300771809 /* Product.swift */; };
 		2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADF297BB73D00771809 /* HttpHelper.swift */; };
@@ -141,6 +146,11 @@
 		2C10107929E5B79D0052367A /* NotificationServiceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceDescription.swift; sourceTree = "<group>"; };
 		2C10107B29E5B7BB0052367A /* ProductServiceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceDescription.swift; sourceTree = "<group>"; };
 		2C10107D29E5B7E00052367A /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		2C10108029E5BCB00052367A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2C10108429E5BCF30052367A /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
+		2C10108729E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotificationMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2C10108829E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotificationMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2C10108C29E5C3E00052367A /* EntitiesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesDB.swift; sourceTree = "<group>"; };
 		2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		2C260ADC297BB71300771809 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2C260ADF297BB73D00771809 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
@@ -279,6 +289,34 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		2C10108229E5BCD70052367A /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				2C10108629E5BD790052367A /* Models */,
+				2C10108029E5BCB00052367A /* CoreDataManager.swift */,
+				2C10108C29E5C3E00052367A /* EntitiesDB.swift */,
+				2C10108329E5BCF30052367A /* DataBase.xcdatamodeld */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		2C10108629E5BD790052367A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C10108B29E5BDBC0052367A /* UserNotificationMO */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C10108B29E5BDBC0052367A /* UserNotificationMO */ = {
+			isa = PBXGroup;
+			children = (
+				2C10108729E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift */,
+				2C10108829E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift */,
+			);
+			path = UserNotificationMO;
+			sourceTree = "<group>";
+		};
 		2C260ADE297BB72100771809 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +448,7 @@
 		2C74602F291A6A02006E1872 /* ZolotoyeSechenie */ = {
 			isa = PBXGroup;
 			children = (
+				2C10108229E5BCD70052367A /* DataBase */,
 				2CA72013297ED815000A6FD6 /* UI */,
 				2C746063291A6D34006E1872 /* Models */,
 				2C746066291A6D7E006E1872 /* Coordinators */,
@@ -957,10 +996,12 @@
 				2C746031291A6A02006E1872 /* AppDelegate.swift in Sources */,
 				2CA71FC7297D31E6000A6FD6 /* ProfileSettingsTableCell.swift in Sources */,
 				2CA71FF7297EB4C9000A6FD6 /* TabCoordinator.swift in Sources */,
+				2C10108529E5BCF30052367A /* DataBase.xcdatamodeld in Sources */,
 				2CA7201B297EDD7F000A6FD6 /* OrderCellViewModel.swift in Sources */,
 				2C260AF9297C5E2400771809 /* GenericTableView.swift in Sources */,
 				2CA72000297EC5B9000A6FD6 /* CollectionTypes.swift in Sources */,
 				2CA72019297EDBEF000A6FD6 /* OrdersViewModel.swift in Sources */,
+				2C10108A29E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift in Sources */,
 				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
 				2CA72004297ED140000A6FD6 /* AddressTableCell.swift in Sources */,
 				2C04D6EC29DB15D500002294 /* MockImageService.swift in Sources */,
@@ -969,6 +1010,7 @@
 				2CA720342980249D000A6FD6 /* EditAddressViewModel.swift in Sources */,
 				2C10107829E5B76F0052367A /* OrderServiceDescription.swift in Sources */,
 				2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */,
+				2C10108129E5BCB00052367A /* CoreDataManager.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2CCE1ABD29DDE41900A93D27 /* UIImageView.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
@@ -982,6 +1024,7 @@
 				2C04D6E829DB048B00002294 /* MockUserService.swift in Sources */,
 				2C04D6E029DAD51D00002294 /* LoadingView.swift in Sources */,
 				2C04D6DC29DA8DEA00002294 /* User.swift in Sources */,
+				2C10108929E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift in Sources */,
 				2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */,
 				2CA71FC5297C68FB000A6FD6 /* ProfileViewModel.swift in Sources */,
 				2CA72015297ED8E3000A6FD6 /* ProductTableView.swift in Sources */,
@@ -999,6 +1042,7 @@
 				2CA7202E297FDA8D000A6FD6 /* LabelTextField.swift in Sources */,
 				2C04D6E229DAD54D00002294 /* UIActivityIndicatorView.swift in Sources */,
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
+				2C10108D29E5C3E00052367A /* EntitiesDB.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 				2CA72017297EDB06000A6FD6 /* OrderViewController.swift in Sources */,
 			);
@@ -1380,6 +1424,16 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
+		2C10108329E5BCF30052367A /* DataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2C10108429E5BCF30052367A /* DataBase.xcdatamodel */,
+			);
+			currentVersion = 2C10108429E5BCF30052367A /* DataBase.xcdatamodel */;
+			path = DataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		2C746039291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

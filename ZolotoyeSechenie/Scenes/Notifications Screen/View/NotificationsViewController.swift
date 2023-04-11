@@ -58,7 +58,6 @@ class NotificationsViewController: UIViewController {
         
         viewModel.$notificationCellViewModels
             .receive(on: DispatchQueue.main)
-            .print()
             .sink {[weak self] _ in
                 self?.tableView.reloadData()
                 
@@ -74,6 +73,8 @@ class NotificationsViewController: UIViewController {
     }
     
     private func layout() {
+        view.backgroundColor = .white
+        
         tableView.delegate = self
         tableView.dataSource = self
         
