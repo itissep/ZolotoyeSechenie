@@ -9,4 +9,5 @@ import Foundation
 
 enum EntitiesDB: String {
     case UserNotificationMO = "UserNotificationMO"
+    case AddressMO = "AddressMO" 
 }

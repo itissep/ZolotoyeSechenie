@@ -30,6 +30,8 @@ class ProfileCoordinator: ProfileCoordinatorDescription {
     var userDefaultsService: UserDefaultsService?
     var orderService: OrderServiceDescription?
     var addressService: AddressServiceDescription?
+    
+    var coreDataManager: CoreDataManagerDescrption?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -39,6 +41,7 @@ class ProfileCoordinator: ProfileCoordinatorDescription {
         userService = container?.resolve(UserServiceDescription.self)
         orderService = container?.resolve(OrderServiceDescription.self)
         addressService = container?.resolve(AddressServiceDescription.self)
+        coreDataManager = container?.resolve(CoreDataManagerDescrption.self)
 //        userDefaultsService = container?.resolve(UserDefaultsService.self)
 
         goToProfile()
@@ -60,8 +63,8 @@ class ProfileCoordinator: ProfileCoordinatorDescription {
     }
     
     func goToAllAddresses() {
-        guard let addressService else { return }
-        let viewModel = AddressesViewModel(userId: "", addressService: addressService, coordinator: self)
+        guard let addressService, let coreDataManager else { return }
+        let viewModel = AddressesViewModel(userId: "", addressService: addressService, coreDataManager: coreDataManager, coordinator: self)
         let addressesVc = AddressesViewController(viewModel: viewModel)
         navigationController.pushViewController(addressesVc, animated: true)
     }

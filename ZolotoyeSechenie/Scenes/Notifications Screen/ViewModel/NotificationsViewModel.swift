@@ -63,7 +63,6 @@ class NotificationsViewModel: NSObject {
             print(error)
             #warning("TODO: error handler")
         }
-
     }
     
     func getNotifications() {
@@ -85,7 +84,7 @@ class NotificationsViewModel: NSObject {
         for notification in notifications {
             vms.append(createCellModel(notification: notification))
         }
-        notificationCellViewModels = vms
+        notificationCellViewModels = vms.sorted(by: { $0.date < $1.date })
         isLoading = false
     }
     

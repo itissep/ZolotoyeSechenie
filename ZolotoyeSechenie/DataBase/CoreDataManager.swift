@@ -25,37 +25,25 @@ protocol CoreDataManagerDescrption {
 }
 
 final class CoreDataManager {
-    
-    private var isReady: Bool = false
-    private let container: NSPersistentContainer
-    
-    var viewContext: NSManagedObjectContext {
-        return container.viewContext
-    }
-    
-    init() {
-        container = NSPersistentContainer(name: "DataBase")
-        container.viewContext.automaticallyMergesChangesFromParent = true
-    }
-
+    private static var container: NSPersistentContainer = {
+                let container = NSPersistentContainer(name: "DataBase")
+                container.loadPersistentStores { description, error in
+                    if let error = error {
+                         fatalError("Unable to load persistent stores: \(error)")
+                    }
+                }
+                return container
+            }()
+        
+        var viewContext: NSManagedObjectContext {
+            return Self.container.viewContext
+        }
 }
 
 extension CoreDataManager: CoreDataManagerDescrption {
     func initIfNeeded(successBlock: (() -> ())?, errorBlock: ((Error) -> ())?) {
-        guard !isReady else {
-            successBlock?()
-            return
-        }
-        
-        container.loadPersistentStores { [weak self] _, error in
-            if let error = error {
-                errorBlock?(error)
-                return
-            }
-            
-            self?.isReady = true
-            successBlock?()
-        }
+        successBlock?()
+        #warning("TODO: rewrite this without this function")
     }
     
     func update<T>(reqeust: NSFetchRequest<T>, configurationBlock: @escaping (T?) -> Void) where T: NSManagedObject {
@@ -94,7 +82,7 @@ extension CoreDataManager: CoreDataManagerDescrption {
     
     func create<T>(entityName: String, configurationBlock: @escaping (T?) -> Void) where T: NSManagedObject {
         
-        container.performBackgroundTask({ backgroundContext in
+        Self.container.performBackgroundTask({ backgroundContext in
             let object = NSEntityDescription.insertNewObject(forEntityName: entityName,
                                                              into: backgroundContext) as? T
             
