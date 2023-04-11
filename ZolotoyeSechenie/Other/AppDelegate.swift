@@ -46,6 +46,10 @@ extension AppDelegate {
 //            return UserDefaultsService()
 //        }
         
+        container.register(CoreDataStoring.self) { _ in
+            return CoreDataStore.default
+        }
+        #warning("REMOVE ME")
         container.register(CoreDataManagerDescrption.self) { _ in
             return CoreDataManager()
         }

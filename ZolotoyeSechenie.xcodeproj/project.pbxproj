@@ -36,6 +36,10 @@
 		2C10108D29E5C3E00052367A /* EntitiesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108C29E5C3E00052367A /* EntitiesDB.swift */; };
 		2C10109029E5C6860052367A /* AddressMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108E29E5C6860052367A /* AddressMO+CoreDataClass.swift */; };
 		2C10109129E5C6860052367A /* AddressMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108F29E5C6860052367A /* AddressMO+CoreDataProperties.swift */; };
+		2C10109529E5D6EB0052367A /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109429E5D6EB0052367A /* CoreDataStore.swift */; };
+		2C10109729E5D7140052367A /* CoreDataSaveModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109629E5D7140052367A /* CoreDataSaveModelPublisher.swift */; };
+		2C10109929E5D74B0052367A /* CoreDataFetchResultsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109829E5D74B0052367A /* CoreDataFetchResultsPublisher.swift */; };
+		2C10109B29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109A29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift */; };
 		2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */; };
 		2C260ADD297BB71300771809 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADC297BB71300771809 /* Product.swift */; };
 		2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADF297BB73D00771809 /* HttpHelper.swift */; };
@@ -154,6 +158,10 @@
 		2C10108C29E5C3E00052367A /* EntitiesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesDB.swift; sourceTree = "<group>"; };
 		2C10108E29E5C6860052367A /* AddressMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C10108F29E5C6860052367A /* AddressMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2C10109429E5D6EB0052367A /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		2C10109629E5D7140052367A /* CoreDataSaveModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaveModelPublisher.swift; sourceTree = "<group>"; };
+		2C10109829E5D74B0052367A /* CoreDataFetchResultsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFetchResultsPublisher.swift; sourceTree = "<group>"; };
+		2C10109A29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDeleteAllPublisher.swift; sourceTree = "<group>"; };
 		2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		2C260ADC297BB71300771809 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2C260ADF297BB73D00771809 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
@@ -294,6 +302,7 @@
 		2C10108229E5BCD70052367A /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				2C10109329E5D6BA0052367A /* Combine */,
 				2C10108629E5BD790052367A /* Models */,
 				2C10108029E5BCB00052367A /* CoreDataManager.swift */,
 				2C10108C29E5C3E00052367A /* EntitiesDB.swift */,
@@ -327,6 +336,17 @@
 				2C10108F29E5C6860052367A /* AddressMO+CoreDataProperties.swift */,
 			);
 			path = AddressMO;
+			sourceTree = "<group>";
+		};
+		2C10109329E5D6BA0052367A /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				2C10109429E5D6EB0052367A /* CoreDataStore.swift */,
+				2C10109A29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift */,
+				2C10109829E5D74B0052367A /* CoreDataFetchResultsPublisher.swift */,
+				2C10109629E5D7140052367A /* CoreDataSaveModelPublisher.swift */,
+			);
+			path = Combine;
 			sourceTree = "<group>";
 		};
 		2C260ADE297BB72100771809 /* Helpers */ = {
@@ -981,11 +1001,13 @@
 				2C10109029E5C6860052367A /* AddressMO+CoreDataClass.swift in Sources */,
 				2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */,
 				2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */,
+				2C10109B29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift in Sources */,
 				2CA71FFA297EBD00000A6FD6 /* SearchCoordinator.swift in Sources */,
 				2C260ADD297BB71300771809 /* Product.swift in Sources */,
 				2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */,
 				2C10107629E5B52F0052367A /* AddressServiceDescription.swift in Sources */,
 				2C4E08F5297988EB002717B2 /* SignInViewController.swift in Sources */,
+				2C10109729E5D7140052367A /* CoreDataSaveModelPublisher.swift in Sources */,
 				2CA72008297ED1A4000A6FD6 /* AddressCellViewModel.swift in Sources */,
 				2CA71FCF297D424B000A6FD6 /* UIAlertController.swift in Sources */,
 				2CA71FCB297D3285000A6FD6 /* SettingsCellViewModel.swift in Sources */,
@@ -1020,6 +1042,7 @@
 				2C10107E29E5B7E00052367A /* ServiceError.swift in Sources */,
 				2CA720342980249D000A6FD6 /* EditAddressViewModel.swift in Sources */,
 				2C10107829E5B76F0052367A /* OrderServiceDescription.swift in Sources */,
+				2C10109929E5D74B0052367A /* CoreDataFetchResultsPublisher.swift in Sources */,
 				2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */,
 				2C10108129E5BCB00052367A /* CoreDataManager.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
@@ -1028,6 +1051,7 @@
 				2CA72006297ED189000A6FD6 /* Address.swift in Sources */,
 				2CA7201F297EDDD0000A6FD6 /* OrderService.swift in Sources */,
 				2C3B58F229E2B81800E6AB95 /* UIViewController.swift in Sources */,
+				2C10109529E5D6EB0052367A /* CoreDataStore.swift in Sources */,
 				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
 				2CA7202A297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift in Sources */,
 				2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */,

@@ -7,19 +7,22 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class AddressesViewModel: NSObject {
     private var addressService: AddressServiceDescription
-    private let coreDataManager: CoreDataManagerDescrption
+    private let coreDataManager: CoreDataStoring
     private var userId: String
 
     @Published var isLoading = false
     var addressCellViewModels = [AddressCellViewModel]()
     private let coordinator: ProfileCoordinatorDescription
+    
+    private var subscriptions = Set<AnyCancellable>()
 
     init(userId: String,
          addressService: AddressServiceDescription,
-         coreDataManager: CoreDataManagerDescrption,
+         coreDataManager: CoreDataStoring,
          coordinator: ProfileCoordinatorDescription) {
         self.addressService = addressService
         self.coreDataManager = coreDataManager
@@ -37,38 +40,60 @@ class AddressesViewModel: NSObject {
     }
     
     private func getCachedData() {
-        coreDataManager.initIfNeeded {[weak self] in
-            let request = AddressMO.fetchRequest()
-            guard let addressesMO = self?.coreDataManager.fetch(request: request) else { return }
-            let addressModels = addressesMO.map { Address(from: $0) }
-            self?.fetchData(addressModels)
-        } errorBlock: { error in
-            print(error)
-            #warning("TODO: add error handler")
-        }
+        let request = NSFetchRequest<AddressMO>(entityName: AddressMO.entityName)
+            coreDataManager
+                .publicher(fetch: request)
+                .sink { completion in
+                    if case .failure(let error) = completion {
+                        print(error)
+                    }
+                } receiveValue: {[weak self] addresses in
+                    self?.fetchData(addresses.map({ Address(from: $0) }))
+                }
+                .store(in: &subscriptions)
     }
     
     private func replaceCache(with addresses: [Address]) {
-        coreDataManager.initIfNeeded {[weak self] in
-            self?.coreDataManager.deleteAll(request: AddressMO.fetchRequest())
-            
-            addresses.forEach { newAddress in
-                self?.coreDataManager.create(entityName: EntitiesDB.AddressMO.rawValue, configurationBlock: { addressMO in
-                    guard let addressMO = addressMO as? AddressMO else { return }
-                    addressMO.id = newAddress.id
-                    addressMO.city = newAddress.city
-                    addressMO.disctrict = newAddress.district
-                    addressMO.street = newAddress.street
-                    addressMO.building = newAddress.building
-                    addressMO.apartment = newAddress.apartment
-                    addressMO.comment = newAddress.comment
-                    addressMO.userId = newAddress.userId
-                })
+        print("wowza")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: AddressMO.entityName)
+            coreDataManager
+                .publicher(delete: request)
+                .sink { completion in
+                    if case .failure(let error) = completion {
+                        print(error)
+                    }
+                } receiveValue: { _ in
+                }
+                .store(in: &subscriptions)
+        
+        
+        let action: Action = {
+            addresses.forEach {[weak self] newAddress in
+                guard let self else { return }
+                let addressMO: AddressMO = self.coreDataManager.createEntity()
+                
+                addressMO.id = newAddress.id
+                addressMO.city = newAddress.city
+                addressMO.disctrict = newAddress.district
+                addressMO.street = newAddress.street
+                addressMO.building = newAddress.building
+                addressMO.apartment = newAddress.apartment
+                addressMO.comment = newAddress.comment
+                addressMO.userId = newAddress.userId
+                
             }
-        } errorBlock: { error in
-            print(error)
-            #warning("TODO: error handler")
         }
+        
+        coreDataManager
+            .publicher(save: action)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    #warning("TODO: error handler")
+                    print(error)
+                }
+            } receiveValue: { _ in
+            }
+            .store(in: &subscriptions)
     }
     
     private func fetchAddresses() {
