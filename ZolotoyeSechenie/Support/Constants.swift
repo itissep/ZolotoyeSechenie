@@ -10,7 +10,7 @@ import UIKit
 class K {
     static let hPadding: CGFloat = 16
     static let cornerRadius: CGFloat = 12
-    static let loadingTime: Double = 1.0
+    static let loadingTime: Double = 0.0
     
     class Fonts {
         static let regular11 = UIFont.systemFont(ofSize: 11 , weight: .regular)

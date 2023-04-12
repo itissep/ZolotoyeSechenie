@@ -9,10 +9,11 @@ import UIKit
 import Combine
 import SnapKit
 
-#warning("TODO: scrollView")
+#warning("TODO: scrollView for kayboard")
+#warning("TODO: fix constraints")
 class CourierDetailsViewController: UIViewController {
-    private lazy var contentView = UIView()
     private lazy var scrollView = UIScrollView()
+    private lazy var scrollViewContainer = UIStackView()
     
     private lazy var districtTitleLabel = UILabel()
     private lazy var districtSelectionView = UIView()
@@ -29,6 +30,8 @@ class CourierDetailsViewController: UIViewController {
     
     private let viewModel: CourierDetailsViewModel
     private var subscriptions = Set<AnyCancellable>()
+    
+    // MARK: - Life Cycle
     
     init(viewModel: CourierDetailsViewModel) {
         self.viewModel = viewModel
@@ -48,6 +51,8 @@ class CourierDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Binding
+    
     private func setupBinding() {
         viewModel.$addressSelectionViewModels
             .sink { [weak self] models in
@@ -56,6 +61,8 @@ class CourierDetailsViewController: UIViewController {
             .store(in: &subscriptions)
     }
     
+    // MARK: - UI
+    
     private func layout() {
         view.backgroundColor = .white
         title = "Доставка курьером"
@@ -63,57 +70,44 @@ class CourierDetailsViewController: UIViewController {
         districtPickerSetup()
         addressPickerSetup()
         commentSectionSetup()
+        nextButtonSetup()
     }
     
     private func setupScrollView() {
-//        view.backgroundColor = .white
-//
-//        scrollView.isUserInteractionEnabled = true
-//        scrollView.isExclusiveTouch = false
-//        scrollView.canCancelContentTouches = true
-//        scrollView.delaysContentTouches = false
-//
-        
-//        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height))
-//
-//        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.size.width, height: 800)
+        scrollViewContainer.axis = .vertical
+        scrollViewContainer.spacing = 10
+        scrollViewContainer.alignment = .fill
 
-
+        scrollViewContainer.translatesAutoresizingMaskIntoConstraints = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        scrollView.isScrollEnabled = false
-
+        scrollView.addSubview(scrollViewContainer)
+        
         scrollView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
-            make.bottom.equalToSuperview()
-            make.width.equalToSuperview()
-        }
-        contentView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.bottom.equalToSuperview()
         }
-//        contentView = self.view
+        
+        scrollViewContainer.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview()
+        }
     }
     
     private func districtPickerSetup() {
-        contentView.addSubviews([districtTitleLabel, districtSelectionView,districtCaptureLabel])
+        [districtTitleLabel, districtSelectionView,districtCaptureLabel].forEach { view in
+            scrollViewContainer.addArrangedSubview(view)
+        }
+        
         districtTitleLabel.text = "Район города"
         districtTitleLabel.font = K.Fonts.semibold17
         districtTitleLabel.textColor = K.Colors.darkGold
-        districtTitleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(K.hPadding)
-//            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(20)
-            make.top.equalToSuperview().offset(20)
-        }
         
         districtSelectionView.backgroundColor = K.Colors.prettyGold
         districtSelectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(K.hPadding)
-            make.top.equalTo(districtTitleLabel.snp.bottom).offset(12)
             make.height.equalTo(45)
         }
         
@@ -121,34 +115,25 @@ class CourierDetailsViewController: UIViewController {
         districtCaptureLabel.font = K.Fonts.regular13
         districtCaptureLabel.textColor = K.Colors.darkGold.withAlphaComponent(0.5)
         districtCaptureLabel.numberOfLines = 0
-        districtCaptureLabel.snp.makeConstraints { make in
-            make.leading.equalTo(districtSelectionView.snp.leading).inset(K.hPadding)
-            make.trailing.equalTo(districtSelectionView.snp.trailing).inset(K.hPadding)
-            make.top.equalTo(districtSelectionView.snp.bottom).offset(12)
-        }
     }
     
     private func addressPickerSetup() {
-        contentView.addSubviews([addressTitleLabel, addressPickerView, newAddressButton])
+        [addressTitleLabel, addressPickerView, newAddressButton].forEach { view in
+                scrollViewContainer.addArrangedSubview(view)
+            }
         addressTitleLabel.text = "Адрес"
         addressTitleLabel.font = K.Fonts.semibold17
         addressTitleLabel.textColor = K.Colors.darkGold
-        addressTitleLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(K.hPadding)
-            make.top.equalTo(districtCaptureLabel.snp.bottom).offset(20)
-        }
         
         addressPickerView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(addressTitleLabel.snp.bottom).offset(12)
         }
         
         newAddressButton.addTarget(self, action: #selector(addAddressPressed), for: .touchUpInside)
         newAddressButton.setTitle("Добавить новый адрес", for: .normal)
         
         let buttonImage = UIImage(named: "Plus") ?? UIImage()
-        newAddressButton.setImage(buttonImage, for: .normal)
-        #warning("TODO: move plus image to right")
+        #warning("TODO: add plus image to right")
         
         newAddressButton.titleLabel?.font = K.Fonts.semibold17
         newAddressButton.backgroundColor = K.Colors.prettyGold.withAlphaComponent(0.1)
@@ -157,21 +142,17 @@ class CourierDetailsViewController: UIViewController {
         newAddressButton.layer.cornerRadius = K.cornerRadius
         newAddressButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(K.hPadding)
-            make.top.equalTo(addressPickerView.snp.bottom)
             make.height.equalTo(50)
         }
     }
     private func commentSectionSetup() {
-        contentView.addSubviews([commentLabel, commentTextView])
+        [commentLabel, commentTextView].forEach { view in
+            scrollViewContainer.addArrangedSubview(view)
+        }
+        
         commentLabel.text = "Примечания"
         commentLabel.font = K.Fonts.regular15
         commentLabel.textColor = .black
-        
-        commentLabel.snp.makeConstraints{ make in
-            make.top.equalTo(newAddressButton.snp.bottom).offset(20)
-            make.trailing.equalToSuperview().inset(K.hPadding)
-            make.leading.equalToSuperview().offset(K.hPadding + 20)
-        }
         
         commentTextView.textColor = K.Colors.darkGold
         commentTextView.font = K.Fonts.regular17
@@ -180,14 +161,13 @@ class CourierDetailsViewController: UIViewController {
         commentTextView.textContainerInset = UIEdgeInsets(top: 10, left: 18, bottom: 10, right: 18)
         #warning("TODO: add label-like placeholder")
         commentTextView.snp.makeConstraints{make in
-            make.top.equalTo(commentLabel.snp.bottom).offset(4)
             make.leading.trailing.equalToSuperview().inset(K.hPadding)
             make.height.equalTo(180)
         }
     }
     
     private func nextButtonSetup() {
-        contentView.addSubviews([nextButton])
+        scrollViewContainer.addArrangedSubview(nextButton)
         nextButton.addTarget(self, action: #selector(nextButtonPressed), for: .touchUpInside)
         
         nextButton.setTitle("Далее", for: .normal)
@@ -196,24 +176,19 @@ class CourierDetailsViewController: UIViewController {
         nextButton.layer.masksToBounds = false
         nextButton.layer.cornerRadius = K.cornerRadius
         
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(nextButton)
-        
         nextButton.snp.makeConstraints { make in
             make.width.equalToSuperview().inset(K.hPadding)
             make.height.equalTo(50)
             make.centerX.equalToSuperview()
-            make.top.equalTo(commentTextView.snp.bottom).offset(10)
             make.bottom.equalToSuperview().inset(30)
         }
     }
     
+    // MARK: - Selectors
+    
     @objc
     func addAddressPressed() {
-        print(contentView.frame)
-        print(scrollView.frame)
-        print(view.frame)
-//        viewModel.goToAddAddress()
+        viewModel.goToAddAddress()
     }
     
     @objc
