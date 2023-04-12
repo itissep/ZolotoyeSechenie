@@ -102,10 +102,10 @@ struct MockData {
     
     
     static let ratioSelections = [
-        RadioViewModel(id: "0", title: "Самовывоз",
+        PickerViewModel(id: "0", title: "Самовывоз",
                        capture: "Новосибирск - ул.Красный проспект, д.55. \nДругой город - ...",
                        image: UIImage(named: "storage"), isChecked: true),
-        RadioViewModel(id: "1", title: "Доставка курьером", capture: nil, image: UIImage(named: "truck"), isChecked: false),
+        PickerViewModel(id: "1", title: "Доставка курьером", capture: nil, image: UIImage(named: "truck"), isChecked: false),
         
     ]
     

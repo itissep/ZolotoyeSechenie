@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-final class RadioTableCell: UITableViewCell {
+final class PickerOptionView: UIView {
     private lazy var innerView = UIView()
     private lazy var captureLabel = UILabel()
     private lazy var iconImageView = UIImageView()
@@ -17,18 +17,14 @@ final class RadioTableCell: UITableViewCell {
     private lazy var radioImageView = UIImageView()
     
     private var id: String?
-    
-    class var identifier: String { return String(describing: self) }
-    
     var isChecked = false {
         didSet {
             ratioSetup(isChecked)
         }
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        self.selectionStyle = .none
+    init() {
+        super.init(frame: .zero)
         layout()
     }
     
@@ -39,11 +35,12 @@ final class RadioTableCell: UITableViewCell {
     
     private func layout() {
         self.addSubviews([innerView, captureLabel])
+        
         innerView.addSubviews([iconImageView, titleLabel, radioImageView])
     
         innerView.layer.cornerRadius = K.cornerRadius
         innerView.layer.masksToBounds = true
-        innerView.backgroundColor = K.Colors.prettyGold.withAlphaComponent(0.2)
+        innerView.backgroundColor = K.Colors.prettyGold.withAlphaComponent(0.1)
         innerView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(K.hPadding)
             make.top.equalToSuperview()
@@ -78,10 +75,8 @@ final class RadioTableCell: UITableViewCell {
         captureLabel.snp.makeConstraints { make in
             make.leading.equalTo(innerView.snp.leading).inset(K.hPadding)
             make.trailing.equalTo(innerView.snp.trailing).inset(K.hPadding)
-            
-//            make.leading.trailing.equalToSuperview().inset(K.hPadding) // to background with insets
             make.top.equalTo(innerView.snp.bottom).offset(12)
-            make.bottom.equalToSuperview().inset(10)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -93,7 +88,7 @@ final class RadioTableCell: UITableViewCell {
         }
     }
     
-    public func configure(with model: RadioViewModel) {
+    public func configure(with model: PickerViewModel) {
         id = model.id
         titleLabel.text = model.title
         captureLabel.text = model.capture
@@ -103,13 +98,12 @@ final class RadioTableCell: UITableViewCell {
     
     @objc
     func toggle() {
-//        delegate?.wasSelectedItem(at: index, with: id)
         isChecked.toggle()
     }
 }
 
 
-final class RadioViewModel {
+final class PickerViewModel {
     let id: String
     let title: String
     let capture: String?
@@ -122,5 +116,83 @@ final class RadioViewModel {
         self.capture = capture
         self.image = image
         self.isChecked = isChecked
+    }
+    
+    init(from address: Address) {
+        self.id = address.id
+        self.title = "ул.\(address.street), д. \(address.building), \(address.apartment)"
+        self.image = UIImage(named: "house.fill")
+        self.capture = nil
+        self.isChecked = false
+    }
+}
+
+final class PickerView: UIView {
+    private lazy var stackView = UIStackView()
+    private lazy var byCourrier = PickerOptionView()
+    private lazy var fromStock = PickerOptionView()
+    
+    private var views: [PickerOptionView] = [] {
+        didSet {
+            views.forEach { stackView.addArrangedSubview($0) }
+            views.first?.isChecked = true
+            selectedIndex = 0
+        }
+    }
+    var selectedIndex = 0
+    
+    init() {
+        super.init(frame: .zero)
+        
+        layout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func layout() {
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 5
+        stackView.alignment = .fill
+        
+        self.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    public func configure(with models: [PickerViewModel]){
+        var views: [PickerOptionView] = []
+        for (index, model) in models.enumerated() {
+            let view = PickerOptionView()
+            view.configure(with: model)
+            let gestureRecognizer = CustomTapGestureRecognizer(target: self,
+                                                               action: #selector(optionTapped(_ :)),
+                                                               index: index)
+            view.addGestureRecognizer(gestureRecognizer)
+            views.append(view)
+        }
+        self.views = views
+    }
+    
+    @objc
+    private func optionTapped(_ sender: CustomTapGestureRecognizer) {
+        let index = sender.index
+        views[selectedIndex].toggle()
+        views[index].toggle()
+        selectedIndex = index
+    }
+}
+
+class CustomTapGestureRecognizer: UITapGestureRecognizer {
+    let index: Int
+    
+    init(target: AnyObject, action: Selector, index: Int) {
+        self.index = index
+        super.init(target: target, action: action)
     }
 }

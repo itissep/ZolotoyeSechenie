@@ -39,11 +39,14 @@
 		2C10109929E5D74B0052367A /* CDFetchResultsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109829E5D74B0052367A /* CDFetchResultsPublisher.swift */; };
 		2C10109B29E5D77F0052367A /* CDDeleteModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109A29E5D77F0052367A /* CDDeleteModelPublisher.swift */; };
 		2C10109D29E668840052367A /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109C29E668840052367A /* Categories.swift */; };
-		2C1010A329E66B2C0052367A /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A229E66B2C0052367A /* RadioView.swift */; };
+		2C1010A329E66B2C0052367A /* PickerOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A229E66B2C0052367A /* PickerOptionView.swift */; };
 		2C1010A529E66C620052367A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A429E66C620052367A /* UIView.swift */; };
-		2C1010A729E6731A0052367A /* RatioStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A629E6731A0052367A /* RatioStackView.swift */; };
 		2C1010AA29E678E90052367A /* DelieveryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A929E678E90052367A /* DelieveryDetailsViewController.swift */; };
 		2C1010AC29E682E80052367A /* OrderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010AB29E682E80052367A /* OrderCoordinator.swift */; };
+		2C1010B029E6BD7D0052367A /* DeliveryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010AF29E6BD7D0052367A /* DeliveryDetailsViewModel.swift */; };
+		2C1010B729E6BE330052367A /* CourierDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010B629E6BE330052367A /* CourierDetailsViewController.swift */; };
+		2C1010B929E6C3B20052367A /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010B829E6C3B20052367A /* UIButton.swift */; };
+		2C1010BB29E6CA0A0052367A /* CourierDetailtsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010BA29E6CA0A0052367A /* CourierDetailtsViewModel.swift */; };
 		2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */; };
 		2C260ADD297BB71300771809 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADC297BB71300771809 /* Product.swift */; };
 		2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADF297BB73D00771809 /* HttpHelper.swift */; };
@@ -165,11 +168,14 @@
 		2C10109829E5D74B0052367A /* CDFetchResultsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDFetchResultsPublisher.swift; sourceTree = "<group>"; };
 		2C10109A29E5D77F0052367A /* CDDeleteModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDDeleteModelPublisher.swift; sourceTree = "<group>"; };
 		2C10109C29E668840052367A /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
-		2C1010A229E66B2C0052367A /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		2C1010A229E66B2C0052367A /* PickerOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerOptionView.swift; sourceTree = "<group>"; };
 		2C1010A429E66C620052367A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		2C1010A629E6731A0052367A /* RatioStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioStackView.swift; sourceTree = "<group>"; };
 		2C1010A929E678E90052367A /* DelieveryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelieveryDetailsViewController.swift; sourceTree = "<group>"; };
 		2C1010AB29E682E80052367A /* OrderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCoordinator.swift; sourceTree = "<group>"; };
+		2C1010AF29E6BD7D0052367A /* DeliveryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryDetailsViewModel.swift; sourceTree = "<group>"; };
+		2C1010B629E6BE330052367A /* CourierDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierDetailsViewController.swift; sourceTree = "<group>"; };
+		2C1010B829E6C3B20052367A /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		2C1010BA29E6CA0A0052367A /* CourierDetailtsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierDetailtsViewModel.swift; sourceTree = "<group>"; };
 		2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		2C260ADC297BB71300771809 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2C260ADF297BB73D00771809 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
@@ -383,8 +389,7 @@
 		2C1010A129E66AF50052367A /* Custom Radio Control */ = {
 			isa = PBXGroup;
 			children = (
-				2C1010A229E66B2C0052367A /* RadioView.swift */,
-				2C1010A629E6731A0052367A /* RatioStackView.swift */,
+				2C1010A229E66B2C0052367A /* PickerOptionView.swift */,
 			);
 			path = "Custom Radio Control";
 			sourceTree = "<group>";
@@ -392,9 +397,60 @@
 		2C1010A829E678970052367A /* Order Flow Screens */ = {
 			isa = PBXGroup;
 			children = (
-				2C1010A929E678E90052367A /* DelieveryDetailsViewController.swift */,
+				2C1010B329E6BDD50052367A /* Courier Details Screen */,
+				2C1010B129E6BDBD0052367A /* Delivery Details Screen */,
 			);
 			path = "Order Flow Screens";
+			sourceTree = "<group>";
+		};
+		2C1010AE29E6BD5E0052367A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010AF29E6BD7D0052367A /* DeliveryDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2C1010B129E6BDBD0052367A /* Delivery Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010B229E6BDCD0052367A /* View */,
+				2C1010AE29E6BD5E0052367A /* ViewModel */,
+			);
+			path = "Delivery Details Screen";
+			sourceTree = "<group>";
+		};
+		2C1010B229E6BDCD0052367A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010A929E678E90052367A /* DelieveryDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1010B329E6BDD50052367A /* Courier Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010B529E6BE1A0052367A /* ViewModel */,
+				2C1010B429E6BE160052367A /* View */,
+			);
+			path = "Courier Details Screen";
+			sourceTree = "<group>";
+		};
+		2C1010B429E6BE160052367A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010B629E6BE330052367A /* CourierDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1010B529E6BE1A0052367A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010BA29E6CA0A0052367A /* CourierDetailtsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2C260ADE297BB72100771809 /* Helpers */ = {
@@ -631,6 +687,7 @@
 				2C4E08E629797D4E002717B2 /* UINavigationController.swift */,
 				2CA71FCE297D424B000A6FD6 /* UIAlertController.swift */,
 				2C04D6E529DB01E000002294 /* UIImage.swift */,
+				2C1010B829E6C3B20052367A /* UIButton.swift */,
 				2C3B58F129E2B81800E6AB95 /* UIViewController.swift */,
 				2CCE1ABC29DDE41900A93D27 /* UIImageView.swift */,
 				2C1010A429E66C620052367A /* UIView.swift */,
@@ -1071,6 +1128,7 @@
 				2C04D6F229DB1BBA00002294 /* MockNotificationService.swift in Sources */,
 				2C4E08E529797D06002717B2 /* Coordinator.swift in Sources */,
 				2CA71FEB297E7211000A6FD6 /* AddressesViewController.swift in Sources */,
+				2C1010B929E6C3B20052367A /* UIButton.swift in Sources */,
 				2C04D6EA29DB069300002294 /* MockProductService.swift in Sources */,
 				2C260AF1297C28F900771809 /* IconCollectionView.swift in Sources */,
 				2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */,
@@ -1084,6 +1142,7 @@
 				2C10108529E5BCF30052367A /* DataBase.xcdatamodeld in Sources */,
 				2CA7201B297EDD7F000A6FD6 /* OrderCellViewModel.swift in Sources */,
 				2C260AF9297C5E2400771809 /* GenericTableView.swift in Sources */,
+				2C1010BB29E6CA0A0052367A /* CourierDetailtsViewModel.swift in Sources */,
 				2C10109D29E668840052367A /* Categories.swift in Sources */,
 				2CA72000297EC5B9000A6FD6 /* CollectionTypes.swift in Sources */,
 				2CA72019297EDBEF000A6FD6 /* OrdersViewModel.swift in Sources */,
@@ -1108,6 +1167,7 @@
 				2C10109529E5D6EB0052367A /* CoreDataStore.swift in Sources */,
 				2C260AF7297C52CE00771809 /* NotificationsViewModel.swift in Sources */,
 				2CA7202A297FD9C0000A6FD6 /* CustomTextFieldViewModel.swift in Sources */,
+				2C1010B729E6BE330052367A /* CourierDetailsViewController.swift in Sources */,
 				2CA71FFC297EBE83000A6FD6 /* CartCoordinator.swift in Sources */,
 				2CCE1AB929DDE3A300A93D27 /* ImageService.swift in Sources */,
 				2C04D6E829DB048B00002294 /* MockUserService.swift in Sources */,
@@ -1123,11 +1183,11 @@
 				2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */,
 				2CA7202C297FD9E0000A6FD6 /* CustonTextFieldType.swift in Sources */,
 				2CA71FF1297EB3BD000A6FD6 /* DeepLinkCoordinator.swift in Sources */,
-				2C1010A329E66B2C0052367A /* RadioView.swift in Sources */,
+				2C1010A329E66B2C0052367A /* PickerOptionView.swift in Sources */,
 				2C260AE9297BBA3D00771809 /* AppSettings.swift in Sources */,
 				2C9EFBB3297BAE98006DF273 /* ProductTableCell.swift in Sources */,
 				2C04D6F029DB179700002294 /* MockAddressesService.swift in Sources */,
-				2C1010A729E6731A0052367A /* RatioStackView.swift in Sources */,
+				2C1010B029E6BD7D0052367A /* DeliveryDetailsViewModel.swift in Sources */,
 				2C10107C29E5B7BB0052367A /* ProductServiceDescription.swift in Sources */,
 				2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */,
 				2CA7202E297FDA8D000A6FD6 /* LabelTextField.swift in Sources */,

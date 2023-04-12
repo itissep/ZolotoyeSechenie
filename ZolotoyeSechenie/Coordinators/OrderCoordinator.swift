@@ -10,13 +10,12 @@ import Swinject
 
 protocol OrderCoordinatorDescription: Coordinator {
     func goToDelieveryDetailsScreen()
-    func goToCourierDetailsScreen()
+    func goToCourierDetailsScreen(with city: String)
     func goToAddNewAddress()
     func goToPaymentMethodPicker()
 }
 
 class OrderCoordinator: OrderCoordinatorDescription {
-    
     var parentCoordinator: Coordinator?
     var children: [Coordinator] = []
     var navigationController: UINavigationController
@@ -37,13 +36,16 @@ class OrderCoordinator: OrderCoordinatorDescription {
     }
     
     func goToDelieveryDetailsScreen() {
-        let viewModel = DelieveryDetailsViewModel()
+        let viewModel = DelieveryDetailsViewModel(coordinator: self)
         let delieveryDetailsVC = DelieveryDetailsViewController(viewModel: viewModel)
         navigationController.pushViewController(delieveryDetailsVC, animated: true)
     }
     
-    func goToCourierDetailsScreen() {
-        //
+    func goToCourierDetailsScreen(with city: String) {
+        guard let addressService else { return }
+        let viewModel = CourierDetailsViewModel(addressService: addressService, coordinator: self)
+        let courierDetailsVC = CourierDetailsViewController(viewModel: viewModel)
+        navigationController.pushViewController(courierDetailsVC, animated: true)
     }
     
     func goToAddNewAddress() {
