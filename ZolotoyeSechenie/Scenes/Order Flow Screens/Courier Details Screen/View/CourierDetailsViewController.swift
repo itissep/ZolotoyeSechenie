@@ -86,7 +86,8 @@ class CourierDetailsViewController: UIViewController {
         
         scrollView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview()
         }
         
         scrollViewContainer.snp.makeConstraints { make in
@@ -162,7 +163,7 @@ class CourierDetailsViewController: UIViewController {
         #warning("TODO: add label-like placeholder")
         commentTextView.snp.makeConstraints{make in
             make.leading.trailing.equalToSuperview().inset(K.hPadding)
-            make.height.equalTo(180)
+            make.height.equalTo(100)
         }
     }
     

@@ -31,7 +31,7 @@ final class DelieveryDetailsViewModel: NSObject {
         if index == 1 {
             coordinator.goToCourierDetailsScreen(with: city)
         } else {
-            print("to payment screen")
+            coordinator.goToPaymentMethodPicker()
         }
     }
 }

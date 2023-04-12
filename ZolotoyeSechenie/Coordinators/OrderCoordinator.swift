@@ -53,7 +53,9 @@ class OrderCoordinator: OrderCoordinatorDescription {
     }
     
     func goToPaymentMethodPicker() {
-        //
+        let viewModel = OrderPaymentMethodViewModel(coordinator: self)
+        let orderPaymentMethodVC = OrderPaymentMethodViewController(viewModel: viewModel)
+        navigationController.pushViewController(orderPaymentMethodVC, animated: true)
     }
     
 }

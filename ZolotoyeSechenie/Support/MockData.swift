@@ -109,6 +109,15 @@ struct MockData {
         
     ]
     
+    static let paymentMethods = [
+        PickerViewModel(id: "0", title: "Наличными при получении",
+                       capture: nil,
+                       image: UIImage(named: "banknote.fill"), isChecked: true),
+        PickerViewModel(id: "1", title: "Картой при получении", capture: nil, image: UIImage(named: "cardInHand"), isChecked: false),
+        PickerViewModel(id: "1", title: "Онлайн-оплата картой", capture: nil, image: UIImage(named: "backCard"), isChecked: false),
+    ]
+
+    
     // list of categories for search
     
     // list of cities for deliveries
