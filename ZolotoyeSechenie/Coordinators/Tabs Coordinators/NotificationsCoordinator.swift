@@ -21,7 +21,7 @@ class NotificationsCoordinator: NotificationsCoordinatorDescription {
 
     var container: Container?
 
-    var coreDataManager: CoreDataManagerDescrption?
+    var coreDataStore: CoreDataStoring?
     var notificationService: NotificationServiceDescription?
 
     init(navigationController: UINavigationController) {
@@ -31,16 +31,16 @@ class NotificationsCoordinator: NotificationsCoordinatorDescription {
     
     func start() {
         notificationService = container?.resolve(NotificationServiceDescription.self)
-        coreDataManager = container?.resolve(CoreDataManagerDescrption.self)
+        coreDataStore = container?.resolve(CoreDataStoring.self)
         goToNotifications()
     }
     
     func goToNotifications() {
         #warning("TODO: add normal userId")
-        guard let notificationService, let coreDataManager else { return }
+        guard let notificationService, let coreDataStore else { return }
         let viewModel = NotificationsViewModel(userId: "",
                                                notificationsService: notificationService,
-                                               coreDataManager: coreDataManager,
+                                               coreDataStore: coreDataStore,
                                                coordinator: self)
         let notificationsVC = NotificationsViewController(viewModel: viewModel)
         navigationController.pushViewController(notificationsVC, animated: true)

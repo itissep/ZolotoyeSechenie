@@ -8,7 +8,7 @@
 import Combine
 import CoreData
 
-struct CoreDataDeleteModelPublisher: Publisher {
+struct CDDeleteModelPublisher: Publisher {
     typealias Output = NSBatchDeleteResult
     typealias Failure = NSError
     
@@ -26,7 +26,7 @@ struct CoreDataDeleteModelPublisher: Publisher {
     }
 }
 
-extension CoreDataDeleteModelPublisher {
+extension CDDeleteModelPublisher {
     class Subscription<S> where S : Subscriber, Failure == S.Failure, Output == S.Input {
         private var subscriber: S?
         private let request: NSFetchRequest<NSFetchRequestResult>
@@ -40,7 +40,7 @@ extension CoreDataDeleteModelPublisher {
     }
 }
 
-extension CoreDataDeleteModelPublisher.Subscription: Subscription  {
+extension CDDeleteModelPublisher.Subscription: Subscription  {
     func request(_ demand: Subscribers.Demand) {
         var demand = demand
         guard let subscriber = subscriber, demand > 0 else { return }
@@ -63,7 +63,7 @@ extension CoreDataDeleteModelPublisher.Subscription: Subscription  {
     }
 }
 
-extension CoreDataDeleteModelPublisher.Subscription: Cancellable {
+extension CDDeleteModelPublisher.Subscription: Cancellable {
     func cancel() {
         subscriber = nil
     }

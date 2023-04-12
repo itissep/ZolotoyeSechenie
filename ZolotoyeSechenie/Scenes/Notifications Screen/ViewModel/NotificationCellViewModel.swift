@@ -13,7 +13,6 @@ struct NotificationCellViewModel: GenericCellViewModelProtocol {
     let message: String
     let date: Date
     let image: String?
-    // TODO: date to string converter
     
     init(id: String, title: String, message: String, date: Date, image: String?) {
         self.id = id

@@ -29,41 +29,43 @@ extension EntityCreating {
     }
 }
 
-protocol CoreDataFetchResultsPublishing {
+protocol CDFetchResultsPublishing {
     var viewContext: NSManagedObjectContext { get }
-    func publicher<T: NSManagedObject>(fetch request: NSFetchRequest<T>) -> CoreDataFetchResultsPublisher<T>
+    func fetch<T: NSManagedObject>(_ request: NSFetchRequest<T>) -> CDFetchResultsPublisher<T>
 }
 
-extension CoreDataFetchResultsPublishing {
-    func publicher<T: NSManagedObject>(fetch request: NSFetchRequest<T>) -> CoreDataFetchResultsPublisher<T> {
-        return CoreDataFetchResultsPublisher(request: request, context: viewContext)
+extension CDFetchResultsPublishing {
+    func fetch<T: NSManagedObject>(_ request: NSFetchRequest<T>) -> CDFetchResultsPublisher<T> {
+        return CDFetchResultsPublisher(request: request, context: viewContext)
     }
 }
 
-protocol CoreDataDeleteModelPublishing {
+protocol CDDeleteModelPublishing {
     var viewContext: NSManagedObjectContext { get }
-    func publicher(delete request: NSFetchRequest<NSFetchRequestResult>) -> CoreDataDeleteModelPublisher
+    var backgroundContext: NSManagedObjectContext { get }
+    func delete(_ request: NSFetchRequest<NSFetchRequestResult>) -> CDDeleteModelPublisher
 }
 
-extension CoreDataDeleteModelPublishing {
-    func publicher(delete request: NSFetchRequest<NSFetchRequestResult>) -> CoreDataDeleteModelPublisher {
-        return CoreDataDeleteModelPublisher(delete: request, context: viewContext)
+extension CDDeleteModelPublishing {
+    func delete(_ request: NSFetchRequest<NSFetchRequestResult>) -> CDDeleteModelPublisher {
+        return CDDeleteModelPublisher(delete: request, context: viewContext)
     }
 }
 
-protocol CoreDataSaveModelPublishing {
+protocol CDSaveModelPublishing {
     var viewContext: NSManagedObjectContext { get }
-    func publicher(save action: @escaping Action) -> CoreDataSaveModelPublisher
+    func save(_ action: @escaping Action) -> CDSaveModelPublisher
 }
 
-extension CoreDataSaveModelPublishing {
-    func publicher(save action: @escaping Action) -> CoreDataSaveModelPublisher {
-        return CoreDataSaveModelPublisher(action: action, context: viewContext)
+extension CDSaveModelPublishing {
+    func save(_ action: @escaping Action) -> CDSaveModelPublisher {
+        return CDSaveModelPublisher(action: action, context: viewContext)
     }
 }
 
-protocol CoreDataStoring: EntityCreating, CoreDataFetchResultsPublishing, CoreDataDeleteModelPublishing, CoreDataSaveModelPublishing {
+protocol CoreDataStoring: EntityCreating, CDFetchResultsPublishing, CDDeleteModelPublishing, CDSaveModelPublishing {
     var viewContext: NSManagedObjectContext { get }
+    var backgroundContext: NSManagedObjectContext { get }
 }
 
 class CoreDataStore: CoreDataStoring {
@@ -77,6 +79,11 @@ class CoreDataStore: CoreDataStoring {
     var viewContext: NSManagedObjectContext {
         return self.container.viewContext
     }
+    
+    var backgroundContext: NSManagedObjectContext {
+        return self.container.newBackgroundContext()
+    }
+    
     
     init(name: String, in storageType: StorageType) {
         self.container = NSPersistentContainer(name: name)

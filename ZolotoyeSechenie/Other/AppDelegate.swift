@@ -50,9 +50,9 @@ extension AppDelegate {
             return CoreDataStore.default
         }
         #warning("REMOVE ME")
-        container.register(CoreDataManagerDescrption.self) { _ in
-            return CoreDataManager()
-        }
+//        container.register(CoreDataManagerDescrption.self) { _ in
+//            return CoreDataManager()
+//        }
         
         container.register(UserServiceDescription.self) { _ in
             return MockUserService()

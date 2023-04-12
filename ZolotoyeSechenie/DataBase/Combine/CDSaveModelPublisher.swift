@@ -1,5 +1,5 @@
 //
-//  CoreDataFetchModelsPublisher.swift
+//  CoreDataSaveModelPublisher.swift
 //  ZolotoyeSechenie
 //
 //  Created by Someone on 11.04.2023.
@@ -8,53 +8,57 @@
 import Combine
 import CoreData
 
-struct CoreDataFetchResultsPublisher<Entity>: Publisher where Entity: NSManagedObject {
-    typealias Output = [Entity]
+typealias Action = (()->())
+
+struct CDSaveModelPublisher: Publisher {
+    typealias Output = Bool
     typealias Failure = NSError
     
-    private let request: NSFetchRequest<Entity>
+    private let action: Action
     private let context: NSManagedObjectContext
     
-    init(request: NSFetchRequest<Entity>, context: NSManagedObjectContext) {
-        self.request = request
+    init(action: @escaping Action, context: NSManagedObjectContext) {
+        self.action = action
         self.context = context
     }
     
     func receive<S>(subscriber: S) where S : Subscriber, Self.Failure == S.Failure, Self.Output == S.Input {
-        let subscription = Subscription(subscriber: subscriber, context: context, request: request)
+        let subscription = Subscription(subscriber: subscriber, context: context, action: action)
         subscriber.receive(subscription: subscription)
     }
 }
 
-extension CoreDataFetchResultsPublisher {
+extension CDSaveModelPublisher {
     class Subscription<S> where S : Subscriber, Failure == S.Failure, Output == S.Input {
         private var subscriber: S?
-        private var request: NSFetchRequest<Entity>
-        private var context: NSManagedObjectContext
+        private let action: Action
+        private let context: NSManagedObjectContext
         
-        init(subscriber: S, context: NSManagedObjectContext, request: NSFetchRequest<Entity>) {
+        init(subscriber: S, context: NSManagedObjectContext, action: @escaping Action) {
             self.subscriber = subscriber
             self.context = context
-            self.request = request
+            self.action = action
         }
     }
 }
 
-extension CoreDataFetchResultsPublisher.Subscription: Subscription {
+extension CDSaveModelPublisher.Subscription: Subscription {
     func request(_ demand: Subscribers.Demand) {
         var demand = demand
         guard let subscriber = subscriber, demand > 0 else { return }
+        
         do {
+            action()
             demand -= 1
-            let items = try context.fetch(request)
-            demand += subscriber.receive(items)
+            try context.save()
+            demand += subscriber.receive(true)
         } catch {
             subscriber.receive(completion: .failure(error as NSError))
         }
     }
 }
 
-extension CoreDataFetchResultsPublisher.Subscription: Cancellable {
+extension CDSaveModelPublisher.Subscription: Cancellable {
     func cancel() {
         subscriber = nil
     }

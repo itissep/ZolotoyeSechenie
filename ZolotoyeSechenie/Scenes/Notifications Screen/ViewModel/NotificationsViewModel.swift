@@ -7,10 +7,11 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class NotificationsViewModel: NSObject {
     
-    private let coreDataManager: CoreDataManagerDescrption
+    private let coreDataStore: CoreDataStoring
     private var notificationsService: NotificationServiceDescription
     private let userId: String
     private let coordinator: NotificationsCoordinatorDescription
@@ -18,12 +19,14 @@ class NotificationsViewModel: NSObject {
     @Published var notificationCellViewModels = [NotificationCellViewModel]()
     @Published var isLoading = false
     
+    private var subscriptions = Set<AnyCancellable>()
+    
     init(userId: String,
          notificationsService: NotificationServiceDescription,
-         coreDataManager: CoreDataManagerDescrption,
+         coreDataStore: CoreDataStoring,
          coordinator: NotificationsCoordinatorDescription) {
         self.notificationsService = notificationsService
-        self.coreDataManager = coreDataManager
+        self.coreDataStore = coreDataStore
         self.userId = userId
         self.coordinator = coordinator
         super.init()
@@ -34,35 +37,55 @@ class NotificationsViewModel: NSObject {
     }
     
     private func getCachedData() {
-        coreDataManager.initIfNeeded {[weak self] in
-            let request = UserNotificationMO.fetchRequest()
-            guard let notificationsMO = self?.coreDataManager.fetch(request: request) else { return }
-            let notificationModels = notificationsMO.map { UserNotification(from: $0) }
-            self?.fetchData(notifications: notificationModels)
-        } errorBlock: { error in
-            print(error)
-            #warning("TODO: add error handler")
-        }
+        let request = NSFetchRequest<UserNotificationMO>(entityName: UserNotificationMO.entityName)
+        coreDataStore
+            .fetch(request)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print(error)
+                }
+            } receiveValue: {[weak self] notifications in
+                self?.fetchData(notifications.map({ UserNotification(from: $0) }))
+            }
+            .store(in: &subscriptions)
     }
     
     private func replaceCache(with notifications: [UserNotification]) {
-        coreDataManager.initIfNeeded {[weak self] in
-            self?.coreDataManager.deleteAll(request: UserNotificationMO.fetchRequest())
-            
-            notifications.forEach { newNotification in
-                self?.coreDataManager.create(entityName: EntitiesDB.UserNotificationMO.rawValue, configurationBlock: { notificationMO in
-                    guard let notificationMO = notificationMO as? UserNotificationMO else { return }
-                    notificationMO.id = newNotification.id
-                    notificationMO.title = newNotification.title
-                    notificationMO.message = newNotification.message
-                    notificationMO.date = newNotification.date
-                    notificationMO.image = newNotification.image
-                })
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: UserNotificationMO.entityName)
+        coreDataStore
+            .delete(request)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print(error)
+                }
+            } receiveValue: { _ in
             }
-        } errorBlock: { error in
-            print(error)
-            #warning("TODO: error handler")
+            .store(in: &subscriptions)
+        
+        
+        let action: Action = {
+            notifications.forEach {[weak self] newNotification in
+                guard let self else { return }
+                let notificationMO: UserNotificationMO = self.coreDataStore.createEntity()
+                
+                notificationMO.id = newNotification.id
+                notificationMO.title = newNotification.title
+                notificationMO.message = newNotification.message
+                notificationMO.date = newNotification.date
+                notificationMO.image = newNotification.image
+            }
         }
+        
+        coreDataStore
+            .save(action)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    #warning("TODO: error handler")
+                    print(error)
+                }
+            } receiveValue: { _ in
+            }
+            .store(in: &subscriptions)
     }
     
     func getNotifications() {
@@ -74,12 +97,12 @@ class NotificationsViewModel: NSObject {
                 #warning("TODO: add error handler")
             case .success(let notifications):
                 self?.replaceCache(with: notifications)
-                self?.fetchData(notifications: notifications)
+                self?.fetchData(notifications)
             }
         }
     }
     
-    func fetchData(notifications: [UserNotification]) {
+    func fetchData(_ notifications: [UserNotification]) {
         var vms = [NotificationCellViewModel]()
         for notification in notifications {
             vms.append(createCellModel(notification: notification))

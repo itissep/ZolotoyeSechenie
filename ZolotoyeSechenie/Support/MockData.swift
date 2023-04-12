@@ -84,7 +84,7 @@ struct MockData {
 
     // MARK: - Notifications
     
-    static let notification = UserNotification(id: "1", title: "First Notification", message: "some greatest ever",
+    static let notification = UserNotification(id: "0", title: "First Notification", message: "some greatest ever",
                                                image: nil, date: Date(timeIntervalSince1970: 12345))
     
     static let notifications = [
@@ -99,4 +99,13 @@ struct MockData {
         UserNotification(id: "4", title: "Forth Notification", message: "something",
                                                    image: nil, date: Date(timeIntervalSince1970: 12345)),
     ]
+    
+    // list of categories for search
+    
+    // list of cities for deliveries
+    
+    // addresses for take out
+    
+    // delievery fee
+    
 }

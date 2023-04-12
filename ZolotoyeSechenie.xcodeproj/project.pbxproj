@@ -29,17 +29,16 @@
 		2C10107A29E5B79D0052367A /* NotificationServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10107929E5B79D0052367A /* NotificationServiceDescription.swift */; };
 		2C10107C29E5B7BB0052367A /* ProductServiceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10107B29E5B7BB0052367A /* ProductServiceDescription.swift */; };
 		2C10107E29E5B7E00052367A /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10107D29E5B7E00052367A /* ServiceError.swift */; };
-		2C10108129E5BCB00052367A /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108029E5BCB00052367A /* CoreDataManager.swift */; };
 		2C10108529E5BCF30052367A /* DataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108329E5BCF30052367A /* DataBase.xcdatamodeld */; };
 		2C10108929E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108729E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift */; };
 		2C10108A29E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108829E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift */; };
-		2C10108D29E5C3E00052367A /* EntitiesDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108C29E5C3E00052367A /* EntitiesDB.swift */; };
 		2C10109029E5C6860052367A /* AddressMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108E29E5C6860052367A /* AddressMO+CoreDataClass.swift */; };
 		2C10109129E5C6860052367A /* AddressMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10108F29E5C6860052367A /* AddressMO+CoreDataProperties.swift */; };
 		2C10109529E5D6EB0052367A /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109429E5D6EB0052367A /* CoreDataStore.swift */; };
-		2C10109729E5D7140052367A /* CoreDataSaveModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109629E5D7140052367A /* CoreDataSaveModelPublisher.swift */; };
-		2C10109929E5D74B0052367A /* CoreDataFetchResultsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109829E5D74B0052367A /* CoreDataFetchResultsPublisher.swift */; };
-		2C10109B29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109A29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift */; };
+		2C10109729E5D7140052367A /* CDSaveModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109629E5D7140052367A /* CDSaveModelPublisher.swift */; };
+		2C10109929E5D74B0052367A /* CDFetchResultsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109829E5D74B0052367A /* CDFetchResultsPublisher.swift */; };
+		2C10109B29E5D77F0052367A /* CDDeleteModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109A29E5D77F0052367A /* CDDeleteModelPublisher.swift */; };
+		2C10109D29E668840052367A /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109C29E668840052367A /* Categories.swift */; };
 		2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */; };
 		2C260ADD297BB71300771809 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADC297BB71300771809 /* Product.swift */; };
 		2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADF297BB73D00771809 /* HttpHelper.swift */; };
@@ -151,17 +150,16 @@
 		2C10107929E5B79D0052367A /* NotificationServiceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationServiceDescription.swift; sourceTree = "<group>"; };
 		2C10107B29E5B7BB0052367A /* ProductServiceDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductServiceDescription.swift; sourceTree = "<group>"; };
 		2C10107D29E5B7E00052367A /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		2C10108029E5BCB00052367A /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2C10108429E5BCF30052367A /* DataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataBase.xcdatamodel; sourceTree = "<group>"; };
 		2C10108729E5BDB70052367A /* UserNotificationMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotificationMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C10108829E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserNotificationMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2C10108C29E5C3E00052367A /* EntitiesDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntitiesDB.swift; sourceTree = "<group>"; };
 		2C10108E29E5C6860052367A /* AddressMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2C10108F29E5C6860052367A /* AddressMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddressMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2C10109429E5D6EB0052367A /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
-		2C10109629E5D7140052367A /* CoreDataSaveModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSaveModelPublisher.swift; sourceTree = "<group>"; };
-		2C10109829E5D74B0052367A /* CoreDataFetchResultsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFetchResultsPublisher.swift; sourceTree = "<group>"; };
-		2C10109A29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDeleteAllPublisher.swift; sourceTree = "<group>"; };
+		2C10109629E5D7140052367A /* CDSaveModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSaveModelPublisher.swift; sourceTree = "<group>"; };
+		2C10109829E5D74B0052367A /* CDFetchResultsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDFetchResultsPublisher.swift; sourceTree = "<group>"; };
+		2C10109A29E5D77F0052367A /* CDDeleteModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDDeleteModelPublisher.swift; sourceTree = "<group>"; };
+		2C10109C29E668840052367A /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		2C260ADC297BB71300771809 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2C260ADF297BB73D00771809 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
@@ -304,8 +302,6 @@
 			children = (
 				2C10109329E5D6BA0052367A /* Combine */,
 				2C10108629E5BD790052367A /* Models */,
-				2C10108029E5BCB00052367A /* CoreDataManager.swift */,
-				2C10108C29E5C3E00052367A /* EntitiesDB.swift */,
 				2C10108329E5BCF30052367A /* DataBase.xcdatamodeld */,
 			);
 			path = DataBase;
@@ -342,9 +338,9 @@
 			isa = PBXGroup;
 			children = (
 				2C10109429E5D6EB0052367A /* CoreDataStore.swift */,
-				2C10109A29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift */,
-				2C10109829E5D74B0052367A /* CoreDataFetchResultsPublisher.swift */,
-				2C10109629E5D7140052367A /* CoreDataSaveModelPublisher.swift */,
+				2C10109A29E5D77F0052367A /* CDDeleteModelPublisher.swift */,
+				2C10109829E5D74B0052367A /* CDFetchResultsPublisher.swift */,
+				2C10109629E5D7140052367A /* CDSaveModelPublisher.swift */,
 			);
 			path = Combine;
 			sourceTree = "<group>";
@@ -517,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				2CA71FFF297EC5B9000A6FD6 /* CollectionTypes.swift */,
+				2C10109C29E668840052367A /* Categories.swift */,
 				2C04D6DB29DA8DEA00002294 /* User.swift */,
 			);
 			path = Models;
@@ -1001,13 +998,13 @@
 				2C10109029E5C6860052367A /* AddressMO+CoreDataClass.swift in Sources */,
 				2C4E08E729797D4E002717B2 /* UINavigationController.swift in Sources */,
 				2C260B01297C5EEF00771809 /* NotificationCellViewModel.swift in Sources */,
-				2C10109B29E5D77F0052367A /* CoreDataDeleteAllPublisher.swift in Sources */,
+				2C10109B29E5D77F0052367A /* CDDeleteModelPublisher.swift in Sources */,
 				2CA71FFA297EBD00000A6FD6 /* SearchCoordinator.swift in Sources */,
 				2C260ADD297BB71300771809 /* Product.swift in Sources */,
 				2C4E08EB29797DFB002717B2 /* FeedViewController.swift in Sources */,
 				2C10107629E5B52F0052367A /* AddressServiceDescription.swift in Sources */,
 				2C4E08F5297988EB002717B2 /* SignInViewController.swift in Sources */,
-				2C10109729E5D7140052367A /* CoreDataSaveModelPublisher.swift in Sources */,
+				2C10109729E5D7140052367A /* CDSaveModelPublisher.swift in Sources */,
 				2CA72008297ED1A4000A6FD6 /* AddressCellViewModel.swift in Sources */,
 				2CA71FCF297D424B000A6FD6 /* UIAlertController.swift in Sources */,
 				2CA71FCB297D3285000A6FD6 /* SettingsCellViewModel.swift in Sources */,
@@ -1032,6 +1029,7 @@
 				2C10108529E5BCF30052367A /* DataBase.xcdatamodeld in Sources */,
 				2CA7201B297EDD7F000A6FD6 /* OrderCellViewModel.swift in Sources */,
 				2C260AF9297C5E2400771809 /* GenericTableView.swift in Sources */,
+				2C10109D29E668840052367A /* Categories.swift in Sources */,
 				2CA72000297EC5B9000A6FD6 /* CollectionTypes.swift in Sources */,
 				2CA72019297EDBEF000A6FD6 /* OrdersViewModel.swift in Sources */,
 				2C10108A29E5BDB70052367A /* UserNotificationMO+CoreDataProperties.swift in Sources */,
@@ -1042,9 +1040,8 @@
 				2C10107E29E5B7E00052367A /* ServiceError.swift in Sources */,
 				2CA720342980249D000A6FD6 /* EditAddressViewModel.swift in Sources */,
 				2C10107829E5B76F0052367A /* OrderServiceDescription.swift in Sources */,
-				2C10109929E5D74B0052367A /* CoreDataFetchResultsPublisher.swift in Sources */,
+				2C10109929E5D74B0052367A /* CDFetchResultsPublisher.swift in Sources */,
 				2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */,
-				2C10108129E5BCB00052367A /* CoreDataManager.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2CCE1ABD29DDE41900A93D27 /* UIImageView.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
@@ -1077,7 +1074,6 @@
 				2CA7202E297FDA8D000A6FD6 /* LabelTextField.swift in Sources */,
 				2C04D6E229DAD54D00002294 /* UIActivityIndicatorView.swift in Sources */,
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
-				2C10108D29E5C3E00052367A /* EntitiesDB.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 				2C10109129E5C6860052367A /* AddressMO+CoreDataProperties.swift in Sources */,
 				2CA72017297EDB06000A6FD6 /* OrderViewController.swift in Sources */,

@@ -11,21 +11,21 @@ import CoreData
 
 class AddressesViewModel: NSObject {
     private var addressService: AddressServiceDescription
-    private let coreDataManager: CoreDataStoring
+    private let coreDataStore: CoreDataStoring
     private var userId: String
 
     @Published var isLoading = false
-    var addressCellViewModels = [AddressCellViewModel]()
+    @Published var addressCellViewModels = [AddressCellViewModel]()
     private let coordinator: ProfileCoordinatorDescription
     
     private var subscriptions = Set<AnyCancellable>()
 
     init(userId: String,
          addressService: AddressServiceDescription,
-         coreDataManager: CoreDataStoring,
+         coreDataStore: CoreDataStoring,
          coordinator: ProfileCoordinatorDescription) {
         self.addressService = addressService
-        self.coreDataManager = coreDataManager
+        self.coreDataStore = coreDataStore
         self.coordinator = coordinator
         self.userId = userId
         super.init()
@@ -41,36 +41,36 @@ class AddressesViewModel: NSObject {
     
     private func getCachedData() {
         let request = NSFetchRequest<AddressMO>(entityName: AddressMO.entityName)
-            coreDataManager
-                .publicher(fetch: request)
-                .sink { completion in
-                    if case .failure(let error) = completion {
-                        print(error)
-                    }
-                } receiveValue: {[weak self] addresses in
-                    self?.fetchData(addresses.map({ Address(from: $0) }))
+        coreDataStore
+            .fetch(request)
+            .sink { completion in
+                if case .failure(let error) = completion {
+                    print(error)
                 }
-                .store(in: &subscriptions)
+            } receiveValue: {[weak self] addresses in
+                self?.fetchData(addresses.map({ Address(from: $0) }))
+            }
+            .store(in: &subscriptions)
     }
     
     private func replaceCache(with addresses: [Address]) {
-        print("wowza")
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: AddressMO.entityName)
-            coreDataManager
-                .publicher(delete: request)
-                .sink { completion in
-                    if case .failure(let error) = completion {
-                        print(error)
-                    }
-                } receiveValue: { _ in
+        coreDataStore
+            .delete(request)
+            .sink {[weak self] completion in
+                self?.isLoading = false
+                if case .failure(let error) = completion {
+                    print(error)
                 }
-                .store(in: &subscriptions)
+            } receiveValue: { _ in
+            }
+            .store(in: &subscriptions)
         
         
         let action: Action = {
             addresses.forEach {[weak self] newAddress in
                 guard let self else { return }
-                let addressMO: AddressMO = self.coreDataManager.createEntity()
+                let addressMO: AddressMO = self.coreDataStore.createEntity()
                 
                 addressMO.id = newAddress.id
                 addressMO.city = newAddress.city
@@ -84,8 +84,8 @@ class AddressesViewModel: NSObject {
             }
         }
         
-        coreDataManager
-            .publicher(save: action)
+        coreDataStore
+            .save(action)
             .sink { completion in
                 if case .failure(let error) = completion {
                     #warning("TODO: error handler")

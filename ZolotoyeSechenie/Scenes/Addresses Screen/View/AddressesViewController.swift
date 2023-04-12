@@ -63,6 +63,13 @@ class AddressesViewController: UIViewController {
                 }
             }
             .store(in: &subscriptions)
+        
+        viewModel.$addressCellViewModels
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .store(in: &subscriptions)
     }
     
     // MARK: - Navbar Setup
