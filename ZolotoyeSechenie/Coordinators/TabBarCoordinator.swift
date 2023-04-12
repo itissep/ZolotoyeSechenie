@@ -19,12 +19,7 @@ class TabBarCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    deinit {
-        print("HomeTabbar Coordinator Deinit")
-    }
-
     func start() {
-        print("HomeTabbar Coordinator Init")
         setupTabBar()
     }
 
@@ -88,7 +83,9 @@ enum Tab: CaseIterable {
         case .profile:
             return ProfileCoordinator(navigationController: navigationController)
         case .search:
-            return SearchCoordinator(navigationController: navigationController)
+            #warning("TODO: change it later")
+//            return SearchCoordinator(navigationController: navigationController)
+            return OrderCoordinator(navigationController: navigationController)
         case .cart:
             return CartCoordinator(navigationController: navigationController)
         case .notifications:

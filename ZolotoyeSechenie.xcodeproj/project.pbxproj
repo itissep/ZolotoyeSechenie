@@ -39,6 +39,11 @@
 		2C10109929E5D74B0052367A /* CDFetchResultsPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109829E5D74B0052367A /* CDFetchResultsPublisher.swift */; };
 		2C10109B29E5D77F0052367A /* CDDeleteModelPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109A29E5D77F0052367A /* CDDeleteModelPublisher.swift */; };
 		2C10109D29E668840052367A /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10109C29E668840052367A /* Categories.swift */; };
+		2C1010A329E66B2C0052367A /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A229E66B2C0052367A /* RadioView.swift */; };
+		2C1010A529E66C620052367A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A429E66C620052367A /* UIView.swift */; };
+		2C1010A729E6731A0052367A /* RatioStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A629E6731A0052367A /* RatioStackView.swift */; };
+		2C1010AA29E678E90052367A /* DelieveryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010A929E678E90052367A /* DelieveryDetailsViewController.swift */; };
+		2C1010AC29E682E80052367A /* OrderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1010AB29E682E80052367A /* OrderCoordinator.swift */; };
 		2C260ADB297BB6F000771809 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */; };
 		2C260ADD297BB71300771809 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADC297BB71300771809 /* Product.swift */; };
 		2C260AE0297BB73D00771809 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C260ADF297BB73D00771809 /* HttpHelper.swift */; };
@@ -160,6 +165,11 @@
 		2C10109829E5D74B0052367A /* CDFetchResultsPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDFetchResultsPublisher.swift; sourceTree = "<group>"; };
 		2C10109A29E5D77F0052367A /* CDDeleteModelPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDDeleteModelPublisher.swift; sourceTree = "<group>"; };
 		2C10109C29E668840052367A /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		2C1010A229E66B2C0052367A /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		2C1010A429E66C620052367A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		2C1010A629E6731A0052367A /* RatioStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatioStackView.swift; sourceTree = "<group>"; };
+		2C1010A929E678E90052367A /* DelieveryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelieveryDetailsViewController.swift; sourceTree = "<group>"; };
+		2C1010AB29E682E80052367A /* OrderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCoordinator.swift; sourceTree = "<group>"; };
 		2C260ADA297BB6F000771809 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		2C260ADC297BB71300771809 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		2C260ADF297BB73D00771809 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
@@ -345,6 +355,48 @@
 			path = Combine;
 			sourceTree = "<group>";
 		};
+		2C10109E29E66ABE0052367A /* Product Table */ = {
+			isa = PBXGroup;
+			children = (
+				2C9EFBB2297BAE98006DF273 /* ProductTableCell.swift */,
+				2CA72014297ED8E3000A6FD6 /* ProductTableView.swift */,
+			);
+			path = "Product Table";
+			sourceTree = "<group>";
+		};
+		2C10109F29E66AD10052367A /* Generic Table */ = {
+			isa = PBXGroup;
+			children = (
+				2C260AF8297C5E2400771809 /* GenericTableView.swift */,
+				2C260AFA297C5E4D00771809 /* GenericTableCell.swift */,
+			);
+			path = "Generic Table";
+			sourceTree = "<group>";
+		};
+		2C1010A029E66AE40052367A /* Custom Select */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Select";
+			sourceTree = "<group>";
+		};
+		2C1010A129E66AF50052367A /* Custom Radio Control */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010A229E66B2C0052367A /* RadioView.swift */,
+				2C1010A629E6731A0052367A /* RatioStackView.swift */,
+			);
+			path = "Custom Radio Control";
+			sourceTree = "<group>";
+		};
+		2C1010A829E678970052367A /* Order Flow Screens */ = {
+			isa = PBXGroup;
+			children = (
+				2C1010A929E678E90052367A /* DelieveryDetailsViewController.swift */,
+			);
+			path = "Order Flow Screens";
+			sourceTree = "<group>";
+		};
 		2C260ADE297BB72100771809 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +580,7 @@
 				2C04D6D529DA8C9700002294 /* TabBarCoordinator.swift */,
 				2CA71FF8297EB517000A6FD6 /* Tabs Coordinators */,
 				2CA71FF0297EB3BD000A6FD6 /* DeepLinkCoordinator.swift */,
+				2C1010AB29E682E80052367A /* OrderCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -535,8 +588,9 @@
 		2C746067291A6D98006E1872 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2CA72020297EE2F1000A6FD6 /* Products Screen */,
-				2CA7200F297ED711000A6FD6 /* Orders Screen */,
+				2C1010A829E678970052367A /* Order Flow Screens */,
+				2CA72020297EE2F1000A6FD6 /* Products List Screen */,
+				2CA7200F297ED711000A6FD6 /* Orders List Screen */,
 				2CA7200B297ED5C9000A6FD6 /* Edit Address Screen */,
 				2CA71FE5297E7198000A6FD6 /* Addresses Screen */,
 				2C893CF62950E6ED007DF00C /* Profile Screen */,
@@ -579,6 +633,7 @@
 				2C04D6E529DB01E000002294 /* UIImage.swift */,
 				2C3B58F129E2B81800E6AB95 /* UIViewController.swift */,
 				2CCE1ABC29DDE41900A93D27 /* UIImageView.swift */,
+				2C1010A429E66C620052367A /* UIView.swift */,
 				2C04D6E129DAD54D00002294 /* UIActivityIndicatorView.swift */,
 			);
 			path = Extensions;
@@ -752,14 +807,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2CA7200F297ED711000A6FD6 /* Orders Screen */ = {
+		2CA7200F297ED711000A6FD6 /* Orders List Screen */ = {
 			isa = PBXGroup;
 			children = (
 				2CA72012297ED746000A6FD6 /* Model */,
 				2CA72011297ED73C000A6FD6 /* ViewModel */,
 				2CA72010297ED730000A6FD6 /* View */,
 			);
-			path = "Orders Screen";
+			path = "Orders List Screen";
 			sourceTree = "<group>";
 		};
 		2CA72010297ED730000A6FD6 /* View */ = {
@@ -790,24 +845,24 @@
 		2CA72013297ED815000A6FD6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2C1010A129E66AF50052367A /* Custom Radio Control */,
+				2C1010A029E66AE40052367A /* Custom Select */,
 				2CA72026297FD960000A6FD6 /* Custom TextField + Label */,
-				2C9EFBB2297BAE98006DF273 /* ProductTableCell.swift */,
-				2CA72014297ED8E3000A6FD6 /* ProductTableView.swift */,
-				2C260AF8297C5E2400771809 /* GenericTableView.swift */,
-				2C260AFA297C5E4D00771809 /* GenericTableCell.swift */,
+				2C10109E29E66ABE0052367A /* Product Table */,
+				2C10109F29E66AD10052367A /* Generic Table */,
 				2C04D6DF29DAD51D00002294 /* LoadingView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		2CA72020297EE2F1000A6FD6 /* Products Screen */ = {
+		2CA72020297EE2F1000A6FD6 /* Products List Screen */ = {
 			isa = PBXGroup;
 			children = (
 				2CA72023297EE310000A6FD6 /* View */,
 				2CA72022297EE309000A6FD6 /* ViewModel */,
 				2CA72021297EE301000A6FD6 /* Model */,
 			);
-			path = "Products Screen";
+			path = "Products List Screen";
 			sourceTree = "<group>";
 		};
 		2CA72021297EE301000A6FD6 /* Model */ = {
@@ -1036,12 +1091,14 @@
 				2C4E08EF29797E57002717B2 /* SearchViewController.swift in Sources */,
 				2CA72004297ED140000A6FD6 /* AddressTableCell.swift in Sources */,
 				2C04D6EC29DB15D500002294 /* MockImageService.swift in Sources */,
+				2C1010A529E66C620052367A /* UIView.swift in Sources */,
 				2C04D6D629DA8C9700002294 /* TabBarCoordinator.swift in Sources */,
 				2C10107E29E5B7E00052367A /* ServiceError.swift in Sources */,
 				2CA720342980249D000A6FD6 /* EditAddressViewModel.swift in Sources */,
 				2C10107829E5B76F0052367A /* OrderServiceDescription.swift in Sources */,
 				2C10109929E5D74B0052367A /* CDFetchResultsPublisher.swift in Sources */,
 				2CA72025297EE354000A6FD6 /* ProductsViewController.swift in Sources */,
+				2C1010AC29E682E80052367A /* OrderCoordinator.swift in Sources */,
 				2C260AF3297C292600771809 /* GenericCollectionView.swift in Sources */,
 				2CCE1ABD29DDE41900A93D27 /* UIImageView.swift in Sources */,
 				2C74603B291A6A02006E1872 /* ZolotoyeSechenie.xcdatamodeld in Sources */,
@@ -1066,9 +1123,11 @@
 				2C4E08E329797CEA002717B2 /* AppCoordinator.swift in Sources */,
 				2CA7202C297FD9E0000A6FD6 /* CustonTextFieldType.swift in Sources */,
 				2CA71FF1297EB3BD000A6FD6 /* DeepLinkCoordinator.swift in Sources */,
+				2C1010A329E66B2C0052367A /* RadioView.swift in Sources */,
 				2C260AE9297BBA3D00771809 /* AppSettings.swift in Sources */,
 				2C9EFBB3297BAE98006DF273 /* ProductTableCell.swift in Sources */,
 				2C04D6F029DB179700002294 /* MockAddressesService.swift in Sources */,
+				2C1010A729E6731A0052367A /* RatioStackView.swift in Sources */,
 				2C10107C29E5B7BB0052367A /* ProductServiceDescription.swift in Sources */,
 				2C260AFD297C5E8F00771809 /* UserNotification.swift in Sources */,
 				2CA7202E297FDA8D000A6FD6 /* LabelTextField.swift in Sources */,
@@ -1076,6 +1135,7 @@
 				2C260AEB297C0C3C00771809 /* GenericCollectionCell.swift in Sources */,
 				2C4E08E929797D74002717B2 /* Constants.swift in Sources */,
 				2C10109129E5C6860052367A /* AddressMO+CoreDataProperties.swift in Sources */,
+				2C1010AA29E678E90052367A /* DelieveryDetailsViewController.swift in Sources */,
 				2CA72017297EDB06000A6FD6 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

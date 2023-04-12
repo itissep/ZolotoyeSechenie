@@ -13,4 +13,10 @@ extension UIImage {
         let image = UIImage(systemName: "photo.fill", withConfiguration: configuration)?.withTintColor(K.Colors.prettyGold, renderingMode: .alwaysOriginal)
         return image
     }
+    
+    static func systemWithConfig(name: String, size: CGFloat = 20, tintColor: UIColor = K.Colors.darkGold) -> UIImage? {
+        return UIImage(systemName: name,
+                       withConfiguration: UIImage.SymbolConfiguration(pointSize: size, weight: .regular)
+                    )?.withTintColor(tintColor, renderingMode: .alwaysOriginal)
+    }
 }

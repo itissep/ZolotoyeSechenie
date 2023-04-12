@@ -45,7 +45,6 @@ class AppCoordinator: AppCoordinatorDescription {
     }
 
     func start() {
-        print("App Coordinator start")
 //        userService = container?.resolve(UserServiceDescription.self)
 //        guard let userService else { return }
 
